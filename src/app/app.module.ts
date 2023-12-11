@@ -58,8 +58,25 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
+/*************************   Components   *********************** */
+
+import { SignUpComponent } from './_Auth/sign-up/sign-up.component';
+import { LoginComponent } from './_Auth/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomepageComponent } from './_Client_Side/homepage/homepage.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 @NgModule({
-  declarations: [AppComponent, AboutUsComponent, ContactUsComponent],
+  declarations: [
+    AppComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    SignUpComponent,
+    LoginComponent,
+    NavbarComponent,
+    HomepageComponent,
+    FooterComponent,
+  ],
 
   imports: [
     HttpClientModule,
