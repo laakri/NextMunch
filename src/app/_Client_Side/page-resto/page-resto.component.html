@@ -1,17 +1,59 @@
 <div class="header">
   <div class="banner-resto-img">
-    <div class="main-resto-img"></div>
+    <img
+      src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
+      alt=""
+    />
+
+    <div class="main-resto-img">
+      <img
+        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
+        alt=""
+      />
+    </div>
   </div>
 </div>
 <div class="container">
   <div class="resto-details">
-    <div class="resto-details-title">Weld El Hattab</div>
+    <div class="resto-details-title">Weld El Hattab Weld El HattabWeld El</div>
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw
     </div>
+    <div class="resto-details-global-location-phone">
+      <div class="resto-details-location-phone">
+        <div>
+          <i class="pi pi-map-marker"></i>
+          <p>Location</p>
+        </div>
+        <span> Monastir hay al omran skanes 34209 </span>
+      </div>
+      <div class="resto-details-location-phone">
+        <div>
+          <i class="pi pi-phone"></i>
+          <p>Phone</p>
+        </div>
+        <span> +216 20534633 </span>
+      </div>
+    </div>
   </div>
-
-  <div class="resto-events"></div>
+  <div class="resto-events">
+    <h2>Events</h2>
+    <p-carousel
+      [value]="events"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="true"
+    >
+      <ng-template let-event pTemplate="item">
+        <div class="resto-event">
+          <img
+            src="../../../assets/images/2d6f4b83f0dad3a51043b584933b4bf4.png"
+            alt=""
+          />
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
 
   <div class="resto-menu">
     <div class="resto-menu-filter">

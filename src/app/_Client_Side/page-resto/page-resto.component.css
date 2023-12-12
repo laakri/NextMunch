@@ -1,40 +1,53 @@
-/* Reset some default styles */
-body, h1, h2, p, div {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Basic styling for the header */
   .header {
-    background-color: #f0f0f0;
-    padding: 10px;
-  }
+    position: relative;
+    height: 200px; 
+    margin-bottom: 80px;
+}
   
-  /* Styling for the banner image */
   .banner-resto-img {
     width: 100%;
-    height: 200px; /* Adjust the height as needed */
-    background-color: #ddd; /* Placeholder color */
+    height: 200px; 
+    background-color: #ddd;
+    overflow: hidden;
   }
-  
-  .main-resto-img {
+  .banner-resto-img img{
     width: 100%;
-    height: 100%;
-    background-image: url(''); /* Add your image URL here */
-    background-size: cover;
+    background-color: #ddd;
     background-position: center;
+    background-size: contain;
   }
+  .main-resto-img { 
+    position: absolute;
+    bottom: -85px;
+    width:  170px;
+    height:  170px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    border: var(--bordercolor) solid 1px;
+    border-radius: 50%;
+    overflow: hidden;
+}  
+.main-resto-img img{ 
+    height: 170px;
+    width:  170px;
+    background-position: center;
+    background-size: cover;
+}
   
   /* Styling for the container */
   .container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  /* Styling for resto details */
   .resto-details {
-    margin-bottom: 20px;
+    margin: auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
   
   .resto-details-title {
@@ -46,9 +59,54 @@ body, h1, h2, p, div {
   .resto-details-description {
     font-size: 16px;
     color: #555;
+    margin-bottom: 10px;
+
   }
+  .resto-details-global-location-phone{
+    width: max-content;
+    margin: auto;
+  }
+  .resto-details-location-phone{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 30px;
+  }
+  .resto-details-location-phone div{
+    height: max-content;
+
+    align-items: center;
+    display: flex;
+    gap: 5px;
+}
+
+.resto-details-location-phone div p{
+
+    font-size: 16px;
+    font-weight: 600;
+}
+  .resto-details-location-phone span{
+    color: var(--graycolor);
+    
+  }
+.resto-events{
+    margin: 30px;
+    border: red solid 1px;
+}
   
-  /* Styling for resto menu */
+.resto-event{
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.resto-event img{
+    height: 400px;
+    width: 100%;
+    border-radius: 20px;
+
+}
   .resto-menu {
     margin-bottom: 20px;
   }
