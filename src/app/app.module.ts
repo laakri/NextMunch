@@ -55,6 +55,7 @@ import { DialogModule } from 'primeng/dialog';
 import { SkeletonModule } from 'primeng/skeleton';
 import { EditorModule } from 'primeng/editor';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 /*************************   Components   *********************** */
 
@@ -135,6 +136,7 @@ import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.compone
     SkeletonModule,
     EditorModule,
     ToggleButtonModule,
+    TabMenuModule,
   ],
 
   providers: [

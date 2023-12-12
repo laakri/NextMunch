@@ -15,9 +15,10 @@
 </div>
 <div class="container">
   <div class="resto-details">
-    <div class="resto-details-title">Weld El Hattab Weld El HattabWeld El</div>
+    <div class="resto-details-title">Weld El Hattab</div>
     <div class="resto-details-description">
-      barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw
+      barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw jaw barcha jaw jaw
+      barcha jaw barcha jaw
     </div>
     <div class="resto-details-global-location-phone">
       <div class="resto-details-location-phone">
@@ -56,11 +57,40 @@
   </div>
 
   <div class="resto-menu">
+    <h2>Categories</h2>
+
     <div class="resto-menu-filter">
-      <div class="resto-menu-filter-category">a</div>
+      <div class="resto-menu-filter-category" *ngFor="let item of events">
+        <img
+          src="https://www.mosaique-pizza.fr/medias/images/menu-pizzas.svg"
+          alt=""
+        />
+        <div>Pizza</div>
+      </div>
     </div>
+    <h2>Produits</h2>
+
     <div class="resto-menu-products">
-      <div class="resto-menu-product">a</div>
+      <div class="resto-menu-product" *ngFor="let item of items">
+        <div class="rest-resto-menu-product-details">
+          <div class="resto-menu-product-img">
+            <img src="../../../assets/couscous-viande_0.jpg" alt="" />
+          </div>
+          <div class="resto-menu-product-name">CouscousCouscous</div>
+          <div class="resto-menu-product-description">
+            Short Description Short Description Short Description Short
+            Description
+          </div>
+          <div class="resto-menu-product-footer">
+            <div class="resto-menu-product-price">Dt 60.00</div>
+            <p-button
+              class="product-btn"
+              icon="pi pi-cart-plus"
+              [link]="true"
+            ></p-button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

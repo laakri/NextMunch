@@ -39,12 +39,6 @@ button {
   font-size: 16px;
 }
 
-.join-button{
-  color: #116042 !important ;
-  border: transparent !important;
-  background-color: #cfe7de !important ;
-  font-size: 17px;
-}
 .fas {
   font-size: 27px;
 }
@@ -97,7 +91,7 @@ input::placeholder{
     border: var(--bordercolor) solid 1px;
   }
   
-  /*********************-Button********************/
+  /*********************-Button*******************
 
 .p-button {
     background: var(--special-button-background);
@@ -112,7 +106,6 @@ input::placeholder{
     color: var(--whitecolor);
   }
   
-   /*********************-multiselect********************/
   /*********************-dropdown********************/
 
 .p-dropdown {

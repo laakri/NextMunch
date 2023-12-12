@@ -1,17 +1,19 @@
 /* Container */
 
 .container {
+    padding-left: 30px;
+    margin: 150px auto;
+    max-width: 900px; 
+    background-color:#ffd976 ;
+    border-radius: 50px 380px 380px 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 2% auto;
-    max-width: 900px; 
-    background-color:#ffd976 ;
-    border-radius: 50px 380px 380px 50px;
-    padding-left: 80px;
   }
-
+  .container-left {
+    width: 400px;
+  }
   .container-rigth {
     background: var(--bg-color);
     height: 460px;
@@ -24,9 +26,8 @@
     padding-right: 170px;
     margin-left: 100px;
   }
-  /* login-pizza**/
   .pizzaAuth {
-    height: 180%;
+    height: 190%;
     width: 170%;
   }
  

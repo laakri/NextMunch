@@ -1,0 +1,20 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 20px ;
+}
+.navbar-left a{
+    font-size: 20px;
+    font-weight: 700;
+}
+.navbar-middle{
+    
+}
+.navbar-right{
+    
+}
+.navbar-right p-button{
+
+}

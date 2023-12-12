@@ -1,14 +1,18 @@
-<div></div>
-
-<p-toolbar>
-  <div class="p-toolbar-group-start">
-    <p-button label="Home" routerLink=""></p-button>
-    <p-button label="About" routerLink="/About"></p-button>
-    <p-button label="Contact" routerLink="/Contact"></p-button>
-    <p-button label="Resto Page" routerLink="/PageResto"></p-button>
+<div class="navbar">
+  <div class="navbar-left">
+    <a label="NextMunch" routerLink="">NextMunch</a>
   </div>
-  <div class="p-toolbar-group-end">
+  <div class="navbar-middle">
+    <p-button label="About" [link]="true" routerLink="/About"></p-button>
+    <p-button label="Contact" [link]="true" routerLink="/Contact"></p-button>
+    <p-button
+      label="Resto Page"
+      [link]="true"
+      routerLink="/PageResto"
+    ></p-button>
+  </div>
+  <div class="navbar-right">
     <p-button routerLink="/auth/login" [link]="true">Login</p-button>
     <p-button routerLink="/auth/signup" [link]="true">Sign Up</p-button>
   </div>
-</p-toolbar>
+</div>

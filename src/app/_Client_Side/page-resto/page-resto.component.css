@@ -1,9 +1,9 @@
-  .header {
+
+.header {
     position: relative;
     height: 200px; 
     margin-bottom: 80px;
 }
-  
   .banner-resto-img {
     width: 100%;
     height: 200px; 
@@ -24,7 +24,7 @@
     left: 50%;
     right: 50%;
     transform: translate(-50%);
-    border: var(--bordercolor) solid 1px;
+    border: var(--bordercolor) solid 2px;
     border-radius: 50%;
     overflow: hidden;
 }  
@@ -35,12 +35,12 @@
     background-size: cover;
 }
   
-  /* Styling for the container */
   .container {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
   }
+/***********************************/
   
   .resto-details {
     margin: auto;
@@ -90,9 +90,10 @@
     color: var(--graycolor);
     
   }
+/***********************************/
+
 .resto-events{
     margin: 30px;
-    border: red solid 1px;
 }
   
 .resto-event{
@@ -107,28 +108,113 @@
     border-radius: 20px;
 
 }
+/***********************************/
+
   .resto-menu {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
+/***********************************/
   
   .resto-menu-filter {
-    margin-bottom: 10px;
-  }
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
   
   .resto-menu-filter-category {
     display: inline-block;
+    height: 140px;
+    width:  140px;
     padding: 5px 10px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
+    background-color: #ededed8e;
+    border-radius: 10px;
     cursor: pointer;
-  }
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+
+}
+.resto-menu-filter-category img{
+  height: 100px;
+  width:  100px;
+  margin: auto;
+}
+.resto-menu-filter-category div{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+/***********************************/
   .resto-menu-products {
-    /* Add styling for menu products */
-  }
-  
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+}
   .resto-menu-product {
-    /* Add styling for individual menu items */
-  }
-  
+    border-radius: 10px;
+    width: 240px;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;    
+}
+ 
+.resto-menu-product-img{
+    position: absolute;
+    top: -170px;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: var(--bordercolor) solid 1px;
+    background-color: var(--bgcolor);
+} 
+.resto-menu-product-img img{
+    width: 190px;
+    height: 190px;
+} 
+
+.rest-resto-menu-product-details{
+    position: relative;
+    border: var(--bordercolor) solid 1px;
+    padding: 10px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 10px;
+
+}
+
+.resto-menu-product-name{
+    font-size: 20px;
+    font-weight: 600;
+}
+.resto-menu-product-description{
+    color: var(--graycolor);
+    font-size: 14px;
+
+}
+.resto-menu-product-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.resto-menu-product-price{
+    font-size: 15px;
+    font-weight: 700;
+}
+.product-btn{
+
+}
