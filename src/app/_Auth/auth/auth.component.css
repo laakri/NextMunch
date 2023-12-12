@@ -1,0 +1,33 @@
+/* Container */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2% auto;
+    max-width: 900px; 
+    background-color:#ffd976 ;
+    border-radius: 50px 380px 380px 50px;
+    padding-left: 80px;
+  }
+
+  .container-rigth {
+    background: var(--bg-color);
+    height: 460px;
+    width: 534px;
+    border-radius: 50%;
+    justify-content: start;
+    align-items: end;
+    padding-top: 0px;
+    padding-bottom: 220px;
+    padding-right: 170px;
+    margin-left: 100px;
+  }
+  /* login-pizza**/
+  .pizzaAuth {
+    height: 180%;
+    width: 170%;
+  }
+ 
+  

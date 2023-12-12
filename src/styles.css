@@ -3,9 +3,426 @@
 @import "primeicons/primeicons.css";
 
 body{
-    background-color: var(--bg-color);
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
-    --bg-color : white;
+    box-sizing: border-box;
+    overflow-x:hidden;
+    color: var(--whitecolor);
+    background: var(--bgcolor);
+    font-family: var(--font-family);
+  --bordercolor: #e1e4e8;
+  --bgcolor: #fff;
+  --bgtransparentcolor: #f9f9f9cb;
+  --soft-bgcolor: #f6f8fa;
+  --blackcolor: #000;
+  --whitecolor: #000;
+  --graycolor: #586069;
+  --maincolor: #0366d6;
+  --hovermaincolor: #4184b3;
+  --secendcolor: #d73a49;
+  --soft-darktranscolor: #eaecef;
+  --buttonactive: #e8e8e8;
+  --special-button-color:#0d7573;
+    --special-button-background:#fafafa;
+    --special-button-border:#76b7b6;
+  --linnear-gardient: linear-gradient(to right, #ff80b5 , #9089fc ,#ff80b5 , #9089fc);
+
+}
+
+a,
+button {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--whitecolor);
+  font-size: 16px;
+}
+
+.join-button{
+  color: #116042 !important ;
+  border: transparent !important;
+  background-color: #cfe7de !important ;
+  font-size: 17px;
+}
+.fas {
+  font-size: 27px;
+}
+ul {
+  list-style-type: none;
+}
+textarea{
+  background-color: var(--soft-bgcolor) !important;
+  border: var(--bordercolor) solid 1px !important;
+  color: var(--whitecolor) !important;
+}
+input{
+  height: 36px;
+  background-color: var(--soft-bgcolor) !important;
+  color: var(--whitecolor) !important;
+  border: var(--bordercolor) solid 1px !important;
+}
+input::placeholder{
+  background-color: var(--soft-bgcolor);
+  color: var(--graycolor);
+}
+
+/************ scroll bar ****************/
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--blackcolor);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--whitecolor);
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--soft-bgcolor);
+  }
  
- }
+  /*********************-Active Button********************/
+  
+  .activebutton {
+    background-color: var(--buttonactive) !important;
+  }
+  .activetabPanel{
+    background-color: var(--special-button-background) !;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 2px solid var(--maincolor);
+}
+  /*********************-divider********************/
+
+  .p-divider {
+    border: var(--bordercolor) solid 1px;
+  }
+  
+  /*********************-Button********************/
+
+.p-button {
+    background: var(--special-button-background);
+    border: 1px solid var(--special-button-border);
+    color: var(--special-button-color);
+    height: 35px; 
+  }
+  
+  .p-button:not(.p-disabled):not(.p-highlight):hover {
+    background: var(--special-button-background);
+    border-color: var(--special-button-border);
+    color: var(--whitecolor);
+  }
+  
+   /*********************-multiselect********************/
+  /*********************-dropdown********************/
+
+.p-dropdown {
+      color: var(--whitecolor); 
+      background: var(--soft-bgcolor);  
+  border: var(--bordercolor) solid 1px !important;
+
+}
+  
+.p-dropdown .p-dropdown-label {
+  background: var(--soft-bgcolor); 
+  color: var(--whitecolor); 
+}  
+.p-dropdown-panel {
+    color: var(--whitecolor); 
+    background: var(--soft-bgcolor);  
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+   color: var(--whitecolor); 
+}
+  
+    /*********************-menu********************/
+
+.p-menu {
+  background: var(--soft-bgcolor);  
+  color: var(--whitecolor); 
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.p-menu .p-menuitem-text {
+  color: var(--whitecolor) !important; 
+}
+
+.p-menu .p-menuitem-icon {
+  color: var(--whitecolor) !important; /* Replace with your desired icon color */
+}
+.p-menu .p-menuitem-link:hover {
+  background-color: var(--blackcolor) !important; /* Replace with your desired hover background color */
+}
+.p-menu.p-contextmenu .p-submenu-list .p-submenu-header {
+  background-color: var(--soft-bgcolor) !important; /* Replace with your desired background color */
+}
+  /*********************-toolbar********************/
+
+.p-toolbar {
+  background-color: var(--soft-bgcolor); 
+  border: none;
+}
+  /*********************-dialog********************/
+  
+  .dialogSearch{
+    max-width: 1300px;
+    border-radius: 20px !important;
+    overflow: hidden;
+}
+  
+.p-dialog.p-confirm-dialog .p-dialog-header {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor) !important; 
+}
+
+.p-dialog.p-confirm-dialog .p-dialog-content {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor) !important; 
+}
+
+/* Change the background and text color of the dialog footer */
+.p-dialog.p-confirm-dialog .p-dialog-footer {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor) !important; 
+}
+  /*********************-slider********************/
+
+.p-slider .p-slider-handle {
+  width: 15px;
+  height: 15px;
+  background: #f0d9bb;
+  border-color: var(--whitecolor);
+}
+
+.p-slider .p-slider-handle:hover {
+  background: #f2e3cf;
+  border-color: #f2e3cf;
+}
+
+.p-slider .p-slider-range {
+  background: #b0a291;
+}
+  /*********************-tabview********************/
+.p-tabview{
+  background-color: transparent !important;
+}
+
+.p-tabview .p-tabview-nav {
+  background: transparent;  
+  border-bottom: 1px solid var(--bordercolor); 
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  background: var(--soft-darktranscolor); 
+  color: var(--whitecolor);
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: var(--soft-bgcolor); 
+  color: var(--whitecolor);
+}
+
+.p-tabview .p-tabview-panels {
+  background: transparent; 
+}
+
+ 
+  /*********************-timeline********************/
+  
+  .p-timeline-event-opposite{
+    display: none;
+  }
+
+  .p-timeline .p-timeline-event-connector{
+    margin: 10px;
+    background-color: #7d7d7d56;
+    
+  }
+  .p-fileUpload{
+    background-color: var(--blackcolor) !important;
+  }
+  /*********************-sidebar********************/
+  .p-sidebar {
+    background:var(--soft-bgcolor);
+  }
+  
+
+  /*********************-table********************/
+
+
+.p-datatable .p-datatable-header {
+  background: var(--soft-bgcolor) !important;
+  color: var(--whitecolor) !important;
+}
+
+.p-datatable .p-datatable-footer {
+  background: var(--soft-bgcolor) !important;
+  color: var(--whitecolor) !important;
+}
+
+.p-datatable .p-datatable-tbody>tr {
+  background: var(--soft-bgcolor) !important;
+  color: var(--whitecolor) !important;
+}
+
+.p-datatable .p-datatable-tbody>tr:hover {
+  background: var(--soft-color) !important;
+  color: var(--whitecolor) !important;
+}
+
+.p-datatable .p-datatable-tbody>tr>td {
+  border-color: var(--bordercolor) !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+  background: var(--soft-bgcolor) !important;
+  color: var(--whitecolor) !important;
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
+  background: var(--soft-bgcolor) !important;
+}
+
+.p-datatable.p-datatable-striped .p-datatable-tbody>tr:nth-child(even):hover {
+  background: var(--soft-color) !important;
+}
+  /*********************-paginator********************/
+
+.p-paginator {
+  background-color: var(--soft-bgcolor) ;
+  border: none;
+  color: var(--whitecolor) !important;
+}
+  /*********************-skeleton********************/
+
+.p-skeleton{
+  background: var(--soft-bgcolor) !important;
+
+}
+  /*********************-image********************/
+
+.p-image-mask{
+  position: fixed;
+ } 
+  /*********************-pre editor Type********************/
+
+ pre{
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--special-button-background);
+  color: var(--special-button-color);
+  border:  solid 1px var(--special-button-border);
+}
+  /*********************-p-editor********************/
+  .p-editor-toolbar {
+    background-color: var(--soft-bgcolor) !important;
+    color: var(--whitecolor) !important;
+    border: var(--bordercolor) solid 1px !important;
+    
+  }
+  .p-editor-container .p-editor-content.ql-snow {
+    border: var(--bordercolor) solid 1px !important;
+    fill: var(--soft-bgcolor) !important;
+    background-color: var(--soft-bgcolor) !important;
+  }
+  
+  .p-editor-container .p-editor-content .ql-editor {
+    color: var(--whitecolor);
+    border: var(--bordercolor) solid 1px !important;
+    background-color: var(--bgcolor) !important;
+  }
+  
+  /*********************-p-speeddial********************/
+
+  .p-element .p-ripple 
+  .p-button-icon-only 
+  .p-speeddial-button .p-button-rounded 
+  .p-speeddial-rotate .p-button .p-component{
+    border: red solid 1px !important;
+    background-color: transparent;
+  }
+.p-speeddial-button.p-button.p-button-icon-only .p-icon {
+    width: 14px; /* Change icon width to 2px */
+    height: 14px; /* Change icon height to 2px */
+}
+
+  /*********************-p-accordion********************/
+
+.p-accordion .p-accordion-header .p-accordion-header-link {
+  border: 2px solid var(--bordercolor);
+  color: var(--whitecolor);
+  background: var(--soft-bgcolor);
+}
+
+.p-accordion .p-accordion-header .p-accordion-header-link:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 1px var(--maincolor);
+}
+
+.p-accordion .p-accordion-header:not(.p-highlight):not(.p-disabled):hover .p-accordion-header-link {
+  background: rgba(158, 173, 230, 0.08);
+  border-color: var(--bordercolor);
+  color: var(--whitecolor);
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+  background: var(--soft-bgcolor);
+  border-color: var(--bordercolor);
+  color: var(--whitecolor);
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight:hover .p-accordion-header-link {
+  border-color: var(--bordercolor);
+  background: rgba(158, 173, 230, 0.08);
+  color: var(--whitecolor);
+}
+
+.p-accordion .p-accordion-content {
+  border: 2px solid var(--bordercolor);
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor);
+  border-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+  /*********************-p-dialog********************/
+
+.p-dialog {
+  border: 1px solid var(--bordercolor);
+}
+
+.p-dialog .p-dialog-header {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor);
+}
+
+
+.p-dialog .p-dialog-content {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor);
+}
+
+
+.p-dialog .p-dialog-footer {
+  background: var(--soft-bgcolor);
+  color: var(--whitecolor);
+}
+
+.p-dialog .p-dialog-footer button {
+  margin: 0 0.5rem 0 0;
+  width: auto;
+}
+
+.p-dialog.p-confirm-dialog .p-confirm-dialog-icon {
+  font-size: 2rem;
+}
+
+.p-dialog.p-confirm-dialog .p-confirm-dialog-icon.p-icon {
+  width: 2rem;
+  height: 2rem;
+}

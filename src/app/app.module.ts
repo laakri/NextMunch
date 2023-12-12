@@ -55,8 +55,6 @@ import { DialogModule } from 'primeng/dialog';
 import { SkeletonModule } from 'primeng/skeleton';
 import { EditorModule } from 'primeng/editor';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { AboutUsComponent } from './components/about-us/about-us.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 /*************************   Components   *********************** */
 
@@ -65,6 +63,10 @@ import { LoginComponent } from './_Auth/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomepageComponent } from './_Client_Side/homepage/homepage.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AuthComponent } from './_Auth/auth/auth.component';
+import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +78,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NavbarComponent,
     HomepageComponent,
     FooterComponent,
+    AuthComponent,
+    PageRestoComponent,
   ],
 
   imports: [

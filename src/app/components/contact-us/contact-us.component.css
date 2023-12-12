@@ -1,0 +1,67 @@
+.container {
+  position: relative;
+  max-width: 1100px;
+  margin: 100px auto;
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: rgba(240, 239, 239, 0.386);
+}
+
+.gauche{
+  width: 40%;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gauche-inner {
+  height: 80%;
+  background-image: url(../../../assets/images/Main-Images/ContactUsBackgroung.jpg);
+  background-size:auto;
+  background-size: cover;
+}
+
+.gauche-text {
+  text-align: center;
+  font-style: italic;
+  font-weight: bolder;
+
+  max-width: 90%;
+}
+
+.droite {
+  width: 58%;
+  background-color: white; 
+  padding: 20px;
+
+}
+
+.forms {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+}
+
+.required-fields {
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.p-inputgroup {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.p-inputtext {
+  margin-top: 10px;
+  width: 100%;
+}

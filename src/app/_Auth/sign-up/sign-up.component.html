@@ -1,72 +1,61 @@
-<div class="container">
 
-    <div class="container-rigth">
-      <h1>Signup</h1>
-      <p>Welcome back!</p>
-      <form #signupForm="ngForm" (ngSubmit)="onSignup()">
-        <div>
-            <span class="p-input-icon-left">
-              <i class="pi pi-user"></i>
-              <input
-                type="text"
-                pInputText
-                ngModel
-                required
-                placeholder="Full name"
-                class="p-inputtext-sm"
-              />
-            </span>
-          </div>
-
-        <div>
-          <span class="p-input-icon-left">
-            <i class="pi pi-phone"></i>
-            <input
-              type="text"
-              pInputText
-              ngModel
-              required
-              placeholder="Phone"
-              class="p-inputtext-sm"
-            />
-          </span>
-        </div>
-  
-        <div>
-          <span class="p-input-icon-left">
-            <i class="pi pi-eye"></i>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              ngModel
-              required
-              pInputText
-              placeholder="Password"
-              class="p-inputtext-sm"
-          /></span>
-        </div>
-        <button type="submit" style="margin-bottom: 10px;">Sign Up</button>
-  
-        <p-divider type="solid"></p-divider>
-  
-        <div class="others">
-        Facebook
-        </div>
-        <div class="others">
-        Google 
-        </div>
-  
-      </form>
-    </div>
-  
-    <div class="container-left">
-        <img
-          src="../../../assets/images/istockphoto-1125850724-612x612-removebg-preview.png"
-          alt="Pizza Auth"
-          class="pizzaAuth"
-        />
+<div class="container-rigth">
+  <h1>Signup</h1>
+  <p>Welcome back!</p>
+  <form #signupForm="ngForm" (ngSubmit)="onSignup()">
+    <div>
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="text"
+            pInputText
+            ngModel
+            required
+            placeholder="Full name"
+            class="p-inputtext-sm"
+          />
+        </span>
       </div>
 
-  </div>
-  
+    <div>
+      <span class="p-input-icon-left">
+        <i class="pi pi-phone"></i>
+        <input
+          type="text"
+          pInputText
+          ngModel
+          required
+          placeholder="Phone"
+          class="p-inputtext-sm"
+        />
+      </span>
+    </div>
+
+    <div>
+      <span class="p-input-icon-left">
+        <i class="pi pi-eye"></i>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          ngModel
+          required
+          pInputText
+          placeholder="Password"
+          class="p-inputtext-sm"
+      /></span>
+    </div>
+    <button type="submit" style="margin-bottom: 10px;">Sign Up</button>
+
+    <p-divider type="solid"></p-divider>
+
+    <div class="others">
+    Facebook
+    </div>
+    <div class="others">
+    Google 
+    </div>
+
+  </form>
+</div>
+

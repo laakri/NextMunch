@@ -1,0 +1,73 @@
+.container {
+  position: relative;
+  max-width: 1100px;
+  margin: 100px auto;
+  padding: 10px;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: rgba(217, 215, 215, 0.386);
+}
+
+.first {
+  width: 1000px;
+  border-radius: 20px;
+  height: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 20px;
+}
+
+.first-inner {
+  height: 400px;
+  width: 40%;
+  display: flex;
+  background-image: url(../../../assets/images/Main-Images/equipe.jpeg);
+  background-size: cover;
+  background-position:center ;
+  border-radius: 30px;
+  padding: 20px;
+  flex-direction: column;
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+.first-text-1 {
+  text-align: left;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.second-inner {
+    height: 400px;
+    width: 40%;
+    display: flex;
+    background-image: url(../../../assets/images/Main-Images/Impact.jpg);
+    background-size: cover;
+    background-position:center ;
+    border-radius: 30px;
+    padding: 20px;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-right: 90px;
+  }
+  
+  
+.third-inner {
+    height: 400px;
+    width: 40%;
+    display: flex;
+    background-image: url(../../../assets/images/Main-Images/projet.jpg);
+    background-size: cover;
+    background-position:center ;
+    border-radius: 30px;
+    padding: 20px;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-right: 50px;
+  }
+  
