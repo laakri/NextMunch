@@ -6,7 +6,7 @@
   padding: 20px;
   justify-content: space-between;
   border-radius: 20px;
-  background-color: rgba(240, 239, 239, 0.386);
+  background-color: var(--soft-bgcolor);
 }
 
 .gauche{
@@ -35,7 +35,6 @@
 
 .droite {
   width: 58%;
-  background-color: white; 
   padding: 20px;
 
 }

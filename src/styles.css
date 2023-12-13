@@ -2,7 +2,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-body{
+body.light-theme{
     height: 100%;
     width: 100%;
     margin: 0;
@@ -16,7 +16,7 @@ body{
   --bgcolor: #fff;
   --bgtransparentcolor: #f9f9f9cb;
   --soft-bgcolor: #f6f8fa;
-  --blackcolor: #000;
+  --blackcolor: rgb(0, 0, 0);
   --whitecolor: #000;
   --graycolor: #586069;
   --maincolor: #0366d6;
@@ -30,7 +30,34 @@ body{
   --linnear-gardient: linear-gradient(to right, #ff80b5 , #9089fc ,#ff80b5 , #9089fc);
 
 }
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x:hidden;
+  color: var(--whitecolor);
+  background: var(--bgcolor);
+  font-family: var(--font-family);
+  --bordercolor: #262c32;
+  --bgcolor: #000115;
+  --bgtransparentcolor: #000509cb;
+  --soft-bgcolor: #0c1017;
+  --blackcolor: #000;
+  --whitecolor: #fff;
+  --graycolor: #acb2b9;
+  --maincolor: #08d9d6;
+  --hovermaincolor: #01a4a1;
+  --secendcolor: #ff3860;
+  --soft-darktranscolor: #0f172169;
+  --buttonactive: #1b1f2a;
+  --special-button-color:#08d9d6;
+  --special-button-background:#1b232a;
+  --special-button-border:#265b7a;
+  --linnear-gardient: linear-gradient(to right, #ff80b5 ,#fff, #9089fc ,#fff,#ff80b5 , #9089fc,#fff );
 
+}
 a,
 button {
   cursor: pointer;
@@ -38,7 +65,6 @@ button {
   color: var(--whitecolor);
   font-size: 16px;
 }
-
 .fas {
   font-size: 27px;
 }

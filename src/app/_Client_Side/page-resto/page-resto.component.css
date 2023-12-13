@@ -7,12 +7,12 @@
   .banner-resto-img {
     width: 100%;
     height: 200px; 
-    background-color: #ddd;
+    background-color: var(--bgcolor);
     overflow: hidden;
   }
   .banner-resto-img img{
     width: 100%;
-    background-color: #ddd;
+    background-color: var(--bgcolor);
     background-position: center;
     background-size: contain;
   }
@@ -58,7 +58,7 @@
   
   .resto-details-description {
     font-size: 16px;
-    color: #555;
+    color: var(--graycolor);
     margin-bottom: 10px;
 
   }
@@ -130,13 +130,14 @@
     height: 140px;
     width:  140px;
     padding: 5px 10px;
-    background-color: #ededed8e;
+    background-color: #f0f0f0;
     border-radius: 10px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
+    color: black;
 
 }
 .resto-menu-filter-category img{

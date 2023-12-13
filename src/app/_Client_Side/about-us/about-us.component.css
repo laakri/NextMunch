@@ -5,7 +5,7 @@
   padding: 10px;
   justify-content: space-between;
   border-radius: 20px;
-  background-color: rgba(217, 215, 215, 0.386);
+  background-color: var(--soft-bgcolor);
 }
 
 .first {
