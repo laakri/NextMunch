@@ -3,12 +3,22 @@
     <a label="NextMunch" routerLink="">NextMunch</a>
   </div>
   <div class="navbar-middle">
+    <p-button
+      label="Create Rastaurant"
+      (click)="openAddResto()"
+      [link]="true"
+    ></p-button>
     <p-button label="About" [link]="true" routerLink="/About"></p-button>
     <p-button label="Contact" [link]="true" routerLink="/Contact"></p-button>
     <p-button
+      label="Restaurants"
+      [link]="true"
+      routerLink="/Restaurants"
+    ></p-button>
+    <p-button
       label="Resto Page"
       [link]="true"
-      routerLink="/PageResto"
+      routerLink="/PageResto/6579b33687177debc1b35af8"
     ></p-button>
   </div>
   <div class="navbar-right">

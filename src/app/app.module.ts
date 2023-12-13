@@ -56,6 +56,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { EditorModule } from 'primeng/editor';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { StepsModule } from 'primeng/steps';
 
 /*************************   Components   *********************** */
 
@@ -68,6 +69,8 @@ import { AboutUsComponent } from './_Client_Side/about-us/about-us.component';
 import { ContactUsComponent } from './_Client_Side/contact-us/contact-us.component';
 import { AuthComponent } from './_Auth/auth/auth.component';
 import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
+import { AddRestoComponent } from './_Dashboard_Resto/add-resto/add-resto.component';
+import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +84,8 @@ import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.compone
     FooterComponent,
     AuthComponent,
     PageRestoComponent,
+    AddRestoComponent,
+    RestaurantsComponent,
   ],
 
   imports: [
@@ -137,6 +142,7 @@ import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.compone
     EditorModule,
     ToggleButtonModule,
     TabMenuModule,
+    StepsModule,
   ],
 
   providers: [

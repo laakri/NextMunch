@@ -2,7 +2,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-body.light-theme{
+body{
     height: 100%;
     width: 100%;
     margin: 0;
@@ -14,7 +14,6 @@ body.light-theme{
     font-family: var(--font-family);
   --bordercolor: #e1e4e8;
   --bgcolor: #fff;
-  --bgtransparentcolor: #f9f9f9cb;
   --bgtransparentcolor: #f9f9f9cb;
   --soft-bgcolor: #f6f8fa;
   --blackcolor: rgb(0, 0, 0);
@@ -31,7 +30,7 @@ body.light-theme{
   --linnear-gardient: linear-gradient(to right, #ff80b5 , #9089fc ,#ff80b5 , #9089fc);
 
 }
-body {
+body.light-theme {
   height: 100%;
   width: 100%;
   margin: 0;

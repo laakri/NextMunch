@@ -1,0 +1,72 @@
+<div class="container">
+  <p-steps [model]="items" [(activeIndex)]="activeIndex"></p-steps>
+
+  <div class="content" [ngSwitch]="activeIndex">
+    <!-- Step 1: CIN input -->
+    <div *ngSwitchCase="0">
+      <div class="content-form-div">
+        <label for="cin">CIN:</label>
+        <input pInputText type="text" id="cin" [(ngModel)]="cin" />
+      </div>
+      <div class="button-row">
+        <p-button
+          type="button"
+          label="Next"
+          (click)="nextStep()"
+          [link]="true"
+        ></p-button>
+      </div>
+    </div>
+    <!-- Step 2: Restaurant details -->
+    <div *ngSwitchCase="1">
+      <div class="content-form-div">
+        <label for="restaurantName">Restaurant Name:</label>
+        <input
+          pInputText
+          type="text"
+          id="restaurantName"
+          [(ngModel)]="restaurantName"
+        />
+      </div>
+      <div class="content-form-div">
+        <label for="location">Location:</label>
+        <input pInputText type="text" id="location" [(ngModel)]="location" />
+      </div>
+      <div class="content-form-div">
+        <label for="contact">Contact:</label>
+        <input pInputText type="text" id="contact" [(ngModel)]="contact" />
+      </div>
+
+      <div class="button-row">
+        <p-button
+          type="button"
+          label="Previous"
+          (click)="prevStep()"
+          [link]="true"
+        ></p-button>
+        <p-button
+          *ngIf="activeIndex === 1"
+          type="button"
+          label="Create"
+          (click)="createRestaurant()"
+          [link]="true"
+        ></p-button>
+      </div>
+    </div>
+
+    <!-- Step 3: Loading message -->
+    <div *ngSwitchCase="2">
+      <p-progressSpinner
+        *ngIf="loading"
+        styleClass="custom-spinner"
+      ></p-progressSpinner>
+      <p-button
+        type="button"
+        label="Show Message"
+        (click)="showMessage()"
+        [link]="true"
+        *ngIf="!loading"
+      ></p-button>
+    </div>
+  </div>
+</div>

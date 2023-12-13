@@ -10,13 +10,15 @@ import { AboutUsComponent } from './_Client_Side/about-us/about-us.component';
 import { ContactUsComponent } from './_Client_Side/contact-us/contact-us.component';
 import { AuthComponent } from './_Auth/auth/auth.component';
 import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
+import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomepageComponent },
   { path: 'About', component: AboutUsComponent },
   { path: 'Contact', component: ContactUsComponent },
-  { path: 'PageResto', component: PageRestoComponent },
+  { path: 'PageResto/:id', component: PageRestoComponent },
+  { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'auth',
     component: AuthComponent,

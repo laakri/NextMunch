@@ -1,26 +1,37 @@
-
 <div class="container-rigth">
   <h1>Signup</h1>
   <p>Welcome back!</p>
-  <form #signupForm="ngForm" (ngSubmit)="onSignup()">
+  <form
+    [formGroup]="signupForm"
+    (ngSubmit)="
+      userService.signup(
+        signupForm.get('name')?.value,
+        signupForm.get('email')?.value,
+        signupForm.get('phone')?.value,
+        signupForm.get('password')?.value
+      )
+    "
+  >
     <div>
-        <span class="p-input-icon-left">
-          <i class="pi pi-user"></i>
-          <input
-            type="text"
-            pInputText
-            ngModel
-            required
-            placeholder="Full name"
-            class="p-inputtext-sm"
-          />
-        </span>
-      </div>
+      <span class="p-input-icon-left">
+        <i class="pi pi-user"></i>
+        <input
+          formControlName="name"
+          type="text"
+          pInputText
+          ngModel
+          required
+          placeholder="Full name"
+          class="p-inputtext-sm"
+        />
+      </span>
+    </div>
 
     <div>
       <span class="p-input-icon-left">
         <i class="pi pi-phone"></i>
         <input
+          formControlName="phone"
           type="text"
           pInputText
           ngModel
@@ -33,8 +44,24 @@
 
     <div>
       <span class="p-input-icon-left">
+        <i class="pi pi-phone"></i>
+        <input
+          formControlName="email"
+          type="text"
+          pInputText
+          ngModel
+          required
+          placeholder="email"
+          class="p-inputtext-sm"
+        />
+      </span>
+    </div>
+
+    <div>
+      <span class="p-input-icon-left">
         <i class="pi pi-eye"></i>
         <input
+          formControlName="password"
           type="password"
           id="password"
           name="password"
@@ -45,17 +72,14 @@
           class="p-inputtext-sm"
       /></span>
     </div>
-    <button type="submit" style="margin-bottom: 10px;">Sign Up</button>
+    <button type="submit" style="margin-bottom: 10px">Sign Up</button>
 
     <p-divider type="solid"></p-divider>
 
-    <div class="others">
-    Facebook
-    </div>
-    <div class="others">
-    Google 
-    </div>
-
+    <div class="others">Facebook</div>
+    <div class="others">Google</div>
   </form>
 </div>
-
+<p-toast
+  [breakpoints]="{ '450px': { width: '50%', right: '0', left: '0' } }"
+></p-toast>
