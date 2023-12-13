@@ -2,7 +2,7 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-body{
+body.light-theme {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -30,7 +30,7 @@ body{
   --linnear-gardient: linear-gradient(to right, #ff80b5 , #9089fc ,#ff80b5 , #9089fc);
 
 }
-body.light-theme {
+body{
   height: 100%;
   width: 100%;
   margin: 0;
@@ -43,7 +43,7 @@ body.light-theme {
   --bordercolor: #262c32;
   --bgcolor: #000115;
   --bgtransparentcolor: #000509cb;
-  --soft-bgcolor: #0c1017;
+  --soft-bgcolor: #000c21;
   --blackcolor: #000;
   --whitecolor: #fff;
   --graycolor: #acb2b9;
@@ -445,3 +445,18 @@ input::placeholder{
   width: 2rem;
   height: 2rem;
 }
+
+  /*********************-p-steps********************/
+
+
+.p-menuitem-link{
+  background-color: transparent !important;
+}
+.p-steps-title{
+  color:var(--whitecolor) !important;
+
+}
+.p-steps .p-steps-number {
+  font-size: 16px;
+}
+

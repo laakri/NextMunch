@@ -11,19 +11,11 @@ export class RestaurantService {
 
   constructor(private http: HttpClient) {}
 
-  createRestaurant(
-    ownerId: string,
-    cin: string,
-    nameR: string,
-    location: string,
-    contact: string
-  ) {
-    const body = { ownerId, cin, nameR, location, contact };
-    console.log(body);
-    return this.http.post<any>(`${this.apiUrl}/restaurants`, body);
-  }
   getRestaurantById(restaurantId: string): Observable<Restaurant> {
     const url = `${this.apiUrl}/restaurant/${restaurantId}`;
     return this.http.get<Restaurant>(url);
+  }
+  saveRestaurant(restaurant: Restaurant): Observable<any> {
+    return this.http.post(this.apiUrl + '/restaurants', restaurant);
   }
 }

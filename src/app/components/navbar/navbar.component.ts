@@ -40,7 +40,7 @@ export class NavbarComponent {
       resizable: false,
       styleClass: 'dialogSearch',
       width: '700px',
-      height: '550px',
+      height: '600px',
       contentStyle: { overflow: 'auto' },
     });
     console.log(this.ref);

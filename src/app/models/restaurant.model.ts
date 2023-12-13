@@ -1,7 +1,7 @@
 export interface Restaurant {
   _id?: string;
   ownerId: string;
-  cin: number;
+  cin: string;
   bannerImg?: string;
   mainImg?: string;
   nameR: string;

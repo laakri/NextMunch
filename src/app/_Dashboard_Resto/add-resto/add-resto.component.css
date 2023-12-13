@@ -23,3 +23,26 @@
     display: flex;
     justify-content: space-between;
 }
+.content-cin-content{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.content-cin-content span{
+    color: var(--graycolor);
+}
+.third-step{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.third-step-container{
+    margin-top: 80px;
+    max-width: max-content;
+    max-height: max-content;
+    text-align: center;
+}
