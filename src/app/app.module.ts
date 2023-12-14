@@ -71,6 +71,10 @@ import { AuthComponent } from './_Auth/auth/auth.component';
 import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
 import { AddRestoComponent } from './_Dashboard_Resto/add-resto/add-resto.component';
 import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
+import { SidebarComponent } from './_Dashboard_Admin/sidebar/sidebar.component';
+import { ListAddCategoryComponent } from './_Dashboard_Admin/list-add-category/list-add-category.component';
+import { ListUserComponent } from './_Dashboard_Admin/list-user/list-user.component';
+import { ListRestaurantComponent } from './_Dashboard_Admin/list-restaurant/list-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +90,10 @@ import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.com
     PageRestoComponent,
     AddRestoComponent,
     RestaurantsComponent,
+    SidebarComponent,
+    ListAddCategoryComponent,
+    ListUserComponent,
+    ListRestaurantComponent,
   ],
 
   imports: [

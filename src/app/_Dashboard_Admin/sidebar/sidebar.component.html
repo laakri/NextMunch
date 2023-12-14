@@ -1,0 +1,19 @@
+<p-sidebar
+  [position]="'left'"
+  [(visible)]="sidebarVisible"
+  [showCloseIcon]="false"
+>
+  <div class="sidebar-header">
+    <h3>My Dashboard</h3>
+  </div>
+  <p-menu [model]="menuItems"></p-menu>
+</p-sidebar>
+
+<div class="content-wrapper">
+  <p-button
+    (click)="sidebarVisible = true"
+    icon="pi pi-arrow-right"
+    [link]="true"
+  ></p-button>
+  <router-outlet></router-outlet>
+</div>
