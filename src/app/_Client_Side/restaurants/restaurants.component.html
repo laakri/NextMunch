@@ -14,44 +14,101 @@
   </div>
 </div>
 <div class="container">
-  <div>
-    <h2>Restaurants</h2>
-  </div>
-  <div class="restos">
-    <a href="" *ngFor="let restaurant of restaurants">
-      <div class="resto-box">
-        <div class="resto-box-banner">
-          <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
-          <div class="resto-box-img-profil">
-            <img src="../../../assets/images/Main-Images/tacos.jpg" alt="" />
-          </div>
-          <div class="resto-box-rating">
-            <span>4.5</span>
-            <i class="pi pi-star-fill"></i>
-          </div>
-        </div>
+  <div class="row">
+    <div class="conatiner-left">
+      <div class="resto-filter">
+        <span>Filter</span>
+        <i class="pi pi-filter-fill"></i>
+      </div>
 
-        <div class="resto-box-details">
-          <span class="resto-box-details-name">{{ restaurant.name }}</span>
-          <p class="resto-box-details-description">
-            {{ restaurant.description }}
-          </p>
-          <!--
-          <div class="resto-box-details-location">
-            <i class="pi pi-map-marker"></i>
-            <p>{{ restaurant.location }}</p>
-          </div>
-          -->
-          <div class="resto-box-details-button">
-            <p-button
-              label="check"
-              icon="pi pi-angle-right"
-              [link]="true"
-              iconPos="right"
-            ></p-button>
+      <div class="content-form-div">
+        <label for="restaurant-find">Search restaurant :</label>
+        <input
+          pInputText
+          type="text"
+          placeholder="Search restaurant "
+          id="restaurant-find"
+        />
+      </div>
+      <div class="content-form-div">
+        <label for="restaurant-category">Restaurants category:</label>
+        <br />
+        <div class="flex flex-column gap-2">
+          <div *ngFor="let category of categories" class="field-checkbox">
+            <p-checkbox
+              name="group"
+              [value]="category"
+              [(ngModel)]="selectedCategories"
+              [inputId]="category.key"
+            ></p-checkbox>
+            <label [for]="category.key">{{ category.name }}</label>
           </div>
         </div>
       </div>
-    </a>
+
+      <div class="content-form-div-rating">
+        <label class="content-form-div-rating-label">Maximum Rating:</label>
+        <div class="test">
+        <p-slider ></p-slider>
+      </div>
+      </div>
+
+      <div class="content-form-div">
+        <label for="restaurant-location">Location:</label>
+        <input
+          pInputText
+          type="text"
+          placeholder="Enter location"
+          id="restaurant-location"
+        />
+      </div>
+      
+    </div>
+
+    <div class="container-rigth">
+      <div>
+        <h2>Restaurants</h2>
+      </div>
+      <div class="restos">
+        <a href="" *ngFor="let restaurant of restaurants">
+          <div class="resto-box">
+            <div class="resto-box-banner">
+              <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
+              <div class="resto-box-img-profil">
+                <img
+                  src="../../../assets/images/Main-Images/tacos.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="resto-box-rating">
+                <span>4.5</span>
+                <i class="pi pi-star-fill"></i>
+              </div>
+            </div>
+
+            <div class="resto-box-details">
+              <span class="resto-box-details-name">{{ restaurant.name }}</span>
+              <p class="resto-box-details-description">
+                {{ restaurant.description }}
+              </p>
+              <!--
+              <div class="resto-box-details-location">
+                <i class="pi pi-map-marker"></i>
+                <p>{{ restaurant.location }}</p>
+              </div>
+              -->
+              <div class="resto-box-details-button">
+                <p-button
+                  label="check"
+                  icon="pi pi-angle-right"
+                  [link]="true"
+                  iconPos="right"
+                ></p-button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
