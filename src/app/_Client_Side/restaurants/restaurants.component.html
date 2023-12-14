@@ -13,35 +13,45 @@
     </div>
   </div>
 </div>
-<div style="text-align: center;">
-    <h2>Restaurants</h2>
-
-    </div>
 <div class="container">
-   
-
-
-  <div *ngFor="let restaurant of restaurants" class="resto-box">
-    <div class="resto-box-banner">
-      <img
-        src="../../../assets/images/restaurants-images/restaurant-background-2ez77umko2vj5w02.jpg"
-        alt=""
-      />
-      <div class="resto-box-img-profil">
-        <img src="../../../assets/images/Main-Images/projet.jpg" alt="" />
-      </div>
-      <div class="resto-box-details">
-        <h3>{{ restaurant.name }}</h3>
-        <p-divider></p-divider>
-        <p>{{ restaurant.description }}</p>
-        <div class="card flex justify-content-center my-rating-container">
-            <p-rating [(ngModel)]="ratingValue" [cancel]="false" class="yellow-stars"></p-rating>
+  <div>
+    <h2>Restaurants</h2>
+  </div>
+  <div class="restos">
+    <a href="" *ngFor="let restaurant of restaurants">
+      <div class="resto-box">
+        <div class="resto-box-banner">
+          <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
+          <div class="resto-box-img-profil">
+            <img src="../../../assets/images/Main-Images/tacos.jpg" alt="" />
+          </div>
+          <div class="resto-box-rating">
+            <span>4.5</span>
+            <i class="pi pi-star-fill"></i>
+          </div>
         </div>
-        <div style="display: flex; align-items: center;">
-            <i class="pi pi-map-marker" style="margin-right: 8px;"></i>
-            <p style="margin: 0;">{{ restaurant.location }}</p>
+
+        <div class="resto-box-details">
+          <span class="resto-box-details-name">{{ restaurant.name }}</span>
+          <p class="resto-box-details-description">
+            {{ restaurant.description }}
+          </p>
+          <!--
+          <div class="resto-box-details-location">
+            <i class="pi pi-map-marker"></i>
+            <p>{{ restaurant.location }}</p>
+          </div>
+          -->
+          <div class="resto-box-details-button">
+            <p-button
+              label="check"
+              icon="pi pi-angle-right"
+              [link]="true"
+              iconPos="right"
+            ></p-button>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
