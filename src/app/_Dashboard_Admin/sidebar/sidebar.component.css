@@ -1,0 +1,29 @@
+/* sidebar.component.css */
+.sidebar {
+    width: 170px !important;
+  }
+  
+  .content-wrapper {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+}
+  
+  .sidebar-header {
+    font-size: 20px;
+    color: var(--whitecolor);
+  }
+  
+  .p-sidebar .p-menu .p-menuitem-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .p-sidebar .p-menu .p-menuitem-link:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .p-sidebar .p-menu .p-menuitem-link .p-menuitem-text {
+    margin-left: 1rem;
+  }
+  
