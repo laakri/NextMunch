@@ -1,8 +1,6 @@
-
 .header {
-    position: relative;
     height: 200px; 
-    margin-bottom: 40px;
+
 }
   .banner-resto-img {
     width: 100%;
@@ -10,40 +8,30 @@
     background-color: var(--bgcolor);
     overflow: hidden;
   }
+ 
 
-  /******** edit banner image******/
-  .edit-banner-img{
-   width: 50px;
-   height: 50px;
-   position: absolute;
-   bottom:-20px ;
-   right: 80px;
-   border-radius: 50%;
-   background-color: var(--graycolor);
-   display: flex;
-  justify-content: center;
-  align-items: center;
-  }
-  .edit-banner-img i{
-   font-size: 22px;
-   color: black;
-    
-   } 
+ 
   .banner-resto-img img{
     width: 100%;
     background-color: var(--bgcolor);
     background-position: center;
     background-size: contain;
   }
+  .banner-container{
+    max-width: 1400px;
+    top: 0;
+    margin: 0 auto;
+    position: relative;
 
+  }
 
   /******** main restaurant image **********/
   .main-resto-img { 
     position: absolute;
-    bottom: -45px;
+    bottom: -125px;
     width:  170px;
     height:  170px;
-    left: 350px;
+    left: 30px;
     border: var(--bordercolor) solid 2px;
     border-radius: 50%;
     overflow: hidden;
@@ -79,13 +67,22 @@
     margin: 0 auto;
     padding: 20px;
   }
+
+/***********************************/
+  .resto-spliter{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    padding: 10px;
+  }
 /***********************************/
 
   .resto-details {
-    margin-left: 70px;
+    margin-left: 200px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
+
   }
   
   .resto-details-title {
@@ -126,6 +123,32 @@
     color: var(--graycolor);
     
   }
+/***********************************/
+.resto-timing{
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.resto-timing-header{
+  font-size: 22px;
+}
+.resto-timing-header  i {
+  font-size: 25px;
+}
+.resto-timing-title{
+  font-size: 16px;
+}
+.resto-timing span{
+  color: var(--graycolor);
+  font-size: 15px;
+
+}
 /***********************************/
 
 .resto-events{
