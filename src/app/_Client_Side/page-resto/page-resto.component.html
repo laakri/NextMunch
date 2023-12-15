@@ -1,9 +1,15 @@
 <div class="header">
   <div class="banner-resto-img">
+    <div class="edit-banner-img">
+      <i class="pi pi-pencil"></i>
+    </div>
     <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
 
     <div class="main-resto-img">
-      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />
+      <div class="edit-main-resto-img">
+        <i class="pi pi-pencil"></i>
+      </div>
+      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />     
     </div>
   </div>
 </div>
@@ -13,6 +19,7 @@
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw jaw barcha jaw jaw
       barcha jaw barcha jaw
+     
     </div>
     <div class="resto-details-global-location-phone">
       <div class="resto-details-location-phone">
@@ -29,7 +36,12 @@
         </div>
         <span> +216 {{ data.contact }} </span>
       </div>
+    
     </div>
+  </div>
+  <div class="resto-event add-Event">
+    <i class="pi pi-plus"></i>
+    <h3>Add Event</h3>
   </div>
   <div class="resto-events">
     <p-carousel
@@ -38,6 +50,7 @@
       [numScroll]="1"
       [circular]="true"
     >
+  
       <ng-template let-event pTemplate="item">
         <div class="resto-event">
           <img
@@ -51,8 +64,15 @@
 
   <div class="resto-menu">
     <h2>Categories</h2>
-
+    
     <div class="resto-menu-filter">
+      <div class="resto-menu-filter-category add-categ">
+        <p-button (click)="openAddPlat()" 
+        [link]="true">
+        <i class="pi pi-plus"></i>
+        </p-button>
+        <h5>Add category</h5>
+      </div>
       <div class="resto-menu-filter-category" *ngFor="let item of events">
         <img
           src="https://www.mosaique-pizza.fr/medias/images/menu-pizzas.svg"
@@ -64,6 +84,28 @@
     <h2>Produits</h2>
 
     <div class="resto-menu-products">
+
+
+      <div class="resto-menu-product add-product"  >
+        <p-button (click)="openAddPlat()" 
+        [link]="true">
+        <i class="pi pi-plus"></i>
+        </p-button>
+        <h3>Add plat</h3>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="resto-menu-product" *ngFor="let item of items">
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">

@@ -75,6 +75,7 @@ import { SidebarComponent } from './_Dashboard_Admin/sidebar/sidebar.component';
 import { ListAddCategoryComponent } from './_Dashboard_Admin/list-add-category/list-add-category.component';
 import { ListUserComponent } from './_Dashboard_Admin/list-user/list-user.component';
 import { ListRestaurantComponent } from './_Dashboard_Admin/list-restaurant/list-restaurant.component';
+import { AddPlatComponent } from './_Dashboard_Resto/add-plat/add-plat.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,7 @@ import { ListRestaurantComponent } from './_Dashboard_Admin/list-restaurant/list
     ListAddCategoryComponent,
     ListUserComponent,
     ListRestaurantComponent,
+    AddPlatComponent,
   ],
 
   imports: [

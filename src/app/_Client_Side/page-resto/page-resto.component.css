@@ -10,12 +10,34 @@
     background-color: var(--bgcolor);
     overflow: hidden;
   }
+
+  /******** edit banner image******/
+  .edit-banner-img{
+   width: 50px;
+   height: 50px;
+   position: absolute;
+   bottom:-20px ;
+   right: 80px;
+   border-radius: 50%;
+   background-color: var(--graycolor);
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  .edit-banner-img i{
+   font-size: 22px;
+   color: black;
+    
+   } 
   .banner-resto-img img{
     width: 100%;
     background-color: var(--bgcolor);
     background-position: center;
     background-size: contain;
   }
+
+
+  /******** main restaurant image **********/
   .main-resto-img { 
     position: absolute;
     bottom: -85px;
@@ -34,6 +56,25 @@
     background-position: center;
     background-size: cover;
 }
+
+/***** edit main resto image */
+
+.edit-main-resto-img{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom:-20px ;
+  right: 10px;
+  border-radius: 50%;
+  background-color: var(--graycolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-main-resto-img i{
+  font-size: 22px;
+  color: black;
+}
   
   .container {
     max-width: 1400px;
@@ -41,7 +82,7 @@
     padding: 20px;
   }
 /***********************************/
-  
+
   .resto-details {
     margin: auto;
     max-width: 500px;
@@ -216,6 +257,46 @@
     font-size: 15px;
     font-weight: 700;
 }
-.product-btn{
+.add-product{
+  border: dashed 1px var(--graycolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.add-product i{
+  font-size: 30px;
+}
+.add-product:hover{
+  background-color: var(--soft-bgcolor);
+  cursor: pointer;
+}
+.add-categ{
+  border: dashed 1px var(--graycolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--whitecolor);
 
+}
+.add-categ:hover{
+  background-color: var(--soft-bgcolor);
+  cursor: pointer;
+}
+.add-Event{
+   border: dashed 1px var(--graycolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--whitecolor);
+  gap: 12px;
+  height: 80px;
+  width: 90%;
+ margin: 40px auto;
+ border-radius: 10px;
+}
+.add-Event:hover{
+  background-color: var(--soft-bgcolor);
+  cursor: pointer;
 }

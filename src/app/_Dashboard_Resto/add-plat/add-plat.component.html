@@ -1,0 +1,48 @@
+<div class="container">
+  <h1>Add Dish</h1>
+
+  <form>
+    <div class="container-details">
+      <div class="container-details-left">
+        <div class="test">
+          <label htmlFor="username">Dish name</label>
+          <input pInputText id="username" aria-describedby="username-help" />
+        </div>
+        <div class="test">
+          <label htmlFor="username">Dish price</label>
+          <input
+            type="number"
+            pInputText
+            id="username"
+            aria-describedby="username-help"
+          />
+        </div>
+        <div class="test">
+          <label htmlFor="username">Dish descriiption</label>
+          <input pInputText id="username" aria-describedby="username-help" />
+        </div>
+      </div>
+      <div class="container-details-rigth">
+        <label for="restaurant-category">Restaurants category:</label>
+        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
+       
+      </div>
+    </div>
+    <div class="container-image">
+<div class="image-box">
+
+</div>
+<div class="upload-image-box">
+    <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"  [multiple]="true" accept="image/*" >
+        <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+            </ul>
+        </ng-template>
+    </p-fileUpload>
+</div>
+    </div>
+
+    <p-button type="submit" class="btn btn-primary">Ajouter</p-button>
+  </form>
+</div>
