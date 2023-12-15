@@ -1,0 +1,52 @@
+.container {
+    max-width: 1500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .photos-container{
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+  
+  }
+  
+
+.photo {
+  flex: 0 0 30%;
+}
+.photo2 {
+  flex: 0 0 40%;
+}
+.photo2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.content {
+  flex: 0 0 60%;
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 20px;
+}

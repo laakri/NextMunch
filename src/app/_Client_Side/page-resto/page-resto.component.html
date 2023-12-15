@@ -1,5 +1,6 @@
 <div class="header">
   <div class="banner-resto-img">
+<<<<<<< Updated upstream
     <div class="edit-banner-img">
       <i class="pi pi-pencil"></i>
     </div>
@@ -10,12 +11,23 @@
         <i class="pi pi-pencil"></i>
       </div>
       <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />     
+=======
+    <img
+      src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
+      alt=""
+    />
+    <div class="main-resto-img">
+      <img
+        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
+        alt=""
+      />
+>>>>>>> Stashed changes
     </div>
   </div>
 </div>
 <div class="container">
   <div class="resto-details">
-    <div class="resto-details-title">{{ data.nameR }}</div>
+    <div class="resto-details-title">{{ data?.nameR }}</div>
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw jaw barcha jaw jaw
       barcha jaw barcha jaw
@@ -27,14 +39,14 @@
           <i class="pi pi-map-marker"></i>
           <p>Location</p>
         </div>
-        <span> {{ data.location }} </span>
+        <span> {{ data?.location }} </span>
       </div>
       <div class="resto-details-location-phone">
         <div>
           <i class="pi pi-phone"></i>
           <p>Phone</p>
         </div>
-        <span> +216 {{ data.contact }} </span>
+        <span> +216 {{ data?.contact }} </span>
       </div>
     
     </div>

@@ -2,7 +2,7 @@
 .header {
     position: relative;
     height: 200px; 
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
   .banner-resto-img {
     width: 100%;
@@ -40,12 +40,10 @@
   /******** main restaurant image **********/
   .main-resto-img { 
     position: absolute;
-    bottom: -85px;
+    bottom: -45px;
     width:  170px;
     height:  170px;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%);
+    left: 350px;
     border: var(--bordercolor) solid 2px;
     border-radius: 50%;
     overflow: hidden;
@@ -84,11 +82,10 @@
 /***********************************/
 
   .resto-details {
-    margin: auto;
+    margin-left: 70px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    text-align: center;
   }
   
   .resto-details-title {
@@ -105,7 +102,6 @@
   }
   .resto-details-global-location-phone{
     width: max-content;
-    margin: auto;
   }
   .resto-details-location-phone{
     width: max-content;
@@ -116,7 +112,6 @@
   }
   .resto-details-location-phone div{
     height: max-content;
-
     align-items: center;
     display: flex;
     gap: 5px;

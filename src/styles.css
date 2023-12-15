@@ -1,6 +1,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
 body.light-theme {
     height: 100%;
@@ -11,7 +12,7 @@ body.light-theme {
     overflow-x:hidden;
     color: var(--whitecolor);
     background: var(--bgcolor);
-    font-family: var(--font-family);
+    font-family: 'Preahvihear', sans-serif !important;
   --bordercolor: #e1e4e8;
   --bgcolor: #fff;
   --bgtransparentcolor: #f9f9f9cb;
@@ -21,7 +22,7 @@ body.light-theme {
   --graycolor: #586069;
   --maincolor: #0366d6;
   --hovermaincolor: #4184b3;
-  --secendcolor: #d73a49;
+  --secendcolor: #e97807;
   --soft-darktranscolor: #eaecef;
   --buttonactive: #e8e8e8;
   --special-button-color:#0d7573;
@@ -39,7 +40,7 @@ body{
   overflow-x:hidden;
   color: var(--whitecolor);
   background: var(--bgcolor);
-  font-family: var(--font-family);
+  font-family: 'Preahvihear', sans-serif !important;
   --bordercolor: #262c32;
   --bgcolor: #000115;
   --bgtransparentcolor: #000509cb;
@@ -49,7 +50,7 @@ body{
   --graycolor: #acb2b9;
   --maincolor: #08d9d6;
   --hovermaincolor: #01a4a1;
-  --secendcolor: #ff3860;
+  --secendcolor: #e97807;
   --soft-darktranscolor: #0f172169;
   --buttonactive: #1b1f2a;
   --special-button-color:#08d9d6;
@@ -63,7 +64,12 @@ button {
   cursor: pointer;
   text-decoration: none;
   color: var(--whitecolor);
-  font-size: 16px;
+    font-size: 16px;
+}
+.secend-btn{
+  background-color: #e97807 ;
+  border: none;
+  color: white;
 }
 .fas {
   font-size: 27px;
@@ -117,19 +123,14 @@ input::placeholder{
     border: var(--bordercolor) solid 1px;
   }
   
-  /*********************-Button*******************
+  /*********************-Button********************/
 
 .p-button {
-    background: var(--special-button-background);
-    border: 1px solid var(--special-button-border);
-    color: var(--special-button-color);
     height: 35px; 
   }
-  
+ 
   .p-button:not(.p-disabled):not(.p-highlight):hover {
-    background: var(--special-button-background);
-    border-color: var(--special-button-border);
-    color: var(--whitecolor);
+    text-decoration: none !important;
   }
   
   /*********************-dropdown********************/

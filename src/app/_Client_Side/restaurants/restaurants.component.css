@@ -53,7 +53,7 @@
 .restos{
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
 }
 .resto-box {
@@ -139,12 +139,10 @@
 .row{
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 10px;
 }
 .conatiner-left{
 flex: 1;
-  border-right: 1px solid var(--graycolor);
 padding-right: 5px;
 height: 500px;
 

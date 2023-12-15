@@ -1,22 +1,25 @@
-.navbar{
+  @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
+
+  .navbar{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
-    padding: 20px ;
+    height: 70px;
+    padding: 30px ;
 }
 .mainlogo{
     position: relative;
 }
 .mainlogo div{
-    font-size: 20px;
+    font-family: 'Preahvihear', sans-serif !important;
+    font-size: 23px;
     font-weight: 700;
 }
 .mainlogo img{
     height: 20px;
     width: 20px;
     position: absolute;
-    top: -8px;
+    top: -3px;
     right: -13px;
 }
 .navbar-middle{
