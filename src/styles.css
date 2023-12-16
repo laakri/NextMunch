@@ -41,6 +41,7 @@ body{
   color: var(--whitecolor);
   background: var(--bgcolor);
   font-family: 'Preahvihear', sans-serif !important;
+  
   --bordercolor: #262c32;
   --bgcolor: #000115;
   --bgtransparentcolor: #000509cb;
@@ -65,6 +66,11 @@ button {
   text-decoration: none;
   color: var(--whitecolor);
     font-size: 16px;
+}
+.Btn{
+  background-color: #9d8462 ;
+  border: none;
+  color: white;
 }
 .secend-btn{
   background-color: #e97807 ;
