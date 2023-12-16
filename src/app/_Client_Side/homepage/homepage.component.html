@@ -1,31 +1,50 @@
+<div class="header">
+  <div class="home-header">
+    <div class="home-description">
+      <h4>NextMunch</h4>
+      <h1>
+        Discover the gastronomic treasures of your city - Easy location,
+        irresistible offers...
+      </h1>
+      <p-button>Show more <i class="pi pi-chevron-right"></i></p-button>
+    </div>
+    <div class="mini-carousel-home">
+      <div class="formes">
+        <img src="../../../assets/images/home-page/graph.png" alt="" />
+      </div>
+      <div class="form-resto-img">
+        <img
+          src="../../../assets/images/home-page/1000_F_163351783_7nxJZugbE5LVPAAH4M7XBhZmgvui7eO5-removebg-preview.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
-  <div class="photos-container">
-    <div class="photo">
-      <img
-        src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
-        alt="Photo 1"
-      />
+  <div class="container-box1">
+    <i class="pi pi-heart-fill"></i>
+    <h2>Our App Features</h2>
+    <p>Locate, reserve, taste: the gastronomic adventure begins here!</p>
+    <div class="features">
+    <div class="resto-menu-product" *ngFor="let index of [0, 1, 2]">
+      <div class="rest-resto-menu-product-details">
+        <div class="resto-menu-product-img">
+          <img
+            src="../../../assets/images/home-page/unnamed.png"
+            alt=""
+          />
+        </div>
+        <div class="resto-menu-product-name">Easy to Oreder</div>
+        <div class="resto-menu-product-description">
+          Short Description Short Description Short Description Short
+          Description
+        </div>
+      
+      </div>
     </div>
-    <div class="photo2">
-      <img
-        src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
-        alt="Photo 2"
-      />
-    </div>
-    <div class="photo">
-      <img
-        src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
-        alt="Photo 3"
-      />
-    </div>
+  </div>
   </div>
 
-  <div class="content">
-    <h2>Welcome to Restaurant Finder</h2>
-    <p>
-      Discover a variety of restaurants and their menus to find the best options
-      for you.
-    </p>
-    <p-button label="Sign IN"></p-button>
-  </div>
+  
 </div>

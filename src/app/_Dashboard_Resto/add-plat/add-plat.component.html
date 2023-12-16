@@ -18,14 +18,14 @@
           />
         </div>
         <div class="test">
-          <label htmlFor="username">Dish descriiption</label>
+          <label htmlFor="username">Dish description</label>
           <input pInputText id="username" aria-describedby="username-help" />
         </div>
       </div>
+ 
       <div class="container-details-rigth">
         <label for="restaurant-category">Restaurants category:</label>
-        <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
-       
+        <p-multiSelect  placeholder="restaurant categorys" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
       </div>
     </div>
     <div class="container-image">
@@ -33,13 +33,8 @@
 
 </div>
 <div class="upload-image-box">
-    <p-fileUpload name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php"  [multiple]="true" accept="image/*" >
-        <ng-template pTemplate="content">
-            <ul *ngIf="uploadedFiles.length">
-                <li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
-            </ul>
-        </ng-template>
-    </p-fileUpload>
+    <label> upload image</label>
+    <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*"  ></p-fileUpload>
 </div>
     </div>
 
