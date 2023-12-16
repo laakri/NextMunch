@@ -1,54 +1,61 @@
 <div class="header">
   <div class="banner-resto-img">
 
-    <div class="edit-banner-img">
-      <i class="pi pi-pencil"></i>
-    </div>
     <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
-
+  </div>
+  <div class="banner-container">
     <div class="main-resto-img">
-      <div class="edit-main-resto-img">
-        <i class="pi pi-pencil"></i>
-      </div>
-      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />     
-
-    <img
-      src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
-      alt=""
-    />
-    <div class="main-resto-img">
-      <img
-        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
-        alt=""
-      />
-
+      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="resto-details">
     <div class="resto-details-title">{{ data?.nameR }}</div>
     <div class="resto-details-description">
-      barcha jaw barcha jaw barcha jaw barcha jaw barcha jaw jaw barcha jaw jaw
-      barcha jaw barcha jaw
-     
+      barcha jaw barcha jaw barcha jaw barcha jaw barcha
     </div>
-    <div class="resto-details-global-location-phone">
-      <div class="resto-details-location-phone">
-        <div>
-          <i class="pi pi-map-marker"></i>
-          <p>Location</p>
-        </div>
-        <span> {{ data?.location }} </span>
+  </div>
+  <div class="resto-spliter">
+    <div class="resto-timing">
+      <div class="resto-timing-header">
+        <i class="pi pi-map-marker"></i>
       </div>
-      <div class="resto-details-location-phone">
-        <div>
-          <i class="pi pi-phone"></i>
-          <p>Phone</p>
-        </div>
-        <span> +216 {{ data?.contact }} </span>
+      <div class="resto-timing-header">Location</div>
+      <div class="resto-timing-title">
+        Monastir
+        <span>{{ data?.location }} </span>
       </div>
-    
+      <p-button label="GPS" [link]="true"></p-button>
+    </div>
+    <div class="resto-timing">
+      <div class="resto-timing-header">
+        <i class="pi pi-phone"></i>
+      </div>
+      <div class="resto-timing-header">Contact</div>
+      <div class="resto-timing-title">
+        Phone
+        <span>+216 {{ data?.contact }} </span>
+      </div>
+      <div class="resto-timing-title">
+        Facebook
+        <span> KadheBenkadhe </span>
+      </div>
+    </div>
+    <div class="resto-timing">
+      <div class="resto-timing-header">
+        <i class="pi pi-clock"></i>
+      </div>
+      <div class="resto-timing-header">Open Hours</div>
+      <div class="resto-timing-title">
+        Weekdays
+        <span>8.30 AM - 9.30 PM </span>
+      </div>
+      <div class="resto-timing-title">
+        Weekends
+        <span>8.30 AM - 9.30 PM </span>
+      </div>
     </div>
   </div>
   <div class="resto-event add-Event">
@@ -62,7 +69,6 @@
       [numScroll]="1"
       [circular]="true"
     >
-  
       <ng-template let-event pTemplate="item">
         <div class="resto-event">
           <img
@@ -76,12 +82,11 @@
 
   <div class="resto-menu">
     <h2>Categories</h2>
-    
+
     <div class="resto-menu-filter">
       <div class="resto-menu-filter-category add-categ">
-        <p-button (click)="openAddPlat()" 
-        [link]="true">
-        <i class="pi pi-plus"></i>
+        <p-button (click)="openAddPlat()" [link]="true">
+          <i class="pi pi-plus"></i>
         </p-button>
         <h5>Add category</h5>
       </div>
@@ -96,27 +101,12 @@
     <h2>Produits</h2>
 
     <div class="resto-menu-products">
-
-
-      <div class="resto-menu-product add-product"  >
-        <p-button (click)="openAddPlat()" 
-        [link]="true">
-        <i class="pi pi-plus"></i>
+      <div class="resto-menu-product add-product">
+        <p-button (click)="openAddPlat()" [link]="true">
+          <i class="pi pi-plus"></i>
         </p-button>
         <h3>Add plat</h3>
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
       <div class="resto-menu-product" *ngFor="let item of items">
         <div class="rest-resto-menu-product-details">
