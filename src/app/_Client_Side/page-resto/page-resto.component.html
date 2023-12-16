@@ -1,10 +1,16 @@
 <div class="header">
   <div class="banner-resto-img">
-    <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
+    <img
+      src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
+      alt=""
+    />
   </div>
   <div class="banner-container">
     <div class="main-resto-img">
-      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />
+      <img
+        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
+        alt=""
+      />
     </div>
   </div>
 </div>
@@ -94,7 +100,7 @@
           </div>
           <div class="event-box">
             <div class="event-resto-name">{{ data?.nameR }}</div>
-            <div class="event-resto-special-event">Special MENU</div>
+            <div class="event-resto-special-event">Special Menu</div>
             <div class="event-resto-line"></div>
             <div class="event-resto-offer-text">Mermez + Couscous</div>
             <div class="event-resto-offer-text"></div>
@@ -138,29 +144,51 @@
         <h3>Add plat</h3>
       </div>
 
-      <div class="resto-menu-product" *ngFor="let item of items">
+      <div
+        class="resto-menu-product"
+        *ngFor="let item of items"
+        [ngClass]="{ selected: item.selected }"
+      >
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">
-            <img
-              src="../../../assets/—Pngtree—real beef cheese burger_6889143.png"
-              alt=""
-            />
+            <img src="{{ item.imgP }}" alt="" />
           </div>
-          <div class="resto-menu-product-name">CouscousCouscous</div>
+          <div class="resto-menu-product-name">{{ item.name }}</div>
           <div class="resto-menu-product-description">
-            Short Description Short Description Short Description Short
-            Description
+            {{ item.description }}
           </div>
           <div class="resto-menu-product-footer">
-            <div class="resto-menu-product-price">Dt 60.00</div>
+            <div class="resto-menu-product-price">{{ item.Price }}</div>
             <p-button
               class="product-btn"
               icon="pi pi-cart-plus"
               [link]="true"
+            ></p-button>
+            <p-button
+              (click)="showProductSelectionBar()"
+              (click)="addToSelectedProducts(item)"
+              [link]="true"
+              icon="pi pi-plus"
             ></p-button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="productSelectionBarVisible" class="product-selection-bar">
+  <div class="product-selection-bar-left">
+    <span>{{ selectedProductIds.length }} items selected</span>
+    <p-inputNumber
+      placeholder="Enter Price"
+      [(ngModel)]="eventPrice"
+    ></p-inputNumber>
+    <p-inputNumber
+      placeholder="Number of Persons"
+      [(ngModel)]="numberOfPersons"
+    ></p-inputNumber>
+    <p-calendar placeholder="Start Date" [(ngModel)]="startDate"></p-calendar>
+    <p-calendar placeholder="End Date" [(ngModel)]="endDate"></p-calendar>
+  </div>
+  <p-button styleClass="secend-btn" (click)="submitEvent()">Submit</p-button>
 </div>
