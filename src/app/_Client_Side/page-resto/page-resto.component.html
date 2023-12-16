@@ -1,6 +1,5 @@
 <div class="header">
   <div class="banner-resto-img">
-
     <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
   </div>
   <div class="banner-container">
@@ -71,10 +70,41 @@
     >
       <ng-template let-event pTemplate="item">
         <div class="resto-event">
+          <!--
           <img
-            src="../../../assets/images/2d6f4b83f0dad3a51043b584933b4bf4.png"
+            src="https://i.gyazo.com/02497575bc6f9b4a1ec38d7c44ec70cd.jpg"
             alt=""
           />
+          <img src="https://i.gyazo.com/910386d587275002dc3b807c86376bd8.png" />
+          -->
+          <img
+            src="https://i.gyazo.com/aea585922385b1af33a6cc8ced47d193.png"
+            alt=""
+          />
+          <div class="event-resto-offer">
+            <img
+              class="event-resto-offer-img"
+              src="../../../assets/images/Main-Images/—Pngtree—price explosion stickers_5462157.png"
+              alt=""
+            />
+            <div class="event-resto-offer-box">
+              <div class="event-resto-offer-text">Offer Price</div>
+              <div class="event-resto-offer-price">60 Dt</div>
+            </div>
+          </div>
+          <div class="event-box">
+            <div class="event-resto-name">{{ data?.nameR }}</div>
+            <div class="event-resto-special-event">Special MENU</div>
+            <div class="event-resto-line"></div>
+            <div class="event-resto-offer-text">Mermez + Couscous</div>
+            <div class="event-resto-offer-text"></div>
+
+            <p-button
+              label="ORDER  NOW"
+              styleClass="Btn"
+              [rounded]="true"
+            ></p-button>
+          </div>
         </div>
       </ng-template>
     </p-carousel>
