@@ -1,44 +1,64 @@
-import { Component } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { Component, OnInit } from '@angular/core';
+import { Plat } from 'src/app/models/plat.model';
+import { PlatService } from 'src/app/services/plat.service';
 
-interface UploadEvent {
-  originalEvent: Event;
-  files: File[];
-}
 interface City {
-  name: string,
-  code: string
+  name: string;
+  code: string;
 }
 
 @Component({
   selector: 'app-add-plat',
   templateUrl: './add-plat.component.html',
   styleUrls: ['./add-plat.component.css'],
-  providers: [MessageService]
 })
-export class AddPlatComponent {
-  cities!: City[];
 
-  selectedCities!: City[];
+export class AddPlatComponent implements OnInit {
+  cities: City[] = [];
+  selectedCatgorys: City[] = [];
+
+  platData: Plat = {
+    nameP: '',
+    descriptionP: '',
+    imgP: null,
+    categoryP: [],
+    priceP: '',
+  };
+
+  constructor(private platService: PlatService) {}
 
   ngOnInit() {
-      this.cities = [
-          {name: 'New York', code: 'NY'},
-          {name: 'Rome', code: 'RM'},
-          {name: 'London', code: 'LDN'},
-          {name: 'Istanbul', code: 'IST'},
-          {name: 'Paris', code: 'PRS'}
-      ];
+    this.cities = [
+      { name: 'FastFood', code: '657b685088f8a15a4d2986a8' },
+      { name: 'Dessert', code: '657b685088f8a15a4d2986a8' },
+      { name: 'SPicy', code: 'LDN' },
+      { name: 'tunisienne', code: 'IST' },
+      { name: 'Algerienne', code: 'PRS' },
+    ];
   }
-  uploadedFiles: any[] = [];
+  
+  selectedFile: File | null = null;
 
-  constructor(private messageService: MessageService) {}
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
 
-  onUpload(event:UploadEvent) {
-      for(let file of event.files) {
-          this.uploadedFiles.push(file);
+  onSubmit() {
+    const selectedCategorys = this.selectedCatgorys.map((category: any) => category.code);
+  
+    if (this.selectedFile) {
+      this.platData.imgP = this.selectedFile;
+    }
+  
+    this.platData.categoryP = selectedCategorys;
+    this.platService.ajouterPlat(this.platData).subscribe(
+      (response) => {
+        console.log('Plat enregistré avec succès:', response);
+      },
+      (error) => {
+        console.error('Erreur lors de l\'enregistrement du plat:', error);
+        // Gérez ici les erreurs
       }
-
-      this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+    );
   }
 }

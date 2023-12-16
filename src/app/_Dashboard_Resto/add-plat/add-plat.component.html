@@ -1,41 +1,69 @@
 <div class="container">
   <h1>Add Dish</h1>
 
-  <form>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="container-details">
-      <div class="container-details-left">
-        <div class="test">
-          <label htmlFor="username">Dish name</label>
-          <input pInputText id="username" aria-describedby="username-help" />
-        </div>
-        <div class="test">
-          <label htmlFor="username">Dish price</label>
-          <input
-            type="number"
-            pInputText
-            id="username"
-            aria-describedby="username-help"
-          />
-        </div>
-        <div class="test">
-          <label htmlFor="username">Dish description</label>
-          <input pInputText id="username" aria-describedby="username-help" />
-        </div>
+      <div class="plat-image">
+        <i class="pi pi-plus"></i>
       </div>
- 
-      <div class="container-details-rigth">
-        <label for="restaurant-category">Restaurants category:</label>
-        <p-multiSelect  placeholder="restaurant categorys" [options]="cities" [(ngModel)]="selectedCities" optionLabel="name"></p-multiSelect>
-      </div>
-    </div>
-    <div class="container-image">
-<div class="image-box">
+      <input
+      pInputText
+      name="imgP"
+      placeholder="image path"
+      aria-describedby="username-help"
+      (change)="onFileSelected($event)"
+      required
+      type="file"
+    />
+      <h4>dish picture</h4>
 
-</div>
-<div class="upload-image-box">
-    <label> upload image</label>
-    <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*"  ></p-fileUpload>
-</div>
+      <div class="details-plat">
+        <div class="container-details-left">
+          <div class="test">
+            <label htmlFor="username">Dish name</label>
+            <input
+              pInputText
+              name="nameP"
+              aria-describedby="username-help"
+              [(ngModel)]="platData.nameP"
+              required
+            />
+           
+          </div>
+          <div class="test">
+            <label htmlFor="username">Dish price</label>
+            <input
+              type="number"
+              pInputText
+              name="priceP"
+              aria-describedby="username-help"
+              [(ngModel)]="platData.priceP" required
+            />
+          </div>
+        </div>
+
+        <div class="container-details-rigth">
+          <div class="test">
+            <label for="restaurant-category">Restaurants category:</label>
+            <p-multiSelect
+              name="categoryP"
+              placeholder="restaurant categorys"
+              [options]="cities"
+              optionLabel="name"
+              [(ngModel)]="selectedCatgorys" required
+            ></p-multiSelect>
+          </div>
+          <div class="test">
+            <label htmlFor="username">Dish description</label>
+            <input
+              pInputText
+              name="descriptionP"
+              aria-describedby="username-help"
+              [(ngModel)]="platData.descriptionP" required
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <p-button type="submit" class="btn btn-primary">Ajouter</p-button>
