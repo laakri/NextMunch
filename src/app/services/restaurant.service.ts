@@ -18,4 +18,8 @@ export class RestaurantService {
   saveRestaurant(restaurant: Restaurant): Observable<any> {
     return this.http.post(this.apiUrl + '/restaurants', restaurant);
   }
+  updateRestaurant(data: any): Observable<any> {
+    const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
+    return this.http.patch(url, data.formData);
+  }
 }

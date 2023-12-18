@@ -1,3 +1,11 @@
+
+.loading{
+    max-width: 700px;
+    margin: 120px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .settings-container {
     max-width: 700px;
     margin: auto;
@@ -27,7 +35,7 @@
     justify-content: space-between;
     width: 48%;
   }
-  
+
   .file-upload {
     position: relative;
   }

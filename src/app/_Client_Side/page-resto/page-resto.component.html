@@ -1,16 +1,10 @@
 <div class="header">
   <div class="banner-resto-img">
-    <img
-      src="../../../assets/images/restaurants-images/burger-fry-souse-banner-free-space-text-mockup-fast-food-top-view-empty-professional-phonography-photo.jpg"
-      alt=""
-    />
+    <img src="{{ data.bannerImg }}" alt="" />
   </div>
   <div class="banner-container">
     <div class="main-resto-img">
-      <img
-        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
-        alt=""
-      />
+      <img src="{{ data.mainImg }}" alt="" />
     </div>
     <p-button
       icon="pi pi-ellipsis-h"
@@ -24,64 +18,45 @@
 <div class="container">
   <div class="resto-details">
     <div class="resto-details-title">{{ data.nameR }}</div>
+    <p-rating
+      [(ngModel)]="ratingValue"
+      [readonly]="true"
+      [cancel]="false"
+    ></p-rating>
+
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha
     </div>
-  </div>
-  <!--
-  <div class="resto-spliter">
-    <div class="resto-timing">
-      <div class="resto-timing-header">
+    <div class="resto-details-location-phone">
+      <span>
         <i class="pi pi-map-marker"></i>
-      </div>
-      <div class="resto-timing-header">Location</div>
-      <div class="resto-timing-title">
-        Monastir
-        <span>{{ data.location }} </span>
-      </div>
-      <p-button label="GPS" [link]="true"></p-button>
+        Location</span
+      >
+      <span> {{ data.location }} </span>
     </div>
-    <div class="resto-timing">
-      <div class="resto-timing-header">
-        <i class="pi pi-phone"></i>
-      </div>
-      <div class="resto-timing-header">Contact</div>
-      <div class="resto-timing-title">
-        Phone
-        <span>+216 {{ data.contact }} </span>
-      </div>
-      <div class="resto-timing-title">
-        Facebook
-        <span> KadheBenkadhe </span>
-      </div>
+    <div class="resto-details-location-phone">
+      <span>
+        <i class="pi pi-comments"></i>
+
+        Contact</span
+      >
+      <span> +216 {{ data.contact }} </span>
     </div>
-    <div class="resto-timing">
-      <div class="resto-timing-header">
-        <i class="pi pi-clock"></i>
-      </div>
-      <div class="resto-timing-header">Open Hours</div>
-      <div class="resto-timing-title">
-        Weekdays
-        <span>8.30 AM - 9.30 PM </span>
-      </div>
-      <div class="resto-timing-title">
-        Weekends
-        <span>8.30 AM - 9.30 PM </span>
-      </div>
+    <div class="resto-details-time">
+      <i class="pi pi-clock"></i>
+      <p>{{ data.openDates }}</p>
+      <span>- AM to</span>
+      <p>{{ data.closeDates }}</p>
+      <span>- PM</span>
     </div>
-  </div>-->
+  </div>
   <div class="owner-tab-menu">
     <p-button label="Menu" styleClass="custom-button"></p-button
     ><p-button label="Informations" styleClass="custom-button"></p-button
     ><p-button label="Reviews" styleClass="custom-button"></p-button>
     <p-button label="Reservations" styleClass="custom-button"></p-button>
   </div>
-  <!--
-  <div class="resto-event add-Event">
-    <i class="pi pi-plus"></i>
-    <h3>Add Event</h3>
-  </div>
--->
+
   <div class="resto-events">
     <p-carousel
       [value]="events"
@@ -128,7 +103,6 @@
     <h2>Categories</h2>
 
     <div class="resto-menu-filter">
-
       <div class="resto-menu-filter-category add-categ">
         <p-button (click)="openSelectCateg()" [link]="true">
           <i class="pi pi-plus"></i>
@@ -137,11 +111,8 @@
       </div>
 
       <div class="resto-menu-filter-category" *ngFor="let categ of categories">
-        <img
-          src="{{categ.imgCat}}"
-          alt=""
-        />
-        <div>{{categ.nameCat}}</div>
+        <img src="{{ categ.imgCat }}" alt="" />
+        <div>{{ categ.nameCat }}</div>
       </div>
     </div>
     <h2>Produits</h2>
@@ -154,13 +125,10 @@
         <h3>Add plat</h3>
       </div>
 
-      <div
-        class="resto-menu-product"
-        *ngFor="let plat of plats"
-      >
+      <div class="resto-menu-product" *ngFor="let plat of plats">
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">
-            <img src="{{plat.imgP}}" alt="" />
+            <img src="{{ plat.imgP }}" alt="" />
           </div>
           <div class="resto-menu-product-name">{{ plat.nameP }}</div>
           <div class="resto-menu-product-description">

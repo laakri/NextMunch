@@ -8,8 +8,8 @@ export interface Restaurant {
   descriptionR?: string;
   location: string;
   contact: string;
-  startDate?: Date;
-  endDate?: Date;
+  openDates?: string;
+  closeDates?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
