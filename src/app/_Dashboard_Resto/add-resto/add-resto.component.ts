@@ -97,8 +97,8 @@ export class AddRestoComponent {
     this.RestaurantService.saveRestaurant({
       ownerId: this.UserID,
       cin: this.cin,
-      bannerImg: '', // Set the appropriate values for these properties
-      mainImg: '', // Set the appropriate values for these properties
+      bannerImg: null, // Set the appropriate values for these properties
+      mainImg: null, // Set the appropriate values for these properties
       nameR: this.restaurantName,
       descriptionR: '', // Set the appropriate values for these properties
       location: this.location,

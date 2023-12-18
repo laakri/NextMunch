@@ -1,0 +1,130 @@
+<div class="settings-container">
+  <h2>Manage Your Restaurant</h2>
+  <div class="input-field">
+    <label for="bannerImg">Restaurant Banner:</label>
+    <div class="file-upload">
+      <div
+        for="bannerImg"
+        class="custom-upload-label banner"
+        (click)="fileMainInput.click()"
+      >
+        <div class="upload-text" *ngIf="!bannerImg">
+          Click to upload Banner Image
+        </div>
+        <img
+          [src]="bannerImg"
+          alt="Banner Image"
+          *ngIf="bannerImg"
+          class="uploaded-image"
+        />
+      </div>
+      <input
+        #fileMainInput
+        type="file"
+        id="bannerImg"
+        (change)="handleBannerImgChange($event)"
+        accept="image/*"
+        style="display: none"
+      />
+    </div>
+  </div>
+  <div class="input-field">
+    <label for="mainImg">Restaurant Image:</label>
+    <div class="file-upload">
+      <div
+        for="mainImg"
+        class="custom-upload-label main"
+        (click)="fileInput.click()"
+      >
+        <div class="upload-text" *ngIf="!mainImg">
+          Click to upload Main Image
+        </div>
+        <img
+          [src]="mainImg"
+          alt="Main Image"
+          *ngIf="mainImg"
+          class="uploaded-image"
+        />
+      </div>
+      <input
+        #fileInput
+        type="file"
+        id="mainImg"
+        (change)="handleMainImgChange($event)"
+        accept="image/*"
+        style="display: none"
+      />
+    </div>
+  </div>
+
+  <!-- Add other input fields as needed -->
+  <div class="flex-field">
+    <div class="input-field">
+      <label for="nameR">Restaurant Name:</label>
+      <input
+        pInputText
+        type="text"
+        id="nameR"
+        [(ngModel)]="nameR"
+        placeholder="Enter the name of your restaurant"
+      />
+    </div>
+
+    <div class="input-field">
+      <label for="descriptionR">Description:</label>
+      <textarea
+        id="descriptionR"
+        [(ngModel)]="descriptionR"
+        placeholder="Tell us about your restaurant"
+      ></textarea>
+    </div>
+    <div class="splited-field">
+      <div class="input-field">
+        <label for="location">Location:</label>
+        <input
+          pInputText
+          type="text"
+          id="location"
+          [(ngModel)]="location"
+          placeholder="Where is your restaurant located?"
+        />
+      </div>
+
+      <div class="input-field">
+        <label for="contact">Contact:</label>
+        <input
+          pInputText
+          type="text"
+          id="contact"
+          [(ngModel)]="contact"
+          placeholder="How can customers reach you?"
+        />
+      </div>
+    </div>
+    <div class="splited-field">
+      <!-- Add input fields for open and close times -->
+      <div class="input-field">
+        <label for="openTime">Opening Time:</label>
+        <input
+          pInputText
+          type="text"
+          id="openTime"
+          [(ngModel)]="openTime"
+          placeholder="e.g., 8:00 AM"
+        />
+      </div>
+
+      <div class="input-field">
+        <label for="closeTime">Closing Time:</label>
+        <input
+          pInputText
+          type="text"
+          id="closeTime"
+          [(ngModel)]="closeTime"
+          placeholder="e.g., 6:00 PM"
+        />
+      </div>
+    </div>
+  </div>
+  <p-button type="button" (click)="submitChanges()">Save Changes</p-button>
+</div>

@@ -11,8 +11,6 @@
     overflow: hidden;
   }
  
-
- 
   .banner-resto-img img{
     width: 100%;
     background-color: var(--bgcolor);
@@ -30,17 +28,17 @@
   /******** main restaurant image **********/
   .main-resto-img { 
     position: absolute;
-    bottom: -125px;
-    width:  170px;
-    height:  170px;
+    bottom: -20px;
+    width:  160px;
+    height:  160px;
     left: 30px;
     border: var(--bordercolor) solid 2px;
     border-radius: 50%;
     overflow: hidden;
 }  
 .main-resto-img img{ 
-    height: 170px;
-    width:  170px;
+    height: 160px;
+    width:  160px;
     background-position: center;
     background-size: cover;
 }
@@ -80,21 +78,24 @@
 /***********************************/
 
   .resto-details {
-    margin-left: 200px;
+    margin-left: 20px;
+    margin-top: 5px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-
   }
-  
+  .setting-btn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
   .resto-details-title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
   }
   
   .resto-details-description {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--graycolor);
     margin-bottom: 10px;
 
@@ -152,10 +153,32 @@
 
 }
 /***********************************/
+.owner-tab-menu{
+  margin: 20px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: var(--bordercolor) solid 1px;
+}
+.owner-tab-menu .p-button {
+  
+}
+
+::ng-deep .custom-button {
+  color: var(--graycolor); 
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+::ng-deep .custom-button:hover {
+  color: var(--whitecolor); 
+  background-color: var(--soft-bgcolor); 
+}
+/***********************************/
 
 .resto-events{
     margin: 30px;
-
 }
   
 .resto-event{
@@ -416,5 +439,5 @@
   gap: 10px;
 }
 .resto-menu-product.selected {
-  border: 2px solid blue;
+  border: 2px solid rgb(255, 98, 0);
 }
