@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+<<<<<<< HEAD
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
+=======
+import { Categorie } from '../models/categorie.model';
+import { Observable } from 'rxjs';
+>>>>>>> 242fcbdd3f510b1b6666431270bfc3d0c4e81c40
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategorieService {
+<<<<<<< HEAD
   private apiUrl = 'http://localhost:4401/api/categorie';
 
 
@@ -34,5 +40,12 @@ export class CategorieService {
   }
   deleteSelectedCategories(categoryIds: string[]): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/delete`, { categoryIds });
+
+private apiUrl='http://localhost:4401/api/categories';
+
+  constructor(private http:HttpClient) { }
+
+  getAllCategs(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ`);
   }
 }

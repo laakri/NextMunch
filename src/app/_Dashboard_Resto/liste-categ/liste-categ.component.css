@@ -1,0 +1,39 @@
+.conatainer{
+padding: 50px auto;
+}
+.content h1{
+text-align: center;
+
+}
+.content{
+    height: 500px;
+    margin-top: 30px;
+}
+.box-category{
+    width: 150px;
+    height: 150px;
+   padding: 20px;
+  cursor: pointer;
+  border: 1px solid #2c2c2c;
+  margin: 5px;
+border-radius: 30px;
+}
+.box-categories{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;  
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.box-img img{
+    width: 110px;
+    height: 110px;
+}
+  .box-category.selected {
+    /* Styles pour la catégorie sélectionnée */
+    background-color: #ff454521;
+  }
+  .button-save{
+margin-left: 550px;    
+  }

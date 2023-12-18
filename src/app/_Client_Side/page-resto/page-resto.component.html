@@ -1,21 +1,34 @@
 <div class="header">
   <div class="banner-resto-img">
-    <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
+    <img
+      src="../../../assets/images/restaurants-images/burger-fry-souse-banner-free-space-text-mockup-fast-food-top-view-empty-professional-phonography-photo.jpg"
+      alt=""
+    />
   </div>
   <div class="banner-container">
     <div class="main-resto-img">
-      <img src="../../../assets/images/Main-Images/mixmax.jpg" alt="" />
+      <img
+        src="../../../assets/images/Main-Images/alex-motoc-H5gNE2RX8Ac-unsplash.webp"
+        alt=""
+      />
     </div>
+    <p-button
+      icon="pi pi-ellipsis-h"
+      [link]="true"
+      class="setting-btn"
+      routerLink="/RestoSettings"
+    ></p-button>
   </div>
 </div>
 
 <div class="container">
   <div class="resto-details">
-    <div class="resto-details-title">{{ data?.nameR }}</div>
+    <div class="resto-details-title">{{ data.nameR }}</div>
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha
     </div>
   </div>
+  <!--
   <div class="resto-spliter">
     <div class="resto-timing">
       <div class="resto-timing-header">
@@ -24,7 +37,7 @@
       <div class="resto-timing-header">Location</div>
       <div class="resto-timing-title">
         Monastir
-        <span>{{ data?.location }} </span>
+        <span>{{ data.location }} </span>
       </div>
       <p-button label="GPS" [link]="true"></p-button>
     </div>
@@ -35,7 +48,7 @@
       <div class="resto-timing-header">Contact</div>
       <div class="resto-timing-title">
         Phone
-        <span>+216 {{ data?.contact }} </span>
+        <span>+216 {{ data.contact }} </span>
       </div>
       <div class="resto-timing-title">
         Facebook
@@ -56,11 +69,19 @@
         <span>8.30 AM - 9.30 PM </span>
       </div>
     </div>
+  </div>-->
+  <div class="owner-tab-menu">
+    <p-button label="Menu" styleClass="custom-button"></p-button
+    ><p-button label="Informations" styleClass="custom-button"></p-button
+    ><p-button label="Reviews" styleClass="custom-button"></p-button>
+    <p-button label="Reservations" styleClass="custom-button"></p-button>
   </div>
+  <!--
   <div class="resto-event add-Event">
     <i class="pi pi-plus"></i>
     <h3>Add Event</h3>
   </div>
+-->
   <div class="resto-events">
     <p-carousel
       [value]="events"
@@ -70,13 +91,6 @@
     >
       <ng-template let-event pTemplate="item">
         <div class="resto-event">
-          <!--
-          <img
-            src="https://i.gyazo.com/02497575bc6f9b4a1ec38d7c44ec70cd.jpg"
-            alt=""
-          />
-          <img src="https://i.gyazo.com/910386d587275002dc3b807c86376bd8.png" />
-          -->
           <img
             src="https://i.gyazo.com/aea585922385b1af33a6cc8ced47d193.png"
             alt=""
@@ -93,8 +107,8 @@
             </div>
           </div>
           <div class="event-box">
-            <div class="event-resto-name">{{ data?.nameR }}</div>
-            <div class="event-resto-special-event">Special MENU</div>
+            <div class="event-resto-name">{{ data.nameR }}</div>
+            <div class="event-resto-special-event">Special Menu</div>
             <div class="event-resto-line"></div>
             <div class="event-resto-offer-text">Mermez + Couscous</div>
             <div class="event-resto-offer-text"></div>
@@ -114,18 +128,20 @@
     <h2>Categories</h2>
 
     <div class="resto-menu-filter">
+
       <div class="resto-menu-filter-category add-categ">
-        <p-button (click)="openAddPlat()" [link]="true">
+        <p-button (click)="openSelectCateg()" [link]="true">
           <i class="pi pi-plus"></i>
         </p-button>
         <h5>Add category</h5>
       </div>
-      <div class="resto-menu-filter-category" *ngFor="let item of events">
+
+      <div class="resto-menu-filter-category" *ngFor="let categ of categories">
         <img
-          src="https://www.mosaique-pizza.fr/medias/images/menu-pizzas.svg"
+          src="{{categ.imgCat}}"
           alt=""
         />
-        <div>Pizza</div>
+        <div>{{categ.nameCat}}</div>
       </div>
     </div>
     <h2>Produits</h2>
@@ -138,29 +154,50 @@
         <h3>Add plat</h3>
       </div>
 
-      <div class="resto-menu-product" *ngFor="let item of items">
+      <div
+        class="resto-menu-product"
+        *ngFor="let plat of plats"
+      >
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">
-            <img
-              src="../../../assets/—Pngtree—real beef cheese burger_6889143.png"
-              alt=""
-            />
+            <img src="{{plat.imgP}}" alt="" />
           </div>
-          <div class="resto-menu-product-name">CouscousCouscous</div>
+          <div class="resto-menu-product-name">{{ plat.nameP }}</div>
           <div class="resto-menu-product-description">
-            Short Description Short Description Short Description Short
-            Description
+            {{ plat.descriptionP }}
           </div>
           <div class="resto-menu-product-footer">
-            <div class="resto-menu-product-price">Dt 60.00</div>
+            <div class="resto-menu-product-price">{{ plat.priceP }}</div>
             <p-button
               class="product-btn"
               icon="pi pi-cart-plus"
               [link]="true"
+            ></p-button>
+            <p-button
+              (click)="showProductSelectionBar()"
+              (click)="addToSelectedProducts(plat)"
+              [link]="true"
+              icon="pi pi-plus"
             ></p-button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="productSelectionBarVisible" class="product-selection-bar">
+  <div class="product-selection-bar-left">
+    <span>{{ selectedProductIds.length }} items selected</span>
+    <p-inputNumber
+      placeholder="Enter Price"
+      [(ngModel)]="eventPrice"
+    ></p-inputNumber>
+    <p-inputNumber
+      placeholder="Number of Persons"
+      [(ngModel)]="numberOfPersons"
+    ></p-inputNumber>
+    <p-calendar placeholder="Start Date" [(ngModel)]="startDate"></p-calendar>
+    <p-calendar placeholder="End Date" [(ngModel)]="endDate"></p-calendar>
+  </div>
+  <p-button styleClass="secend-btn" (click)="submitEvent()">Submit</p-button>
 </div>

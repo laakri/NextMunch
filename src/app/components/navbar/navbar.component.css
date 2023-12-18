@@ -28,3 +28,8 @@
 .navbar-right{
     
 }
+::ng-deep .secend-btn{
+    background-color: #e97807 ;
+    border: none;
+    color: white;
+  }

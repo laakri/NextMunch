@@ -11,6 +11,8 @@ import { ContactUsComponent } from './_Client_Side/contact-us/contact-us.compone
 import { AuthComponent } from './_Auth/auth/auth.component';
 import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
 import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
+import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-settings.component';
+
 /*************************   Admin Dashboard   *********************** */
 
 import { SidebarComponent } from './_Dashboard_Admin/sidebar/sidebar.component';
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'About', component: AboutUsComponent },
   { path: 'Contact', component: ContactUsComponent },
   { path: 'PageResto/:id', component: PageRestoComponent },
+  { path: 'RestoSettings', component: RestoSettingsComponent },
   { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'auth',
