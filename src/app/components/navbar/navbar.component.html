@@ -9,19 +9,32 @@
     <p-button
       label="Create Rastaurant"
       (click)="openAddResto()"
-      [link]="true"
+      styleClass="custom-button"
+      routerLinkActive="activebutton"
     ></p-button>
-    <p-button label="About" [link]="true" routerLink="/About"></p-button>
-    <p-button label="Contact" [link]="true" routerLink="/Contact"></p-button>
+    <p-button
+      label="About"
+      routerLink="/About"
+      styleClass="custom-button"
+      routerLinkActive="activebutton"
+    ></p-button>
+    <p-button
+      label="Contact"
+      routerLink="/Contact"
+      styleClass="custom-button"
+      routerLinkActive="activebutton"
+    ></p-button>
     <p-button
       label="Restaurants"
-      [link]="true"
+      styleClass="custom-button"
+      routerLinkActive="activebutton"
       routerLink="/Restaurants"
     ></p-button>
     <p-button
       label="Resto Page"
-      [link]="true"
-      routerLink="/PageResto/65804df57d4a5047a704a0d6/menu"
+      styleClass="custom-button"
+      routerLinkActive="activebutton"
+      routerLink="/PageResto/6580aae27cafdfc6160456dd/menu"
     ></p-button>
   </div>
   <div class="navbar-right">

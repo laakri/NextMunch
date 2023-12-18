@@ -15,7 +15,7 @@ import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-
   styleUrls: ['./menu.component.css'],
   providers: [DialogService],
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
   productSelectionBarVisible: boolean = false;
   selectedProductIds: number[] = [];
@@ -35,6 +35,7 @@ export class MenuComponent {
   ) {}
 
   ngOnInit() {
+    //Restaurant Id Ya Rojla
     const restaurantId = this.route.snapshot.paramMap.get('id');
 
     this.platService.getAllPlats().subscribe(

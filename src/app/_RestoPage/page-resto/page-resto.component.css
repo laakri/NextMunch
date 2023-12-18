@@ -144,10 +144,8 @@
 
 
 ::ng-deep .custom-button {
-  color: var(--graycolor); 
   text-decoration: none;
   background-color: transparent;
-  border: none;
 }
 ::ng-deep .custom-button:hover {
   color: var(--whitecolor); 

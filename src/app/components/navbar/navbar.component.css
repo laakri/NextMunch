@@ -23,7 +23,8 @@
     right: -13px;
 }
 .navbar-middle{
-    
+    display: flex;
+    gap: 5px;
 }
 .navbar-right{
     
@@ -33,3 +34,13 @@
     border: none;
     color: white;
   }
+  ::ng-deep .custom-button {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+  }
+  ::ng-deep .custom-button:hover {
+    color: var(--whitecolor); 
+    background-color: var(--soft-bgcolor); 
+  }
+  

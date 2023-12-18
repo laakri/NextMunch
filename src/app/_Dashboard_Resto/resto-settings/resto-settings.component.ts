@@ -24,7 +24,7 @@ export class RestoSettingsComponent implements OnInit {
     this.loading = true;
 
     this.restaurantService
-      .getRestaurantById('65804df57d4a5047a704a0d6')
+      .getRestaurantById('6580aae27cafdfc6160456dd')
       .subscribe(
         (restaurant) => {
           console.log(restaurant);
@@ -95,7 +95,7 @@ export class RestoSettingsComponent implements OnInit {
 
     this.restaurantService
       .updateRestaurant({
-        restaurantId: '65804df57d4a5047a704a0d6',
+        restaurantId: '6580aae27cafdfc6160456dd',
         formData,
       })
       .subscribe(
