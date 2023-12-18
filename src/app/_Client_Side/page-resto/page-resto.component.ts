@@ -6,7 +6,11 @@ import { ActivatedRoute } from '@angular/router';
 import { AddRestoComponent } from 'src/app/_Dashboard_Resto/add-resto/add-resto.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddPlatComponent } from 'src/app/_Dashboard_Resto/add-plat/add-plat.component';
-
+import { PlatService } from 'src/app/services/plat.service';
+import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-categ.component';
+import { Plat } from 'src/app/models/plat.model';
+import { Categorie } from 'src/app/models/categorie.model';
+import { CategorieService } from 'src/app/services/categorie.service';
 @Component({
   selector: 'app-page-resto',
   templateUrl: './page-resto.component.html',
@@ -27,11 +31,13 @@ export class PageRestoComponent implements OnInit {
   constructor(
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private platService: PlatService,
+    private categService:CategorieService,
   ) {}
   events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
-
-  items!: any[];
+  plats!: Plat[];
+categories!:Categorie[];
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -50,72 +56,25 @@ export class PageRestoComponent implements OnInit {
       }
     });
 
-    this.items = [
-      {
-        id: 1,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 1',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
+    this.platService.getAllPlats().subscribe(
+      (plats: Plat[]) => {
+        this.plats = plats;
       },
-      {
-        id: 2,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 2',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
+      (error) => {
+        console.error('Error fetching plats:', error);
+      }
+    );
+    this.categService.getAllCategs().subscribe(
+      (categories: Categorie[]) => {
+        this.categories = categories;
       },
-      {
-        id: 3,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 3',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 4,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 4',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 5,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 5',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 6,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 6',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 7,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 7',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 7,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 7',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-      {
-        id: 7,
-        imgP: '../../../assets/—Pngtree—real beef cheese burger_6889143.png',
-        name: 'Product 7',
-        description: 'Short Description Short Description ',
-        Price: '60.00',
-      },
-    ];
+      (error) => {
+        console.error('Error fetching plats:', error);
+      }
+    );
+   
   }
+  /********************* */
   openAddPlat() {
     this.ref = this.dialogService.open(AddPlatComponent, {
       showHeader: false,
@@ -132,7 +91,23 @@ export class PageRestoComponent implements OnInit {
     console.log(this.ref);
     this.ref.onClose.subscribe(() => {});
   }
-
+  /**************************** */
+  openSelectCateg(){
+    this.ref = this.dialogService.open(ListeCategComponent, {
+      showHeader: false,
+      closable: true,
+      dismissableMask: true,
+      modal: true,
+      draggable: false,
+      resizable: false,
+      styleClass: 'dialogSearch',
+      width: '700px',
+      height: '600px',
+      contentStyle: { overflow: 'auto' },
+    });
+    console.log(this.ref);
+    this.ref.onClose.subscribe(() => {});
+  }
   /************************** */
   showProductSelectionBar(): void {
     this.productSelectionBarVisible = true;
@@ -161,7 +136,6 @@ export class PageRestoComponent implements OnInit {
 
     this.resetForm();
   }
-
   // Method to reset the form or hide the bar
   resetForm(): void {
     this.selectedProductIds = [];

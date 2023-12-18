@@ -17,7 +17,7 @@
 
 <div class="container">
   <div class="resto-details">
-    <div class="resto-details-title">{{ data?.nameR }}</div>
+    <div class="resto-details-title">{{ data.nameR }}</div>
     <div class="resto-details-description">
       barcha jaw barcha jaw barcha jaw barcha jaw barcha
     </div>
@@ -30,7 +30,7 @@
       <div class="resto-timing-header">Location</div>
       <div class="resto-timing-title">
         Monastir
-        <span>{{ data?.location }} </span>
+        <span>{{ data.location }} </span>
       </div>
       <p-button label="GPS" [link]="true"></p-button>
     </div>
@@ -41,7 +41,7 @@
       <div class="resto-timing-header">Contact</div>
       <div class="resto-timing-title">
         Phone
-        <span>+216 {{ data?.contact }} </span>
+        <span>+216 {{ data.contact }} </span>
       </div>
       <div class="resto-timing-title">
         Facebook
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="event-box">
-            <div class="event-resto-name">{{ data?.nameR }}</div>
+            <div class="event-resto-name">{{ data.nameR }}</div>
             <div class="event-resto-special-event">Special Menu</div>
             <div class="event-resto-line"></div>
             <div class="event-resto-offer-text">Mermez + Couscous</div>
@@ -120,18 +120,20 @@
     <h2>Categories</h2>
 
     <div class="resto-menu-filter">
+
       <div class="resto-menu-filter-category add-categ">
-        <p-button (click)="openAddPlat()" [link]="true">
+        <p-button (click)="openSelectCateg()" [link]="true">
           <i class="pi pi-plus"></i>
         </p-button>
         <h5>Add category</h5>
       </div>
-      <div class="resto-menu-filter-category" *ngFor="let item of events">
+
+      <div class="resto-menu-filter-category" *ngFor="let categ of categories">
         <img
-          src="https://www.mosaique-pizza.fr/medias/images/menu-pizzas.svg"
+          src="{{categ.imgCat}}"
           alt=""
         />
-        <div>Pizza</div>
+        <div>{{categ.nameCat}}</div>
       </div>
     </div>
     <h2>Produits</h2>
@@ -146,19 +148,18 @@
 
       <div
         class="resto-menu-product"
-        *ngFor="let item of items"
-        [ngClass]="{ selected: item.selected }"
+        *ngFor="let plat of plats"
       >
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">
-            <img src="{{ item.imgP }}" alt="" />
+            <img src="{{plat.imgP}}" alt="" />
           </div>
-          <div class="resto-menu-product-name">{{ item.name }}</div>
+          <div class="resto-menu-product-name">{{ plat.nameP }}</div>
           <div class="resto-menu-product-description">
-            {{ item.description }}
+            {{ plat.descriptionP }}
           </div>
           <div class="resto-menu-product-footer">
-            <div class="resto-menu-product-price">{{ item.Price }}</div>
+            <div class="resto-menu-product-price">{{ plat.priceP }}</div>
             <p-button
               class="product-btn"
               icon="pi pi-cart-plus"
@@ -166,7 +167,7 @@
             ></p-button>
             <p-button
               (click)="showProductSelectionBar()"
-              (click)="addToSelectedProducts(item)"
+              (click)="addToSelectedProducts(plat)"
               [link]="true"
               icon="pi pi-plus"
             ></p-button>

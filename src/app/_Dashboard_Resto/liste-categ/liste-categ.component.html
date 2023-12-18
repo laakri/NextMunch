@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="content">
+    <h1>Select Categories</h1>
+
+    <div class="box-categories">
+      <div
+        *ngFor="let categ of categories"
+        class="box-category"
+        [class.selected]="isCategorySelected(categ)"
+        (click)="toggleCategory(categ)"
+      >
+        <div class="box-img">
+          <img src="../../../assets/images/home-page/pngtree-pizza-icon-for-your-project-png-image_1545232-removebg-preview.png" alt="" />
+        </div>
+        {{ categ.nameCat }}
+      </div>
+    </div>
+  </div>
+  <div class="button-save">
+    <p-button (click)="save()">Save</p-button>
+  </div>
+</div>
