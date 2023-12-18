@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Allura&family=Bigelow+Rules&display=swap');
-
+.loading{
+  max-width: 700px;
+  margin: 120px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .header {
     height: 200px; 
 

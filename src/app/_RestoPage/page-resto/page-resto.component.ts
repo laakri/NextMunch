@@ -11,13 +11,14 @@ export class PageRestoComponent implements OnInit {
   data!: Restaurant;
 
   ratingValue: number = 4.5;
-
+  loading: boolean = true;
   constructor(
     private RestaurantService: RestaurantService,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
+    this.loading = true;
     this.route.params.subscribe((params) => {
       const restaurantId = params['id']; // Assuming the parameter name is 'id'
 
@@ -27,6 +28,7 @@ export class PageRestoComponent implements OnInit {
           (data) => {
             this.data = data;
             console.log(data);
+            this.loading = false;
           }
         );
       } else {
