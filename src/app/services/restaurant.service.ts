@@ -27,4 +27,8 @@ export class RestaurantService {
     return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/657f424f039fab1ba487503b`);
   }
  
+  updateRestaurant(data: any): Observable<any> {
+    const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
+    return this.http.patch(url, data.formData);
+  }
 }
