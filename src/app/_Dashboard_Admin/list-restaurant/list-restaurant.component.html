@@ -1,1 +1,37 @@
-<p>list-restaurant works!</p>
+<input type="text" [(ngModel)]="searchTerm" placeholder="Search by Name" />
+<p-table #dt [value]="restaurants" [tableStyle]="{ 'min-width': '50rem', 'margin-top': '2rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Owner name </th>
+            <th>Owner email</th>
+            <th>Cin</th>
+            <th>BannerImg</th>
+            <th>MainImg</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>location</th>
+            <th>contact</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-restaurant>
+        <tr>
+            <td>{{ restaurant.ownerId.name}}</td>
+            <td> {{ restaurant.ownerId.email }}</td>    
+            <td> {{restaurant.cin}}</td>
+            <td> <img [src]="restaurant.bannerImg" ></td>
+            <td><img [src]="restaurant.mainImg" ></td>
+            <td> {{restaurant.nameR}}</td>
+            <td> {{restaurant.descriptionR}}</td>
+            <td> {{restaurant.location}}</td>
+            <td> {{restaurant.contact}}</td>
+            <td> 
+                <p-button icon="pi pi-trash" severity="danger" [rounded]="true" (click)="onDeleteRestaurant(restaurant._id)"></p-button>
+
+            </td>
+        </tr>
+    </ng-template>
+</p-table>       
+  
+
+

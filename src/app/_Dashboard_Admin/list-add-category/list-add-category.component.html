@@ -1,9 +1,45 @@
-<p>
-  list-add-category works!list-add-category works!list-add-category
-  works!list-add-category works!list-add-category works!list-add-category
-  works!list-add-category works!list-add-category works!list-add-category
-  works!list-add-category works!list-add-category works!list-add-category
-  works!list-add-category works!list-add-category works!list-add-category
-  works!list-add-category works!list-add-category workslist-add-category
-  works!!list-add-category works!list-add-category works!
-</p>
+<!--  List of categories  -->
+<div class="containerrrr">
+
+<div class="containerrr">
+  <h1>Liste des catégories : </h1>
+
+<!--
+  <div class="containerBtn">
+  <p-button [text]="true" [raised]="true" severity="secondary"><i class="pi pi-plus" style="border-radius: 50%;"></i> Ajouter Catégorie </p-button>
+  </div>-->
+<div class="conatinerr">
+
+<div class="container" *ngFor="let category of categories" (click)="onCategoryClick(category)" [ngClass]="{ 'categSelected': category.isSelected }">
+
+  <div class="conatinerImg">
+    <img [src]="category.imgCat" >
+    </div>
+    <div class="containerP">
+      <h1 style="margin-left: 1rem;">{{ category.nameCat }}</h1>
+  </div>
+</div>
+
+</div>
+<div class="buttonAction" *ngIf="anyCategorySelected()" >
+  <button class="buttonn" (click)="onDeleteSelectedCategories()" style="background-color: #c95050;">Delete All </button>
+</div>
+</div>
+
+<div class="conatinerAjout">
+  <h1 style="font-size: 1.5rem;">Ajouter catégorie</h1>
+
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <label for="nameCat">Category Name:</label>
+    <input type="text" id="nameCat" formControlName="nameCat" required>
+    <br>
+
+    <label for="imgCat">Category Image:</label>
+    <input type="file" id="imgCat" (change)="onFileChange($event)" accept="image/*" required>
+    <br>
+
+    <button  class="buttonn" type="submit">Add Category</button>
+  </form>
+</div>
+
+</div>

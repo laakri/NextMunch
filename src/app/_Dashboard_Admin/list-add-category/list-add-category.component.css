@@ -1,0 +1,102 @@
+.containerrrr{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 1rem 2rem;
+
+
+}
+.conatinerrr{
+  border: 1px solid #514949;
+  border-radius: 2rem;
+  padding: 1.5rem;
+  margin-right: 1rem;
+  width: 75%;
+
+}
+.conatinerr{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.container{
+
+  width: 24%;
+  display: flex;
+  align-items: center;
+  color: #F8C54A;
+  font-size: 9px;
+  border: 1px solid #161616;
+  border-radius: 2rem;
+  padding: 1px;
+  margin:  1em 2rem;
+
+}
+
+.conatinerImg img {
+  width: 70px;
+  border-radius: 50%;
+margin-left: -1rem;
+  background-color: rgb(201, 194, 194);
+}
+.buttonAction {
+  display: flex;
+  margin: 2rem;
+}
+.buttonAction1{
+  margin-right: 1rem;
+}
+
+/* add-category.component.css */
+
+/* Container styling */
+.conatinerAjout{
+  width: 25%;
+  height: 443px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05); 
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+label {
+  margin-bottom: 8px;
+}
+
+/* Input field styling */
+input {
+  padding: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #353535;
+  border-radius: 4px;
+}
+
+.buttonn {
+  padding: 10px;
+  background-color: rgb(66, 57, 57);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+/* Button hover effect */
+.buttonn:hover {
+  background-color: #45a049;
+}
+
+/* Error message styling */
+.ng-invalid {
+  border-color: #ff0000;
+}
+
+.categSelected{
+  border: 2px solid blue;
+}
