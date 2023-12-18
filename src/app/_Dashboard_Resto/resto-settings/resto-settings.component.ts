@@ -1,35 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from 'src/app/services/restaurant.service';
 
 @Component({
   selector: 'app-resto-settings',
   templateUrl: './resto-settings.component.html',
   styleUrls: ['./resto-settings.component.css'],
 })
-export class RestoSettingsComponent {
-  openDates: string[] = [];
-  closeDates: string[] = [];
-  mainImgFile: File | undefined;
-  bannerImgFile: File | undefined;
+export class RestoSettingsComponent implements OnInit {
+  mainImgFile!: File;
+  bannerImgFile!: File;
   nameR: string | undefined;
   descriptionR: string | undefined;
   location: string | undefined;
   contact: string | undefined;
-  openTime: string | undefined;
-  closeTime: string | undefined;
-  mainImg: string | undefined;
-  bannerImg: string | undefined;
+  openDates: string | undefined;
+  closeDates: string | undefined;
+  mainImg: any | undefined;
+  bannerImg: any | undefined;
+  loading: boolean = true;
+  constructor(private restaurantService: RestaurantService) {}
 
-  // New method to add open and close dates
-  addOpenCloseDates(openDate: string, closeDate: string) {
-    this.openDates.push(openDate);
-    this.closeDates.push(closeDate);
+  ngOnInit(): void {
+    this.loading = true;
+
+    this.restaurantService
+      .getRestaurantById('65804df57d4a5047a704a0d6')
+      .subscribe(
+        (restaurant) => {
+          console.log(restaurant);
+          this.nameR = restaurant.nameR || '';
+          this.descriptionR = restaurant.descriptionR || '';
+          this.location = restaurant.location || '';
+          this.contact = restaurant.contact || '';
+          this.mainImg = restaurant.mainImg || '';
+          this.bannerImg = restaurant.bannerImg || '';
+          this.openDates = restaurant.openDates || '';
+          this.closeDates = restaurant.closeDates || '';
+          this.loading = false;
+        },
+        (error) => {
+          console.error(error);
+          // Handle error
+        }
+      );
   }
 
   // Updated method to handle Main Image
   handleMainImgChange(event: any) {
-    const file = event.target.files[0];
-    this.displayMainImg(file);
+    this.mainImgFile = event.target.files[0];
+    this.displayMainImg(this.mainImgFile);
   }
+
   displayMainImg(file: File) {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -38,12 +59,12 @@ export class RestoSettingsComponent {
     reader.readAsDataURL(file);
   }
 
-  // Updated method to handle Main Image
-
+  // Updated method to handle Banner Image
   handleBannerImgChange(event: any) {
-    const file = event.target.files[0];
-    this.displayBannerImg(file);
+    this.bannerImgFile = event.target.files[0];
+    this.displayBannerImg(this.bannerImgFile);
   }
+
   displayBannerImg(file: File) {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -51,21 +72,41 @@ export class RestoSettingsComponent {
     };
     reader.readAsDataURL(file);
   }
+
   // Updated method to submit changes, including open and close dates
   submitChanges() {
-    const updatedData = {
-      bannerImg: this.bannerImgFile,
-      mainImg: this.mainImgFile,
-      nameR: this.nameR,
-      descriptionR: this.descriptionR,
-      location: this.location,
-      contact: this.contact,
-      openDates: this.openDates,
-      closeDates: this.closeDates,
-      openTime: this.openTime, // Add this line
-      closeTime: this.closeTime, // Add this line
-    };
-    console.log(updatedData);
-    // Call your service to update the restaurant data
+    const formData = new FormData();
+    formData.append('nameR', this.nameR || '');
+    formData.append('descriptionR', this.descriptionR || '');
+    formData.append('location', this.location || '');
+    formData.append('contact', this.contact || '');
+    formData.append('openDates', this.openDates || '');
+    formData.append('closeDates', this.closeDates || '');
+
+    // Append other form data as needed
+
+    if (this.bannerImgFile) {
+      formData.append('bannerImg', this.bannerImgFile, this.bannerImgFile.name);
+    }
+
+    if (this.mainImgFile) {
+      formData.append('mainImg', this.mainImgFile, this.mainImgFile.name);
+    }
+
+    this.restaurantService
+      .updateRestaurant({
+        restaurantId: '65804df57d4a5047a704a0d6',
+        formData,
+      })
+      .subscribe(
+        (response) => {
+          console.log(response);
+          // Handle success
+        },
+        (error) => {
+          console.error(error);
+          // Handle error
+        }
+      );
   }
 }

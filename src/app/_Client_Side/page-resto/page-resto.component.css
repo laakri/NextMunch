@@ -14,8 +14,6 @@
   .banner-resto-img img{
     width: 100%;
     background-color: var(--bgcolor);
-    background-position: center;
-    background-size: contain;
   }
   .banner-container{
     max-width: 1400px;
@@ -100,9 +98,7 @@
     margin-bottom: 10px;
 
   }
-  .resto-details-global-location-phone{
-    width: max-content;
-  }
+  
   .resto-details-location-phone{
     width: max-content;
     display: flex;
@@ -110,47 +106,31 @@
     gap: 5px;
     height: 30px;
   }
-  .resto-details-location-phone div{
-    height: max-content;
-    align-items: center;
-    display: flex;
-    gap: 5px;
-}
-
-.resto-details-location-phone div p{
-
-    font-size: 16px;
+  
+  .resto-details-location-phone span:first-child{
     font-weight: 600;
-}
-  .resto-details-location-phone span{
-    color: var(--graycolor);
-    
+    font-size: 16px;
   }
-/***********************************/
-.resto-timing{
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-.resto-timing-header{
-  font-size: 22px;
-}
-.resto-timing-header  i {
-  font-size: 25px;
-}
-.resto-timing-title{
-  font-size: 16px;
-}
-.resto-timing span{
-  color: var(--graycolor);
-  font-size: 15px;
+  
+  .resto-details-location-phone span:last-child{
+    font-size: 14px;
 
+  }
+.resto-details-time{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+}
+.resto-details-time i{
+  margin-right: 10px;
+}
+.resto-details-time span{
+  font-size: 14px;
+}
+.resto-details-time p{
+  font-weight: 600;
+  font-size: 16px;
 }
 /***********************************/
 .owner-tab-menu{
@@ -161,9 +141,7 @@
   gap: 10px;
   border-bottom: var(--bordercolor) solid 1px;
 }
-.owner-tab-menu .p-button {
-  
-}
+
 
 ::ng-deep .custom-button {
   color: var(--graycolor); 
@@ -233,7 +211,6 @@
   position: absolute;
   top: 70px;
   left: 70px;
-  display: flex;
   flex-direction: column;
   max-height: 250px;
   width: 300px;
@@ -400,23 +377,6 @@
 
 }
 .add-categ:hover{
-  background-color: var(--soft-bgcolor);
-  cursor: pointer;
-}
-.add-Event{
-   border: dashed 1px var(--graycolor);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  color: var(--whitecolor);
-  gap: 12px;
-  height: 80px;
-  width: 90%;
- margin: 40px auto;
- border-radius: 10px;
-}
-.add-Event:hover{
   background-color: var(--soft-bgcolor);
   cursor: pointer;
 }

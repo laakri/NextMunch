@@ -18,6 +18,7 @@ export class RestaurantService {
   saveRestaurant(restaurant: Restaurant): Observable<any> {
     return this.http.post(this.apiUrl + '/restaurants', restaurant);
   }
+<<<<<<< HEAD
 
 
   
@@ -27,4 +28,10 @@ getAllRestaurants(): Observable<Restaurant[]> {
 deleteRestaurant(id: string): Observable<any> {
   return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
 }
+=======
+  updateRestaurant(data: any): Observable<any> {
+    const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
+    return this.http.patch(url, data.formData);
+  }
+>>>>>>> 7f638c918a3c4625118b58859333225473029af3
 }

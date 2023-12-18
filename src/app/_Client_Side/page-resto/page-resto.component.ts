@@ -27,17 +27,18 @@ export class PageRestoComponent implements OnInit {
   numberOfPersons: number | null = null;
   startDate: Date | null = null;
   endDate: Date | null = null;
+  ratingValue: number = 4.5;
 
   constructor(
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
     private route: ActivatedRoute,
     private platService: PlatService,
-    private categService:CategorieService,
+    private categService: CategorieService
   ) {}
   events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
   plats!: Plat[];
-categories!:Categorie[];
+  categories!: Categorie[];
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -72,7 +73,6 @@ categories!:Categorie[];
         console.error('Error fetching plats:', error);
       }
     );
-   
   }
   /********************* */
   openAddPlat() {
@@ -92,7 +92,7 @@ categories!:Categorie[];
     this.ref.onClose.subscribe(() => {});
   }
   /**************************** */
-  openSelectCateg(){
+  openSelectCateg() {
     this.ref = this.dialogService.open(ListeCategComponent, {
       showHeader: false,
       closable: true,

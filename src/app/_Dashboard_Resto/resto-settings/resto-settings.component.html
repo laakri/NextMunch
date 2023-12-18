@@ -1,4 +1,7 @@
-<div class="settings-container">
+<div *ngIf="loading" class="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+<div class="settings-container" *ngIf="!loading">
   <h2>Manage Your Restaurant</h2>
   <div class="input-field">
     <label for="bannerImg">Restaurant Banner:</label>
@@ -12,11 +15,14 @@
           Click to upload Banner Image
         </div>
         <img
+          *ngIf="bannerImg; else noBannerImg"
           [src]="bannerImg"
           alt="Banner Image"
-          *ngIf="bannerImg"
           class="uploaded-image"
         />
+        <ng-template #noBannerImg>
+          <div class="upload-text">No Banner Image</div>
+        </ng-template>
       </div>
       <input
         #fileMainInput
@@ -28,35 +34,26 @@
       />
     </div>
   </div>
-  <div class="input-field">
-    <label for="mainImg">Restaurant Image:</label>
-    <div class="file-upload">
-      <div
-        for="mainImg"
-        class="custom-upload-label main"
-        (click)="fileInput.click()"
-      >
-        <div class="upload-text" *ngIf="!mainImg">
-          Click to upload Main Image
-        </div>
-        <img
-          [src]="mainImg"
-          alt="Main Image"
-          *ngIf="mainImg"
-          class="uploaded-image"
-        />
-      </div>
-      <input
-        #fileInput
-        type="file"
-        id="mainImg"
-        (change)="handleMainImgChange($event)"
-        accept="image/*"
-        style="display: none"
-      />
-    </div>
-  </div>
+  <div class="file-upload">
+    <label for="bannerImg">Restaurant Image:</label>
 
+    <div
+      for="mainImg"
+      class="custom-upload-label main"
+      (click)="fileInput.click()"
+    >
+      <div class="upload-text" *ngIf="!mainImg">Click to upload Main Image</div>
+      <img [src]="mainImg" alt="Main Image" class="uploaded-image" />
+    </div>
+    <input
+      #fileInput
+      type="file"
+      id="mainImg"
+      (change)="handleMainImgChange($event)"
+      accept="image/*"
+      style="display: none"
+    />
+  </div>
   <!-- Add other input fields as needed -->
   <div class="flex-field">
     <div class="input-field">
@@ -104,23 +101,23 @@
     <div class="splited-field">
       <!-- Add input fields for open and close times -->
       <div class="input-field">
-        <label for="openTime">Opening Time:</label>
+        <label for="openDates">Opening Time:</label>
         <input
           pInputText
           type="text"
-          id="openTime"
-          [(ngModel)]="openTime"
+          id="openDates"
+          [(ngModel)]="openDates"
           placeholder="e.g., 8:00 AM"
         />
       </div>
 
       <div class="input-field">
-        <label for="closeTime">Closing Time:</label>
+        <label for="closeDates">Closing Time:</label>
         <input
           pInputText
           type="text"
-          id="closeTime"
-          [(ngModel)]="closeTime"
+          id="closeDates"
+          [(ngModel)]="closeDates"
           placeholder="e.g., 6:00 PM"
         />
       </div>
