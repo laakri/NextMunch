@@ -1,0 +1,76 @@
+<div class="header">
+  <div class="banner-resto-img">
+    <img src="{{ data.bannerImg }}" alt="" />
+  </div>
+  <div class="banner-container">
+    <div class="main-resto-img">
+      <img src="{{ data.mainImg }}" alt="" />
+    </div>
+    <p-button
+      icon="pi pi-ellipsis-h"
+      [link]="true"
+      class="setting-btn"
+      routerLink="/RestoSettings"
+    ></p-button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="resto-details">
+    <div class="resto-details-title">{{ data.nameR }}</div>
+    <p-rating
+      [(ngModel)]="ratingValue"
+      [readonly]="true"
+      [cancel]="false"
+    ></p-rating>
+
+    <div class="resto-details-description">
+      barcha jaw barcha jaw barcha jaw barcha jaw barcha
+    </div>
+    <div class="resto-details-location-phone">
+      <span>
+        <i class="pi pi-map-marker"></i>
+        Location</span
+      >
+      <span> {{ data.location }} </span>
+    </div>
+    <div class="resto-details-location-phone">
+      <span>
+        <i class="pi pi-comments"></i>
+
+        Contact</span
+      >
+      <span> +216 {{ data.contact }} </span>
+    </div>
+    <div class="resto-details-time">
+      <i class="pi pi-clock"></i>
+      <p>{{ data.openDates }}</p>
+      <span>- AM to</span>
+      <p>{{ data.closeDates }}</p>
+      <span>- PM</span>
+    </div>
+  </div>
+  <div class="owner-tab-menu">
+    <p-button
+      label="Menu"
+      routerLink="./menu"
+      styleClass="custom-button"
+    ></p-button
+    ><p-button
+      label="Informations"
+      routerLink="./informations"
+      styleClass="custom-button"
+    ></p-button
+    ><p-button
+      label="Reviews"
+      routerLink="./reviews"
+      styleClass="custom-button"
+    ></p-button>
+    <p-button
+      label="Reservations"
+      routerLink="./reservations"
+      styleClass="custom-button"
+    ></p-button>
+  </div>
+  <router-outlet></router-outlet>
+</div>

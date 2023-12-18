@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorInterceptor } from './error-interceptor';
 
 /**********  Prime NG *************** */
-import { PickListModule } from 'primeng/picklist';
+/*import { PickListModule } from 'primeng/picklist';*/
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
@@ -68,7 +68,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AboutUsComponent } from './_Client_Side/about-us/about-us.component';
 import { ContactUsComponent } from './_Client_Side/contact-us/contact-us.component';
 import { AuthComponent } from './_Auth/auth/auth.component';
-import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
+import { PageRestoComponent } from './_RestoPage/page-resto/page-resto.component';
 import { AddRestoComponent } from './_Dashboard_Resto/add-resto/add-resto.component';
 import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
 import { SidebarComponent } from './_Dashboard_Admin/sidebar/sidebar.component';
@@ -78,6 +78,10 @@ import { ListRestaurantComponent } from './_Dashboard_Admin/list-restaurant/list
 import { AddPlatComponent } from './_Dashboard_Resto/add-plat/add-plat.component';
 import { ListeCategComponent } from './_Dashboard_Resto/liste-categ/liste-categ.component';
 import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-settings.component';
+import { MenuComponent } from './_RestoPage/menu/menu.component';
+import { ReviewsComponent } from './_RestoPage/reviews/reviews.component';
+import { ReservationsComponent } from './_RestoPage/reservations/reservations.component';
+import { InformationsComponent } from './_RestoPage/informations/informations.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +104,10 @@ import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-
     AddPlatComponent,
     ListeCategComponent,
     RestoSettingsComponent,
+    MenuComponent,
+    ReviewsComponent,
+    ReservationsComponent,
+    InformationsComponent,
   ],
 
   imports: [
@@ -157,7 +165,7 @@ import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-
     ToggleButtonModule,
     TabMenuModule,
     StepsModule,
-    PickListModule,
+    /*PickListModule,*/
   ],
 
   providers: [

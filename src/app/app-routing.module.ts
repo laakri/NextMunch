@@ -9,9 +9,13 @@ import { HomepageComponent } from './_Client_Side/homepage/homepage.component';
 import { AboutUsComponent } from './_Client_Side/about-us/about-us.component';
 import { ContactUsComponent } from './_Client_Side/contact-us/contact-us.component';
 import { AuthComponent } from './_Auth/auth/auth.component';
-import { PageRestoComponent } from './_Client_Side/page-resto/page-resto.component';
+import { PageRestoComponent } from './_RestoPage/page-resto/page-resto.component';
 import { RestaurantsComponent } from './_Client_Side/restaurants/restaurants.component';
 import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-settings.component';
+import { MenuComponent } from './_RestoPage/menu/menu.component';
+import { ReviewsComponent } from './_RestoPage/reviews/reviews.component';
+import { ReservationsComponent } from './_RestoPage/reservations/reservations.component';
+import { InformationsComponent } from './_RestoPage/informations/informations.component';
 
 /*************************   Admin Dashboard   *********************** */
 
@@ -28,6 +32,18 @@ const routes: Routes = [
   { path: 'PageResto/:id', component: PageRestoComponent },
   { path: 'RestoSettings', component: RestoSettingsComponent },
   { path: 'Restaurants', component: RestaurantsComponent },
+  {
+    path: 'PageResto/:id',
+    component: PageRestoComponent,
+    children: [
+      { path: '', redirectTo: 'menu', pathMatch: 'full' },
+      { path: 'menu', component: MenuComponent },
+      { path: 'reviews', component: ReviewsComponent },
+      { path: 'reservations', component: ReservationsComponent },
+      { path: 'informations', component: InformationsComponent },
+    ],
+  },
+
   {
     path: 'auth',
     component: AuthComponent,

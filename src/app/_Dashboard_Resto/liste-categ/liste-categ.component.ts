@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
 import { Categorie } from 'src/app/models/categorie.model';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
-RestaurantService;
 @Component({
   selector: 'app-liste-categ',
   templateUrl: './liste-categ.component.html',
@@ -15,7 +13,7 @@ export class ListeCategComponent implements OnInit {
 
   constructor(
     private restoService: RestaurantService,
-    private categService: CategorieService,
+    private categService: CategorieService
   ) {}
 
   toggleCategory(category: Categorie) {
@@ -35,7 +33,7 @@ export class ListeCategComponent implements OnInit {
   responseMessage: string = '';
 
   addCategory(): void {
-    const restaurantId = '657f424f039fab1ba487503b'; // Remplacez par l'ID de votre restaurant
+    const restaurantId = '657f424f039fab1ba487503b';
 
     // Vérifiez s'il y a au moins une catégorie sélectionnée
     if (this.selectedCategories.length > 0) {

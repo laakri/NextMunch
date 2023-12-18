@@ -1,34 +1,31 @@
-import { MenuItem } from 'primeng/api';
-import { Restaurant } from './../../models/restaurant.model';
-import { RestaurantService } from './../../services/restaurant.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AddRestoComponent } from 'src/app/_Dashboard_Resto/add-resto/add-resto.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { AddPlatComponent } from 'src/app/_Dashboard_Resto/add-plat/add-plat.component';
-import { PlatService } from 'src/app/services/plat.service';
-import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-categ.component';
-import { Plat } from 'src/app/models/plat.model';
+import { RestaurantService } from '../../services/restaurant.service';
 import { Categorie } from 'src/app/models/categorie.model';
+import { Plat } from 'src/app/models/plat.model';
+import { ActivatedRoute } from '@angular/router';
+import { PlatService } from 'src/app/services/plat.service';
 import { CategorieService } from 'src/app/services/categorie.service';
+import { AddPlatComponent } from 'src/app/_Dashboard_Resto/add-plat/add-plat.component';
+import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-categ.component';
+
 @Component({
-  selector: 'app-page-resto',
-  templateUrl: './page-resto.component.html',
-  styleUrls: ['./page-resto.component.css'],
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css'],
   providers: [DialogService],
 })
-export class PageRestoComponent implements OnInit {
-  data!: Restaurant;
+export class MenuComponent {
   ref: DynamicDialogRef | undefined;
-
   productSelectionBarVisible: boolean = false;
   selectedProductIds: number[] = [];
   eventPrice: number | null = null;
   numberOfPersons: number | null = null;
   startDate: Date | null = null;
   endDate: Date | null = null;
-  ratingValue: number = 4.5;
-
+  events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
+  plats!: Plat[];
+  categories!: Categorie[];
   constructor(
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
@@ -36,26 +33,9 @@ export class PageRestoComponent implements OnInit {
     private platService: PlatService,
     private categService: CategorieService
   ) {}
-  events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
-  plats!: Plat[];
-  categories!: Categorie[];
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      const restaurantId = params['id']; // Assuming the parameter name is 'id'
-
-      // Check if the restaurantId is present before making the request
-      if (restaurantId) {
-        this.RestaurantService.getRestaurantById(restaurantId).subscribe(
-          (data) => {
-            this.data = data;
-            console.log(data);
-          }
-        );
-      } else {
-        console.error('No restaurant ID found in route params.');
-      }
-    });
+    const restaurantId = this.route.snapshot.paramMap.get('id');
 
     this.platService.getAllPlats().subscribe(
       (plats: Plat[]) => {
@@ -65,9 +45,8 @@ export class PageRestoComponent implements OnInit {
         console.error('Error fetching plats:', error);
       }
     );
-   
-    this.RestaurantService.getRestoCategs()
-    .subscribe(
+
+    this.RestaurantService.getRestoCategs().subscribe(
       (response: any) => {
         this.categories = response;
       },

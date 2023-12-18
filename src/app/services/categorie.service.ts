@@ -5,16 +5,14 @@ import { tap } from 'rxjs/operators';
 import { Categorie } from '../models/categorie.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategorieService {
   private apiUrl = 'http://localhost:4401/api/categorie';
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   private categoryListUpdated$ = new Subject<void>();
-
 
   addCategory(categoryData: FormData): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/add`, categoryData).pipe(
@@ -28,18 +26,14 @@ export class CategorieService {
     return this.categoryListUpdated$.asObservable();
   }
 
-
   getAllCategories(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl + '/list');
   }
   deleteSelectedCategories(categoryIds: string[]): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/delete`, { categoryIds });
+  }
 
-
-
- /* getAllCategs(): Observable<Categorie[]> {
+  getAllCategs(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ`);
-  }*/
- 
-}
+  }
 }
