@@ -14,4 +14,5 @@ private apiUrl='http://localhost:4401/api/categories';
   getAllCategs(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ`);
   }
+ 
 }

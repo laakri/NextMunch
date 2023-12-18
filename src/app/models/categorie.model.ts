@@ -1,4 +1,8 @@
+import { ObjectId } from 'mongoose';
 export class Categorie {
-      nameCat: string ='';
-      imgCat: string='';
-    }
+  
+  _id!:string;
+  nameCat: string = '';
+  imgCat: string = '';
+  
+}
