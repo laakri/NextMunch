@@ -40,5 +40,6 @@ export class CategorieService {
  /* getAllCategs(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ`);
   }*/
+ 
 }
 }

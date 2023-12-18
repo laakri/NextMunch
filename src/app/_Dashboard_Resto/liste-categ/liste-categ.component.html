@@ -1,22 +1,33 @@
 <div class="container">
-  <div class="content">
-    <h1>Select Categories</h1>
-
-    <div class="box-categories">
-      <div
-        *ngFor="let categ of categories"
-        class="box-category"
-        [class.selected]="isCategorySelected(categ)"
-        (click)="toggleCategory(categ)"
-      >
-        <div class="box-img">
-          <img src="../../../assets/images/home-page/pngtree-pizza-icon-for-your-project-png-image_1545232-removebg-preview.png" alt="" />
+  <h1>Select Categories</h1>
+  <div class="pick-list">
+  <p-pickList
+    [source]="categories"
+    [target]="selectedCategories"
+    sourceHeader="Available"
+    targetHeader="Selected"
+    [dragdrop]="true"
+    [responsive]="true"
+    [sourceStyle]="{ height: '30rem' }"
+    [targetStyle]="{ height: '30rem' }"
+    filterBy="nameCat"
+    sourceFilterPlaceholder="Search by name category"
+    targetFilterPlaceholder="Search by name category"
+    breakpoint="1400px"
+  >
+    <ng-template let-category pTemplate="item">
+      <div class="flex flex-wrap p-2 align-items-center gap-3 box"  >
+        <img
+          class="w-4rem shadow-2 flex-shrink-0 border-round"
+          src="../../../assets/images/istockphoto-1125850724-612x612-removebg-preview.png"
+          alt="{{ category.nameCat }}"
+        />
+        <div class="flex-1 flex flex-column gap-2">
+          <span class="font-bold">{{ category.nameCat }}</span>
         </div>
-        {{ categ.nameCat }}
       </div>
-    </div>
-  </div>
-  <div class="button-save">
-    <p-button (click)="save()">Save</p-button>
-  </div>
+    </ng-template>
+  </p-pickList>
+</div>
+  <p-button class="button-save" (click)="addCategory()">Envoyer</p-button>
 </div>

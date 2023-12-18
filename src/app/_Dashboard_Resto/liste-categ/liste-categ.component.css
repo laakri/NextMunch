@@ -35,5 +35,14 @@ border-radius: 30px;
     background-color: #ff454521;
   }
   .button-save{
-margin-left: 550px;    
+margin-left: 1050px; 
+margin: 20px;   
+  }
+  .box img{
+    width: 60px;
+    height: 60px;
+  }
+  .pick-list{
+    margin-top: 50px;
+
   }

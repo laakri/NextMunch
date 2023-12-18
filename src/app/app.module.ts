@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorInterceptor } from './error-interceptor';
 
 /**********  Prime NG *************** */
-
+import { PickListModule } from 'primeng/picklist';
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
@@ -157,6 +157,7 @@ import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-
     ToggleButtonModule,
     TabMenuModule,
     StepsModule,
+    PickListModule,
   ],
 
   providers: [

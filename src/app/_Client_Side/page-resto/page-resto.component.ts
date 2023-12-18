@@ -65,12 +65,14 @@ export class PageRestoComponent implements OnInit {
         console.error('Error fetching plats:', error);
       }
     );
-    this.categService.getAllCategs().subscribe(
-      (categories: Categorie[]) => {
-        this.categories = categories;
+   
+    this.RestaurantService.getRestoCategs()
+    .subscribe(
+      (response: any) => {
+        this.categories = response;
       },
       (error) => {
-        console.error('Error fetching plats:', error);
+        console.error('Error fetching categories:', error);
       }
     );
   }
@@ -101,7 +103,7 @@ export class PageRestoComponent implements OnInit {
       draggable: false,
       resizable: false,
       styleClass: 'dialogSearch',
-      width: '700px',
+      width: '1300px',
       height: '600px',
       contentStyle: { overflow: 'auto' },
     });

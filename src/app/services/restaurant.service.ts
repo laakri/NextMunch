@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Restaurant } from '../models/restaurant.model';
+import { Categorie } from '../models/categorie.model';
 
 @Injectable({
   providedIn: 'root',
@@ -18,20 +19,21 @@ export class RestaurantService {
   saveRestaurant(restaurant: Restaurant): Observable<any> {
     return this.http.post(this.apiUrl + '/restaurants', restaurant);
   }
-<<<<<<< HEAD
-
-
-  
-getAllRestaurants(): Observable<Restaurant[]> {
-  return this.http.get<Restaurant[]>(`${this.apiUrl}/list`);
-}
-deleteRestaurant(id: string): Observable<any> {
-  return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
-}
-=======
   updateRestaurant(data: any): Observable<any> {
     const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
     return this.http.patch(url, data.formData);
   }
->>>>>>> 7f638c918a3c4625118b58859333225473029af3
+  addCategoryToRestaurant(restaurantId: string, categoryId: string): Observable<any> {
+    const url = `${this.apiUrl}/restaurants/${restaurantId}/ajouter-categories`;
+    return this.http.post(url, { categorie: categoryId });
+  }
+  getRestoCategs(): Observable<Categorie[]> {
+    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/657f424f039fab1ba487503b`);
+  }
+  getAllRestaurants(): Observable<Restaurant[]> {
+    return this.http.get<Restaurant[]>(`${this.apiUrl}/list`);
+  }
+  deleteRestaurant(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
 }
