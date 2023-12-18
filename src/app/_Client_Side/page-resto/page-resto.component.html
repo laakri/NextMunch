@@ -1,7 +1,7 @@
 <div class="header">
   <div class="banner-resto-img">
     <img
-      src="../../../assets/images/Main-Images/ContactUsBackgroung.jpg"
+      src="../../../assets/images/restaurants-images/burger-fry-souse-banner-free-space-text-mockup-fast-food-top-view-empty-professional-phonography-photo.jpg"
       alt=""
     />
   </div>
@@ -12,6 +12,12 @@
         alt=""
       />
     </div>
+    <p-button
+      icon="pi pi-ellipsis-h"
+      [link]="true"
+      class="setting-btn"
+      routerLink="/RestoSettings"
+    ></p-button>
   </div>
 </div>
 
@@ -22,6 +28,7 @@
       barcha jaw barcha jaw barcha jaw barcha jaw barcha
     </div>
   </div>
+  <!--
   <div class="resto-spliter">
     <div class="resto-timing">
       <div class="resto-timing-header">
@@ -62,11 +69,19 @@
         <span>8.30 AM - 9.30 PM </span>
       </div>
     </div>
+  </div>-->
+  <div class="owner-tab-menu">
+    <p-button label="Menu" styleClass="custom-button"></p-button
+    ><p-button label="Informations" styleClass="custom-button"></p-button
+    ><p-button label="Reviews" styleClass="custom-button"></p-button>
+    <p-button label="Reservations" styleClass="custom-button"></p-button>
   </div>
+  <!--
   <div class="resto-event add-Event">
     <i class="pi pi-plus"></i>
     <h3>Add Event</h3>
   </div>
+-->
   <div class="resto-events">
     <p-carousel
       [value]="events"
@@ -76,13 +91,6 @@
     >
       <ng-template let-event pTemplate="item">
         <div class="resto-event">
-          <!--
-          <img
-            src="https://i.gyazo.com/02497575bc6f9b4a1ec38d7c44ec70cd.jpg"
-            alt=""
-          />
-          <img src="https://i.gyazo.com/910386d587275002dc3b807c86376bd8.png" />
-          -->
           <img
             src="https://i.gyazo.com/aea585922385b1af33a6cc8ced47d193.png"
             alt=""

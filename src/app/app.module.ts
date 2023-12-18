@@ -77,6 +77,7 @@ import { ListUserComponent } from './_Dashboard_Admin/list-user/list-user.compon
 import { ListRestaurantComponent } from './_Dashboard_Admin/list-restaurant/list-restaurant.component';
 import { AddPlatComponent } from './_Dashboard_Resto/add-plat/add-plat.component';
 import { ListeCategComponent } from './_Dashboard_Resto/liste-categ/liste-categ.component';
+import { RestoSettingsComponent } from './_Dashboard_Resto/resto-settings/resto-settings.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ListeCategComponent } from './_Dashboard_Resto/liste-categ/liste-categ.
     ListRestaurantComponent,
     AddPlatComponent,
     ListeCategComponent,
+    RestoSettingsComponent,
   ],
 
   imports: [
