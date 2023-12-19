@@ -11,7 +11,7 @@ export class AddEventComponent {
   numberOfPersons: number | null = null;
   startDate: Date | null = null;
   endDate: Date | null = null;
-
+  eventName: string | null = 'Weld El Hattab';
   // New properties for image selection
   selectedImage: string | null =
     'https://i.gyazo.com/682dd298b6e0b689564f9353020d2b94.png';
@@ -24,6 +24,7 @@ export class AddEventComponent {
     'https://i.gyazo.com/84a0ffa682c1e6a8486e49cf01e06359.png',
     'https://i.gyazo.com/38a48cca08654c640e0c2312deb44497.png',
     'https://i.gyazo.com/9ba965999576fd5295a8bc44a3219846.png',
+    'https://i.gyazo.com/b36542af0a7113f07edead7ad733439d.png',
   ];
   products: any[] = [
     {

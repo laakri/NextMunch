@@ -4,14 +4,20 @@
 
     <div class="image-container">
       <div class="event-image resto-event">
+        <img [src]="selectedImage" alt="Selected Image" />
+        <div class="event-resto-deadline">
+          <div class="event-resto-deadline-text">Ending Date</div>
+
+          <div class="event-resto-deadline-price">
+            {{ endDate | date : "MMM d, y " }}
+          </div>
+        </div>
         <div class="event-resto-offer-box">
           <div class="event-resto-offer-text">Offer</div>
           <div class="event-resto-offer-price">{{ eventPrice }} Dt</div>
         </div>
-        <img [src]="selectedImage" alt="Selected Image" />
-
         <div class="event-box">
-          <div class="event-resto-name">Weld Elhatab</div>
+          <div class="event-resto-name">{{ eventName }}</div>
           <div class="event-resto-special-event">Special Menu</div>
           <div class="event-resto-line"></div>
           <div class="event-resto-offer-text">Mermez + Couscous</div>
@@ -39,6 +45,7 @@
   <div>
     <label>Create Event:</label>
     <div class="form-selection">
+      <input type="text" pInputText [(ngModel)]="eventName" />
       <p-inputNumber
         placeholder="Enter Price"
         [(ngModel)]="eventPrice"
