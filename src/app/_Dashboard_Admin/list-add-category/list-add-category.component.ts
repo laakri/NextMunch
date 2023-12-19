@@ -36,6 +36,8 @@ export class ListAddCategoryComponent {
     this.categoryService.getAllCategories().subscribe(
       (data) => {
         this.categories = data;
+        console.log(data);
+        
       },
       (error) => {
         console.error('Error loading categories', error);
