@@ -240,7 +240,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: var(--soft-bgcolor); /* Adjust background color as needed */
+  background-color: var(--soft-bgcolor); 
   padding: 10px;
   z-index: 1000;
 }
@@ -249,6 +249,30 @@
   align-items: center;
   gap: 10px;
 }
+.product-selection-bar-right{
+  display: flex;
+  gap: 10px;
+}
 .resto-menu-product.selected {
   border: 2px solid rgb(255, 98, 0);
+}
+::ng-deep .product-selection-bar-delete-button{
+  border:rgb(255, 133, 133) solid 1px ;
+}
+::ng-deep .product-selection-bar-delete-button:hover{
+  border:var(--whitecolor)solid 1px ;
+
+}
+::ng-deep .product-selection-bar-hide-button{
+  color:var(--graycolor) ;
+}
+::ng-deep .product-selection-bar-hide-button:hover{
+  color:var(--whitecolor) ;
+}
+::ng-deep .product-selection-bar-submit-button{
+  background-color:var(--secendcolor) ;
+  border: var(--secendcolor) solid 1px;
+}
+::ng-deep .product-selection-bar-submit-button:hover{
+  border: var(--whitecolor) solid 1px;
 }

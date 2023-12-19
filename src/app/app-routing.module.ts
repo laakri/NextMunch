@@ -16,6 +16,7 @@ import { MenuComponent } from './_RestoPage/menu/menu.component';
 import { ReviewsComponent } from './_RestoPage/reviews/reviews.component';
 import { ReservationsComponent } from './_RestoPage/reservations/reservations.component';
 import { InformationsComponent } from './_RestoPage/informations/informations.component';
+import { AddEventComponent } from './_Dashboard_Resto/add-event/add-event.component';
 
 /*************************   Admin Dashboard   *********************** */
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'Contact', component: ContactUsComponent },
   { path: 'PageResto/:id', component: PageRestoComponent },
   { path: 'RestoSettings/:id', component: RestoSettingsComponent },
+  { path: 'AddEvent', component: AddEventComponent },
   { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'PageResto/:id',

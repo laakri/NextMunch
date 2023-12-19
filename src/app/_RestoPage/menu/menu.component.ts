@@ -17,7 +17,7 @@ import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-
 })
 export class MenuComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
-  productSelectionBarVisible: boolean = false;
+  productSelectionBarVisible: boolean = true;
   selectedProductIds: number[] = [];
   eventPrice: number | null = null;
   numberOfPersons: number | null = null;

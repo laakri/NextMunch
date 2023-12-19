@@ -99,16 +99,30 @@
 <div *ngIf="productSelectionBarVisible" class="product-selection-bar">
   <div class="product-selection-bar-left">
     <span>{{ selectedProductIds.length }} items selected</span>
-    <p-inputNumber
-      placeholder="Enter Price"
-      [(ngModel)]="eventPrice"
-    ></p-inputNumber>
-    <p-inputNumber
-      placeholder="Number of Persons"
-      [(ngModel)]="numberOfPersons"
-    ></p-inputNumber>
-    <p-calendar placeholder="Start Date" [(ngModel)]="startDate"></p-calendar>
-    <p-calendar placeholder="End Date" [(ngModel)]="endDate"></p-calendar>
   </div>
-  <p-button styleClass="secend-btn" (click)="submitEvent()">Submit</p-button>
+  <div class="product-selection-bar-right">
+    <p-button
+      label="Delete"
+      icon="pi pi-ban"
+      [rounded]="true"
+      styleClass="product-selection-bar-delete-button"
+      [outlined]="true"
+    ></p-button>
+
+    <p-button
+      label="Hide Items"
+      icon="pi pi-eye-slash"
+      [rounded]="true"
+      styleClass="product-selection-bar-hide-button"
+      [outlined]="true"
+    ></p-button>
+    <p-button
+      [rounded]="true"
+      styleClass="product-selection-bar-submit-button"
+      (click)="submitEvent()"
+      routerLink="/AddEvent"
+    >
+      Event [{{ selectedProductIds.length }}]</p-button
+    >
+  </div>
 </div>
