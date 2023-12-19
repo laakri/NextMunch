@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'About', component: AboutUsComponent },
   { path: 'Contact', component: ContactUsComponent },
   { path: 'PageResto/:id', component: PageRestoComponent },
-  { path: 'RestoSettings', component: RestoSettingsComponent },
+  { path: 'RestoSettings/:id', component: RestoSettingsComponent },
   { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'PageResto/:id',

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
@@ -18,31 +19,37 @@ export class RestoSettingsComponent implements OnInit {
   mainImg: any | undefined;
   bannerImg: any | undefined;
   loading: boolean = true;
-  constructor(private restaurantService: RestaurantService) {}
+  restaurantId: string = '';
+  constructor(
+    private restaurantService: RestaurantService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.restaurantId = params['id'];
+    });
+
     this.loading = true;
 
-    this.restaurantService
-      .getRestaurantById('6580aae27cafdfc6160456dd')
-      .subscribe(
-        (restaurant) => {
-          console.log(restaurant);
-          this.nameR = restaurant.nameR || '';
-          this.descriptionR = restaurant.descriptionR || '';
-          this.location = restaurant.location || '';
-          this.contact = restaurant.contact || '';
-          this.mainImg = restaurant.mainImg || '';
-          this.bannerImg = restaurant.bannerImg || '';
-          this.openDates = restaurant.openDates || '';
-          this.closeDates = restaurant.closeDates || '';
-          this.loading = false;
-        },
-        (error) => {
-          console.error(error);
-          // Handle error
-        }
-      );
+    this.restaurantService.getRestaurantById(this.restaurantId).subscribe(
+      (restaurant) => {
+        console.log(restaurant);
+        this.nameR = restaurant.nameR || '';
+        this.descriptionR = restaurant.descriptionR || '';
+        this.location = restaurant.location || '';
+        this.contact = restaurant.contact || '';
+        this.mainImg = restaurant.mainImg || '';
+        this.bannerImg = restaurant.bannerImg || '';
+        this.openDates = restaurant.openDates || '';
+        this.closeDates = restaurant.closeDates || '';
+        this.loading = false;
+      },
+      (error) => {
+        console.error(error);
+        // Handle error
+      }
+    );
   }
 
   // Updated method to handle Main Image
@@ -95,7 +102,7 @@ export class RestoSettingsComponent implements OnInit {
 
     this.restaurantService
       .updateRestaurant({
-        restaurantId: '6580aae27cafdfc6160456dd',
+        restaurantId: this.restaurantId,
         formData,
       })
       .subscribe(
