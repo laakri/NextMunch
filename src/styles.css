@@ -271,17 +271,17 @@ input::placeholder{
 
 
 .p-datatable .p-datatable-header {
-  background: var(--soft-bgcolor) !important;
+  background: transparent !important;
   color: var(--whitecolor) !important;
 }
 
 .p-datatable .p-datatable-footer {
-  background: var(--soft-bgcolor) !important;
+  background: transparent !important;
   color: var(--whitecolor) !important;
 }
 
 .p-datatable .p-datatable-tbody>tr {
-  background: var(--soft-bgcolor) !important;
+  background: transparent !important;
   color: var(--whitecolor) !important;
 }
 
@@ -295,7 +295,9 @@ input::placeholder{
 }
 
 .p-datatable .p-datatable-thead>tr>th {
-  background: var(--soft-bgcolor) !important;
+  border-top: var(--bordercolor) solid 1px !important;
+  border-bottom: var(--bordercolor) solid 1px !important;
+  background: transparent !important;
   color: var(--whitecolor) !important;
 }
 
