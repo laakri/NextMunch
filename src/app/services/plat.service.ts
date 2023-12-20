@@ -31,4 +31,7 @@ export class PlatService {
   getAllPlats(): Observable<Plat[]> {
     return this.http.get<Plat[]>(`${this.apiUrl}/liste-plats`);
   }
+  getPlatsInfo(platIds: string[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/getPlatsInfo`, { platIds });
+  }
 }

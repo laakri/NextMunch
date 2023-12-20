@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { PlatService } from './../../services/plat.service';
+import { GlobalService } from './../../services/_global.service';
+import { Component, OnInit } from '@angular/core';
 import { Plat } from 'src/app/models/plat.model';
 
 @Component({
@@ -6,13 +8,15 @@ import { Plat } from 'src/app/models/plat.model';
   templateUrl: './add-event.component.html',
   styleUrls: ['./add-event.component.css'],
 })
-export class AddEventComponent {
+export class AddEventComponent implements OnInit {
   eventPrice: number | null = 50;
   numberOfPersons: number | null = null;
   startDate: Date | null = null;
   endDate: Date | null = null;
   eventName: string | null = 'Weld El Hattab';
-  // New properties for image selection
+
+  selectedImageIndex: number = 0;
+
   selectedImage: string | null =
     'https://i.gyazo.com/b36542af0a7113f07edead7ad733439d.png';
 
@@ -27,36 +31,26 @@ export class AddEventComponent {
     'https://i.gyazo.com/84a0ffa682c1e6a8486e49cf01e06359.png',
     'https://i.gyazo.com/682dd298b6e0b689564f9353020d2b94.png',
   ];
-  products: any[] = [
-    {
-      nameP: 'Product 1',
-      descriptionP: 'Description for Product 1',
-      imgP: null,
-      priceP: '10.99',
-      selected: true,
-    },
-    {
-      nameP: 'Product 2',
-      descriptionP: 'Description for Product 2',
-      imgP: null,
-      priceP: '15.99',
-      selected: true,
-    },
-    {
-      nameP: 'Product 3',
-      descriptionP: 'Description for Product 3',
-      imgP: null,
-      priceP: '20.99',
-      selected: true,
-    },
-    {
-      nameP: 'Product 4',
-      descriptionP: 'Description for Product 4',
-      imgP: null,
-      priceP: '8.99',
-      selected: true,
-    },
-  ];
+  productsIds: string[] = [];
+  products: Plat[] = [];
+  constructor(
+    private GlobalService: GlobalService,
+    private PlatService: PlatService
+  ) {}
+
+  ngOnInit() {
+    this.productsIds = this.GlobalService.selectedProductIds;
+
+    this.PlatService.getPlatsInfo(this.productsIds).subscribe((data) => {
+      console.log(data);
+
+      // Assuming data.platsInfo is an array
+      this.products = data.platsInfo.map((product: any) => {
+        return { ...product, selected: true };
+      });
+    });
+  }
+
   handleCheckboxChange(product: any) {
     product.selected = !product.selected;
   }
@@ -65,9 +59,14 @@ export class AddEventComponent {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.selectedImage = reader.result as string;
+        this.imageArray.push(reader.result as string);
+        this.selectedImageIndex = this.imageArray.length - 1;
       };
       reader.readAsDataURL(file);
     }
+  }
+  selectImage(image: string) {
+    this.selectedImage = image;
+    this.selectedImageIndex = this.imageArray.indexOf(image);
   }
 }

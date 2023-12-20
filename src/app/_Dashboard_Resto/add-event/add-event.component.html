@@ -30,8 +30,7 @@
           ></p-button>
         </div>
       </div>
-    </div>
-
+      <!--
     <div class="small-images-container">
       <div
         *ngFor="let imageUrl of imageArray"
@@ -41,17 +40,33 @@
         <img [src]="imageUrl" alt="Small Image" />
       </div>
     </div>
+  -->
+      <div class="small-images-container">
+        <p-carousel [value]="imageArray" [numVisible]="8" [numScroll]="1">
+          <ng-template let-image pTemplate="item">
+            <img
+              [src]="image"
+              alt="Small Image"
+              class="small-image"
+              (click)="selectImage(image)"
+            />
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
   </div>
   <div>
     <label>Create Event:</label>
     <div class="form-selection">
       <input type="text" pInputText [(ngModel)]="eventName" />
       <p-inputNumber
-        placeholder="Enter Price"
+        styleClass="NumberInput"
+        placeholder="Price"
         [(ngModel)]="eventPrice"
       ></p-inputNumber>
       <p-inputNumber
-        placeholder="Number of Persons"
+        styleClass="NumberInput"
+        placeholder="Nbr Persons"
         [(ngModel)]="numberOfPersons"
       ></p-inputNumber>
       <p-calendar placeholder="Start Date" [(ngModel)]="startDate"></p-calendar>
@@ -63,8 +78,8 @@
         <ng-template pTemplate="header">
           <tr>
             <th>Select</th>
-            <!-- New header for the checkbox -->
             <th>Name</th>
+            <th>Image</th>
             <th>Description</th>
             <th>Price</th>
           </tr>
@@ -72,13 +87,21 @@
         <ng-template pTemplate="body" let-product>
           <tr>
             <td>
-              <input
-                type="checkbox"
+              <p-checkbox
                 [(ngModel)]="product.selected"
+                [binary]="true"
+                inputId="binary"
                 (change)="handleCheckboxChange(product)"
-              />
+              ></p-checkbox>
             </td>
             <td>{{ product.nameP }}</td>
+            <td>
+              <img
+                src="{{ product.imgP }}"
+                alt="ImagesPlat"
+                class="PlatImage"
+              />
+            </td>
             <td>{{ product.descriptionP }}</td>
             <td>{{ product.priceP }} Dt</td>
           </tr>

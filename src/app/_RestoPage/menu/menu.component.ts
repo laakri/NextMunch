@@ -1,11 +1,11 @@
+import { GlobalService } from './../../services/_global.service';
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { RestaurantService } from '../../services/restaurant.service';
 import { Categorie } from 'src/app/models/categorie.model';
 import { Plat } from 'src/app/models/plat.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlatService } from 'src/app/services/plat.service';
-import { CategorieService } from 'src/app/services/categorie.service';
 import { AddPlatComponent } from 'src/app/_Dashboard_Resto/add-plat/add-plat.component';
 import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-categ.component';
 
@@ -17,12 +17,8 @@ import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-
 })
 export class MenuComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
-  productSelectionBarVisible: boolean = true;
-  selectedProductIds: number[] = [];
-  eventPrice: number | null = null;
-  numberOfPersons: number | null = null;
-  startDate: Date | null = null;
-  endDate: Date | null = null;
+  productSelectionBarVisible: boolean = false;
+  selectedProductIds: string[] = [];
   events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
   plats!: Plat[];
   categories!: Categorie[];
@@ -31,8 +27,9 @@ export class MenuComponent implements OnInit {
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
     private route: ActivatedRoute,
+    private router: Router,
     private platService: PlatService,
-    private categService: CategorieService
+    private GlobalService: GlobalService
   ) {}
 
   ngOnInit() {
@@ -40,7 +37,6 @@ export class MenuComponent implements OnInit {
       const idParam = params.get('id');
       if (idParam) {
         this.restaurantId = idParam;
-        console.log(this.restaurantId);
 
         // Fetch data based on the restaurantId
         this.platService.getAllPlats().subscribe(
@@ -54,7 +50,6 @@ export class MenuComponent implements OnInit {
 
         this.RestaurantService.getRestoCategs(this.restaurantId).subscribe(
           (response: any) => {
-            console.log(response);
             this.categories = response;
           },
           (error) => {
@@ -105,10 +100,10 @@ export class MenuComponent implements OnInit {
   }
 
   addToSelectedProducts(product: any): void {
-    const index = this.selectedProductIds.indexOf(product.id);
+    const index = this.selectedProductIds.indexOf(product._id);
 
     if (index === -1) {
-      this.selectedProductIds.push(product.id);
+      this.selectedProductIds.push(product._id);
       product.selected = true;
     } else {
       this.selectedProductIds.splice(index, 1);
@@ -117,23 +112,14 @@ export class MenuComponent implements OnInit {
   }
   // Method to submit the event
   submitEvent(): void {
-    const eventData: any = {
-      products: this.selectedProductIds,
-      price: this.eventPrice,
-      numberOfPersons: this.numberOfPersons,
-      startDate: this.startDate,
-      endDate: this.endDate,
-    };
-
+    this.GlobalService.selectedProductIds = this.selectedProductIds;
     this.resetForm();
+    this.router.navigate(['AddEvent']);
   }
   // Method to reset the form or hide the bar
   resetForm(): void {
     this.selectedProductIds = [];
-    this.eventPrice = null;
-    this.numberOfPersons = null;
-    this.startDate = null;
-    this.endDate = null;
+
     this.productSelectionBarVisible = false;
   }
 }
