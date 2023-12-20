@@ -23,15 +23,14 @@ export class ListeCategComponent implements OnInit {
   ) {}
 
   onCategoryClick(category: Categorie) {
-    this.categories.forEach(cat => cat.isSelected = false);
+    this.categories.forEach((cat) => (cat.isSelected = false));
 
     // Set the clicked category as selected
     category.isSelected = true;
 
     // Log the selected category to the console
     console.log('Selected Category:', category);
-this.selectedCategory=category;
- 
+    this.selectedCategory = category;
   }
 
   addCategory(): void {
@@ -40,22 +39,27 @@ this.selectedCategory=category;
     if (this.selectedCategory) {
       const categoryId = this.selectedCategory._id;
 
-      this.restoService.addCategoryToRestaurant(restaurantId, categoryId).subscribe(
-        (response) => {
-          this.responseMessage = response.message;
-          console.log('Category added successfully:', response);
-        },
-        (error) => {
-          this.responseMessage = "Une erreur s'est produite lors de l'ajout de la catégorie.";
-          console.error('Error adding category:', error);
-        }
-      );
+      this.restoService
+        .addCategoryToRestaurant(restaurantId, categoryId)
+        .subscribe(
+          (response) => {
+            this.responseMessage = response.message;
+            console.log('Category added successfully:', response);
+          },
+          (error) => {
+            this.responseMessage =
+              "Une erreur s'est produite lors de l'ajout de la catégorie.";
+            console.error('Error adding category:', error);
+          }
+        );
     } else {
       console.warn('Aucune catégorie sélectionnée.');
     }
   }
 
   ngOnInit() {
+    const restaurantId = '6581589f5d0bb7020fc6302f';
+
     this.categService.getAllCategs().subscribe(
       (categories: Categorie[]) => {
         this.categories = categories;
@@ -65,7 +69,7 @@ this.selectedCategory=category;
       }
     );
 
-    this.restoService.getRestoCategs().subscribe(
+    this.restoService.getRestoCategs(restaurantId).subscribe(
       (categs: Categorie[]) => {
         this.categsResto = categs;
         console.log(this.categsResto);
@@ -73,6 +77,6 @@ this.selectedCategory=category;
       (error) => {
         console.error('Error fetching categories:', error);
       }
-    )
+    );
   }
 }
