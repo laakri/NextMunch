@@ -30,9 +30,10 @@
     
 }
 ::ng-deep .secend-btn{
-    background-color: #e97807 ;
+    background-color: var(--secendcolor) ;
     border: none;
-    color: white;
+    color: var(--blackcolor);
+    font-weight: 600;
   }
   ::ng-deep .custom-button {
     text-decoration: none;

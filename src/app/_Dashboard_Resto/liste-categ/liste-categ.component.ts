@@ -23,7 +23,6 @@ export class ListeCategComponent implements OnInit {
     private restoService: RestaurantService,
     private categService: CategorieService,
     private route: ActivatedRoute
-
   ) {}
 
   onCategoryClick(category: Categorie) {
@@ -37,9 +36,8 @@ export class ListeCategComponent implements OnInit {
     this.selectedCategory = category;
   }
 
-
   addCategory(): void {
-    const restaurantId = '6581589f5d0bb7020fc6302f';
+    const restaurantId = '658313ea8a06b1e6daa77841';
 
     if (this.selectedCategory) {
       const categoryId = this.selectedCategory._id;
@@ -65,7 +63,7 @@ export class ListeCategComponent implements OnInit {
   data!: Restaurant;
 
   ngOnInit() {
-    const restaurantId = '6581589f5d0bb7020fc6302f';
+    const restaurantId = '658313ea8a06b1e6daa77841';
 
     this.categService.getAllCategs().subscribe(
       (categories: Categorie[]) => {
@@ -76,7 +74,7 @@ export class ListeCategComponent implements OnInit {
       }
     );
     this.route.params.subscribe((params) => {
-      const restaurantId = "6581589f5d0bb7020fc6302f"; // Assuming the parameter name is 'id'
+      const restaurantId = '658313ea8a06b1e6daa77841'; // Assuming the parameter name is 'id'
       this.restoService.getRestoCategs(restaurantId).subscribe(
         (response: any) => {
           console.log(restaurantId);
@@ -86,8 +84,6 @@ export class ListeCategComponent implements OnInit {
           console.error('Error fetching categories:', error);
         }
       );
-    
     });
-
   }
 }

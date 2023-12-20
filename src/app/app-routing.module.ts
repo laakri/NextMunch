@@ -42,7 +42,7 @@ const routes: Routes = [
     ],
   },
 
-  { path: 'RestoSettings/:id', component: RestoSettingsComponent },
+  { path: 'RestoSettings', component: RestoSettingsComponent },
   { path: 'AddEvent', component: AddEventComponent },
   { path: 'Restaurants', component: RestaurantsComponent },
   {

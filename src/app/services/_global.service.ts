@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
   selectedProductIds: string[] = [
-    '6582b1ad8f4030bf950af26d',
-    '6582baae8f4030bf950af296',
+    '658316688a06b1e6daa77891',
+    '658316848a06b1e6daa77898',
   ];
-  restaurantId: string | null = '6581589f5d0bb7020fc6302f';
+  restaurantId: string | null = '658313ea8a06b1e6daa77841';
 }

@@ -1,3 +1,4 @@
+import { GlobalService } from './../../services/_global.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant.service';
@@ -19,37 +20,36 @@ export class RestoSettingsComponent implements OnInit {
   mainImg: any | undefined;
   bannerImg: any | undefined;
   loading: boolean = true;
-  restaurantId: string = '';
+  restaurantId: string | null = '';
   constructor(
     private restaurantService: RestaurantService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private GlobalService: GlobalService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.restaurantId = params['id'];
-    });
-
+    this.restaurantId = this.GlobalService.restaurantId;
     this.loading = true;
-
-    this.restaurantService.getRestaurantById(this.restaurantId).subscribe(
-      (restaurant) => {
-        console.log(restaurant);
-        this.nameR = restaurant.nameR || '';
-        this.descriptionR = restaurant.descriptionR || '';
-        this.location = restaurant.location || '';
-        this.contact = restaurant.contact || '';
-        this.mainImg = restaurant.mainImg || '';
-        this.bannerImg = restaurant.bannerImg || '';
-        this.openDates = restaurant.openDates || '';
-        this.closeDates = restaurant.closeDates || '';
-        this.loading = false;
-      },
-      (error) => {
-        console.error(error);
-        // Handle error
-      }
-    );
+    if (this.restaurantId) {
+      this.restaurantService.getRestaurantById(this.restaurantId).subscribe(
+        (restaurant) => {
+          console.log(restaurant);
+          this.nameR = restaurant.nameR || '';
+          this.descriptionR = restaurant.descriptionR || '';
+          this.location = restaurant.location || '';
+          this.contact = restaurant.contact || '';
+          this.mainImg = restaurant.mainImg || '';
+          this.bannerImg = restaurant.bannerImg || '';
+          this.openDates = restaurant.openDates || '';
+          this.closeDates = restaurant.closeDates || '';
+          this.loading = false;
+        },
+        (error) => {
+          console.error(error);
+          // Handle error
+        }
+      );
+    }
   }
 
   // Updated method to handle Main Image
