@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { RestaurantService } from '../../services/restaurant.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Router } from '@angular/router';
+import { Categorie } from 'src/app/models/categorie.model';
 
 @Component({
   selector: 'app-add-resto',
@@ -19,6 +20,7 @@ export class AddRestoComponent {
   showErrorRestaurantName: boolean = false;
   showErrorLocation: boolean = false;
   showErrorContact: boolean = false;
+  categories!:Categorie[];
   items: any[];
   activeIndex: number = 0;
 
@@ -103,6 +105,7 @@ export class AddRestoComponent {
       descriptionR: '', // Set the appropriate values for these properties
       location: this.location,
       contact: this.contact,
+      categories:this.categories,
     }).subscribe(
       (response) => {
         const createdRestaurantId = response.restaurantId; // Assuming the API returns the ID in the "restaurantId" property

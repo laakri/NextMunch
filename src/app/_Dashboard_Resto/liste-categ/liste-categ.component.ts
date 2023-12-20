@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Categorie } from 'src/app/models/categorie.model';
+import { Restaurant } from 'src/app/models/restaurant.model';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 
@@ -19,7 +21,9 @@ export class ListeCategComponent implements OnInit {
 
   constructor(
     private restoService: RestaurantService,
-    private categService: CategorieService
+    private categService: CategorieService,
+    private route: ActivatedRoute
+
   ) {}
 
   onCategoryClick(category: Categorie) {
@@ -33,6 +37,7 @@ export class ListeCategComponent implements OnInit {
 this.selectedCategory=category;
  
   }
+
 
   addCategory(): void {
     const restaurantId = '6581589f5d0bb7020fc6302f';
@@ -54,6 +59,8 @@ this.selectedCategory=category;
       console.warn('Aucune catégorie sélectionnée.');
     }
   }
+  loading: boolean = true;
+  data!: Restaurant;
 
   ngOnInit() {
     this.categService.getAllCategs().subscribe(
@@ -64,15 +71,18 @@ this.selectedCategory=category;
         console.error('Error fetching categories:', error);
       }
     );
-
-    this.restoService.getRestoCategs().subscribe(
-      (categs: Categorie[]) => {
-        this.categsResto = categs;
-        console.log(this.categsResto);
-      },
-      (error) => {
-        console.error('Error fetching categories:', error);
-      }
-    )
+    this.route.params.subscribe((params) => {
+      const restaurantId = "6581589f5d0bb7020fc6302f"; // Assuming the parameter name is 'id'
+      this.restoService.getRestoCategs(restaurantId).subscribe(
+        (response: any) => {
+          console.log(restaurantId);
+          this.categsResto = response;
+        },
+        (error) => {
+          console.error('Error fetching categories:', error);
+        }
+      );
+    
+    });
   }
 }
