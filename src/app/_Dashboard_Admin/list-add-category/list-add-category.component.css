@@ -21,8 +21,8 @@
 }
 
 .container{
-
-  width: 24%;
+  min-width: 210px ;
+  width: 29%;
   display: flex;
   align-items: center;
   color: #F8C54A;
@@ -31,7 +31,6 @@
   border-radius: 2rem;
   padding: 1px;
   margin:  1em 2rem;
-
 }
 
 .conatinerImg img {

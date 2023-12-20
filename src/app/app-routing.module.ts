@@ -30,10 +30,6 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'About', component: AboutUsComponent },
   { path: 'Contact', component: ContactUsComponent },
-  { path: 'PageResto/:id', component: PageRestoComponent },
-  { path: 'RestoSettings/:id', component: RestoSettingsComponent },
-  { path: 'AddEvent', component: AddEventComponent },
-  { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'PageResto/:id',
     component: PageRestoComponent,
@@ -46,6 +42,9 @@ const routes: Routes = [
     ],
   },
 
+  { path: 'RestoSettings/:id', component: RestoSettingsComponent },
+  { path: 'AddEvent', component: AddEventComponent },
+  { path: 'Restaurants', component: RestaurantsComponent },
   {
     path: 'auth',
     component: AuthComponent,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Restaurant } from '../models/restaurant.model';
 import { Categorie } from '../models/categorie.model';
@@ -23,12 +23,16 @@ export class RestaurantService {
     const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
     return this.http.patch(url, data.formData);
   }
-  addCategoryToRestaurant(restaurantId: string, categoryId: string): Observable<any> {
+  addCategoryToRestaurant(
+    restaurantId: string,
+    categoryId: string
+  ): Observable<any> {
     const url = `${this.apiUrl}/restaurants/${restaurantId}/ajouter-categories`;
     return this.http.post(url, { categorie: categoryId });
   }
-  getRestoCategs(): Observable<Categorie[]> {
-    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/6581589f5d0bb7020fc6302f`);
+
+  getRestoCategs(restaurantId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/liste-categ/${restaurantId}`);
   }
 
   getAllRestaurants(): Observable<Restaurant[]> {
@@ -36,5 +40,27 @@ export class RestaurantService {
   }
   deleteRestaurant(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
+
+  /*searchRestaurantsByName(searchTerm: string): Observable<Restaurant[]> {
+    const url = `${this.apiUrl}/listRestoSearch?q=${searchTerm}`;
+    return this.http.get<Restaurant[]>(url);
+  }
+
+searchRestaurantsByCategory(categories: Categorie[]): Observable<Restaurant[]> {
+  const params = new HttpParams().set('categories', categories.join(','));
+  return this.http.get<any>(`${this.apiUrl}/listRestoByCategory`, { params })
+}*/
+
+  searchRestaurants(
+    searchInput: string,
+    selectedCategories: Categorie[]
+  ): Observable<any> {
+    const params = {
+      name: searchInput,
+      categories: selectedCategories.join(','),
+    };
+
+    return this.http.get(`${this.apiUrl}/listRestoBySearch`, { params });
   }
 }
