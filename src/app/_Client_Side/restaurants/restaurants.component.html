@@ -29,7 +29,6 @@
           id="restaurant-find"
           [(ngModel)]="searchInput"
           (input)="searchRestaurantsf()"
-
         />
       </div>
       <div class="content-form-div">
@@ -52,8 +51,8 @@
       <div class="content-form-div-rating">
         <label class="content-form-div-rating-label">Maximum Rating:</label>
         <div class="test">
-        <p-slider ></p-slider>
-      </div>
+          <p-slider></p-slider>
+        </div>
       </div>
 
       <div class="content-form-div">
@@ -65,7 +64,6 @@
           id="restaurant-location"
         />
       </div>
-      
     </div>
 
     <div class="container-rigth">
@@ -76,12 +74,12 @@
         <a href="" *ngFor="let restaurant of restaurants">
           <div class="resto-box">
             <div class="resto-box-banner">
-             <!-- <img [src]="restaurant.bannerImg" alt="" />-->
+              <!-- <img [src]="restaurant.bannerImg" alt="" />-->
               <div class="resto-box-img-profil">
                 <!--<img [src]="restaurant.mainImg" />-->
               </div>
               <div class="resto-box-rating">
-                <span>{{restaurant.rating}}</span>
+                <span>{{ restaurant.rating }}</span>
                 <i class="pi pi-star-fill"></i>
               </div>
             </div>

@@ -3,7 +3,7 @@
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
-body.light-theme {
+body{
     height: 100%;
     width: 100%;
     margin: 0;
@@ -31,7 +31,7 @@ body.light-theme {
   --blur-background: rgba(255, 255, 255, 0.877);
 
 }
-body{
+body.light-theme {
   height: 100%;
   width: 100%;
   margin: 0;
