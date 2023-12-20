@@ -67,7 +67,11 @@
         <h3>Add plat</h3>
       </div>
 
-      <div class="resto-menu-product" *ngFor="let plat of plats">
+      <div
+        class="resto-menu-product"
+        *ngFor="let plat of plats"
+        [class.selected]="plat.selected"
+      >
         <div class="rest-resto-menu-product-details">
           <div class="resto-menu-product-img">
             <img src="{{ plat.imgP }}" alt="" />
@@ -77,7 +81,7 @@
             {{ plat.descriptionP }}
           </div>
           <div class="resto-menu-product-footer">
-            <div class="resto-menu-product-price">{{ plat.priceP }}</div>
+            <div class="resto-menu-product-price">{{ plat.priceP }} Dt</div>
             <p-button
               class="product-btn"
               icon="pi pi-cart-plus"
@@ -119,7 +123,6 @@
       [rounded]="true"
       styleClass="product-selection-bar-submit-button"
       (click)="submitEvent()"
-      routerLink="/AddEvent"
     >
       Event [{{ selectedProductIds.length }}]</p-button
     >
