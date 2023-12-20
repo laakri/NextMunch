@@ -1,50 +1,79 @@
 <div class="header">
-  <div class="home-header">
-    <div class="home-description">
-      <h4>NextMunch</h4>
-      <h1>
-        Discover the gastronomic treasures of your city - Easy location,
-        irresistible offers...
-      </h1>
-      <p-button>Show more <i class="pi pi-chevron-right"></i></p-button>
-    </div>
-    <div class="mini-carousel-home">
-      <div class="formes">
-        <img src="../../../assets/images/home-page/graph.png" alt="" />
-      </div>
-      <div class="form-resto-img">
-        <img
-          src="../../../assets/images/home-page/1000_F_163351783_7nxJZugbE5LVPAAH4M7XBhZmgvui7eO5-removebg-preview.png"
-          alt=""
-        />
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="container-box1">
-    <i class="pi pi-heart-fill"></i>
-    <h2>Our App Features</h2>
-    <p>Locate, reserve, taste: the gastronomic adventure begins here!</p>
-    <div class="features">
-    <div class="resto-menu-product" *ngFor="let index of [0, 1, 2]">
-      <div class="rest-resto-menu-product-details">
-        <div class="resto-menu-product-img">
+  <div class="container-header">
+    <div class="container-header-left">
+      <div class="header-left">
+        <div class="text-header">
+          <div class="logo">
+            <a label="NextMunch" routerLink="" class="mainlogo">
+              <div>NextMunch</div>
+              <img src="../../../assets/logo/logo-splach.png" alt="" />
+            </a>
+          </div>
+          <div class="header-social-media">
+            <p-avatar
+              icon="pi pi-facebook"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
+            ></p-avatar>
+            <p-avatar
+              icon="pi pi-instagram"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#d400fe', color: '#ffffff' }"
+            ></p-avatar>
+            <p-avatar
+              icon="pi pi-twitter"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#00d8fe', color: '#ffffff' }"
+            ></p-avatar>
+          </div>
+          <div class="header-search">
+            <input type="search" placeholder="search" pInputText />
+          </div>
+          <p>Exceptional restaurants, memorable dishes, easy reservations.</p>
+          <h1>
+            Discover the gastronomic treasures of your city - Easy location,
+            irresistible offers...
+          </h1>
+        </div>
+        <div class="img-header">
           <img
-            src="../../../assets/images/home-page/unnamed.png"
+            src="../../../assets/images/home-page/Captured-removebg-preview.png"
             alt=""
           />
         </div>
-        <div class="resto-menu-product-name">Easy to Oreder</div>
-        <div class="resto-menu-product-description">
-          Short Description Short Description Short Description Short
-          Description
+      </div>
+    </div>
+
+    <div class="container-header-rigth">
+      <div class="containt-header-rigth">
+        <div class="containt-haut">
+          <div class="contain-haut-img">
+            <img
+              src="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"
+              alt=""
+            />
+          </div>
         </div>
-      
+        <div class="containt-bas">
+          <h2>Keep it !</h2>
+          <p>
+            Plongez dans une expérience culinaire inoubliable au [Nom du
+            Restaurant]. Notre établissement vous accueille avec une fusion
+            exquise de saveurs, créant une symphonie gastronomique pour
+            satisfaire tous les palais.
+          </p>
+          <div class="chip">
+          <p-chip  label="fast food" image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"></p-chip>
+          <p-chip  label="cheesy" image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg" ></p-chip>
+          <p-chip  label="Dessert" image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg" ></p-chip>
+        </div></div>
       </div>
     </div>
   </div>
-  </div>
-
-  
 </div>

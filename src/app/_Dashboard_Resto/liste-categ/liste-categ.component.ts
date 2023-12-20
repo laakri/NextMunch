@@ -61,6 +61,13 @@ export class ListeCategComponent implements OnInit {
   }
   loading: boolean = true;
   data!: Restaurant;
+  searchTerm: string = '';
+  onSearchChange(): void {
+    this.categories = this.categories.filter(category =>
+      category.nameCat.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
 
   ngOnInit() {
     const restaurantId = '658313ea8a06b1e6daa77841';

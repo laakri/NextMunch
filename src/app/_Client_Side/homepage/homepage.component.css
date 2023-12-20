@@ -1,137 +1,85 @@
 /*****************/
 .header {
   margin-bottom: 130px;
- 
 }
-
-  
-
-
-/*******************************/
-.home-header {
+.container-header {
   display: flex;
-  align-items: center;
-  justify-content: left;
-  gap: 80px;
-  max-width: 1900px;
-}
-
-/********************************/
-.home-description {
-  padding: 250px;
-}
-.home-description h3 {
-  color: rgb(244, 224, 72);
-}
-
-
-/************************/
-.mini-carousel-home {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-}
-.formes img {
-  height: 800px;
-  width: 800px;
-}
-.form-resto-img img {
-  height: 600px;
-  width: 600px;
-  position: absolute;
-  top: 95px;
-  right: 330px;
-}
-/****************************/
-.container{
-  max-width: 1600px;
+  padding: 20px;
+  gap: 20px;
   margin: auto;
-  margin-top: -100px;
+  max-width: 1600px;
 }
-.container-box1{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1px;
-}
-.container-box1 i{
-  background-color: rgba(53, 53, 53, 0.44);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-  display: flex;
-justify-content: center;
-align-items: center;
-margin-bottom: 20px;
-}
-/******************/
-.resto-menu-products {
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-
-}
-.resto-menu-product {
-  border-radius: 10px;
-  width: 240px;
-  min-height: 340px;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;    
-}
-
-.resto-menu-product-img{
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  right: 50%;
-  transform: translate(-50%);
-  width: 170px;
-  height: 170px;
-  border-radius: 50%;
+/********************************************/
+.container-header-left {
+  flex: 3;
+  height: 700px;
+  border-radius: 30px;
+  background-color: rgb(255, 170, 23);
   overflow: hidden;
-  border: var(--bordercolor) solid 1px;
-  background-color: var(--bgcolor);
-} 
-.resto-menu-product-img img{
-  width: 170px;
-  height: 170px;
-} 
-
-.rest-resto-menu-product-details{
+}
+.logo {
+  margin-bottom: 0px;
+}
+.mainlogo {
   position: relative;
-  border: var(--bordercolor) solid 1px;
-  padding: 10px;
-  padding-top: 30px;
+}
+.mainlogo div {
+  font-family: "Preahvihear", sans-serif !important;
+  font-size: 23px;
+  font-weight: 700;
+}
+.mainlogo img {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: -3px;
+  right: 432px;
+}
+.header-social-media {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 100px;
+}
+.header-search input {
+  width: 500px;
+  border-radius: 50px;
+}
+.header-left {
+  display: flex;
+  margin-top: 95px;
+}
+.text-header {
+  padding: 50px;
+}
+.text-header h1 {
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.img-header {
+  margin-top: 11px;
+}
+.img-header img {
+  height: 600px;
+  width: 750px;
+}
+
+/**********************************/
+.container-header-rigth {
+  flex: 1;
+}
+.containt-header-rigth{
   display: flex;
   flex-direction: column;
-  gap: 5px;
   justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  background-color: var(--soft-bgcolor);
-
+  margin: auto;
 }
-
-.resto-menu-product-name{
-  font-size: 20px;
-  font-weight: 600;
-  padding-top: 65px;
+.containt-haut{
+  overflow: hidden;
+  border-radius: 30px;
+  width: 400px;
+height: 400px;
 }
-.resto-menu-product-description{
-  color: var(--graycolor);
-  font-size: 14px;
-
-}
-.features{
+.chip{
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  gap: 70px;
-  padding-top: 10px;
+  gap: 20px;
 }

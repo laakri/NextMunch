@@ -9,12 +9,8 @@
        
 
         <div class="containerr" *ngFor="let categ of categsResto">
-          <div class="conatinerImg">
-            <img [src]="" />
-          </div>
-          <div class="containerP">
-            <h1 style="margin-left: 1rem">{{ categ.nameCat }}</h1>
-          </div>
+          
+<p-chip  label="{{categ.nameCat}}" image="{{categ.imgCat}}" [removable]="true"></p-chip>
         </div>
       </div>
     
@@ -22,6 +18,7 @@
 
     <div class="All-category">
       <h3>Select a category to add to your restaurant's menu</h3>
+      <input pInputText type="search" placeholder="search category"  [(ngModel)]="searchTerm" (input)="onSearchChange()">
       <div class="content">
       <div
         class="containerr"
@@ -29,17 +26,14 @@
         (click)="onCategoryClick(category)"
         [ngClass]="{ categSelected: category.isSelected }"
       >
-        <div class="conatinerImg">
-          <img [src]="category.imgCat" />
-        </div>
-        <div class="containerP">
-          <h1 style="margin-left: 1rem">{{ category.nameCat}}</h1>
-        </div>
+      <p-chip label="{{category.nameCat}}" image="{{category.imgCat}}" ></p-chip>
       </div>
     </div>
     </div>
 
    
   </div>
+  <div class="button-save">
   <p-button label="Save" severity="success" (click)="addCategory()"></p-button>
+</div>
 </div>

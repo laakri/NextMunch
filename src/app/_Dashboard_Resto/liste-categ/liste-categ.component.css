@@ -12,12 +12,13 @@ padding: 20px;
   padding: 20px;
   border: rgba(99, 165, 182, 0.457) 1px solid;
   border-radius: 20px;
-
+width: 700px;
 }
 .category-selected{
   padding: 20px;
   border: rgba(99, 165, 182, 0.457) 1px solid;
   border-radius: 20px;
+  width: 700px;
 
 
 }
@@ -26,18 +27,17 @@ padding: 20px;
   align-items: center;
   justify-content: left;
 gap: 10px;
-
+}
+.All-category input{
+width: 650px;
+margin-bottom: 20px;
 }
 .containerr{
 
-  width: 80%;
-  height: 50px;
+ 
   display: flex;
   align-items: center;
-  color: #F8C54A;
-  font-size: 9px;
-  border: 1px solid #fff2f2;
-  border-radius: 2rem;
+  font-size: 15px;
   padding: 1px;
  
 
@@ -72,5 +72,8 @@ align-items: center ;
   display: felx;
   justify-content: center;
   align-items: center;
+}
+.button-save{
+  margin-left: 620px;
 }
 

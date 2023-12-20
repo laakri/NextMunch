@@ -9,6 +9,9 @@ import { ErrorInterceptor } from './error-interceptor';
 
 /**********  Prime NG *************** */
 /*import { PickListModule } from 'primeng/picklist';*/
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
@@ -115,6 +118,8 @@ import { AddEventComponent } from './_Dashboard_Resto/add-event/add-event.compon
   imports: [
     HttpClientModule,
     BrowserModule,
+    AvatarGroupModule,
+    AvatarModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
