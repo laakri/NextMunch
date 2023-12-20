@@ -1,3 +1,4 @@
+import { Categorie } from "./categorie.model";
 export interface Restaurant {
   _id?: string;
   ownerId: string;
@@ -13,4 +14,5 @@ export interface Restaurant {
   createdAt?: Date;
   updatedAt?: Date;
   rating?: number; 
+  categories: Categorie[];
 }

@@ -1,8 +1,28 @@
 <div class="container">
   <h1>Select Category</h1>
   <div class="category">
+
+    <div class="category-selected">
+      <h3>Liste Categories</h3>
+      <p> You have chosen this category</p>
+      <div class="list-categ-selected">
+       
+
+        <div class="containerr" *ngFor="let categ of categsResto">
+          <div class="conatinerImg">
+            <img [src]="" />
+          </div>
+          <div class="containerP">
+            <h1 style="margin-left: 1rem">{{ categ.nameCat }}</h1>
+          </div>
+        </div>
+      </div>
+    
+    </div>
+
     <div class="All-category">
-      <h1>Add Category</h1>
+      <h3>Select a category to add to your restaurant's menu</h3>
+      <div class="content">
       <div
         class="containerr"
         *ngFor="let category of categories"
@@ -13,36 +33,13 @@
           <img [src]="category.imgCat" />
         </div>
         <div class="containerP">
-          <h1 style="margin-left: 1rem">{{ category.nameCat }}</h1>
+          <h1 style="margin-left: 1rem">{{ category.nameCat}}</h1>
         </div>
       </div>
     </div>
-  
-  <div class="category-selected">
-    <h1>Liste Categories</h1>
-    <div class="list-categ-selected">
-      your categories is 
-
-      <div
-      class="containerr"
-      *ngFor="let categ of categsResto"
-    
-    >
-      <div class="conatinerImg">
-        <img [src]="" />
-      </div>
-      <div class="containerP">
-        <h1 style="margin-left: 1rem">{{ categ }}</h1>
-      </div>
     </div>
 
-    </div>
-    <div class="categ-manger">
-      <p-button label="Enable" severity="help"></p-button>
-      <p-button label="Disable" severity="info"></p-button>
-      <p-button label="Delete" severity="danger"></p-button>
-    </div>
+   
   </div>
-</div>
-<p-button label="Save" severity="success" (click)="addCategory()"></p-button>
+  <p-button label="Save" severity="success" (click)="addCategory()"></p-button>
 </div>
