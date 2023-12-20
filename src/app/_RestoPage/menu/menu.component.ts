@@ -87,8 +87,8 @@ export class MenuComponent implements OnInit {
       draggable: false,
       resizable: false,
       styleClass: 'dialogSearch',
-      width: '1300px',
-      height: '600px',
+      width: '800px',
+      height: '700px',
       contentStyle: { overflow: 'auto' },
     });
     console.log(this.ref);

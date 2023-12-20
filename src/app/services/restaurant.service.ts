@@ -30,9 +30,11 @@ export class RestaurantService {
     const url = `${this.apiUrl}/restaurants/${restaurantId}/ajouter-categories`;
     return this.http.post(url, { categorie: categoryId });
   }
+
   getRestoCategs(restaurantId: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/liste-categ/${restaurantId}`);
   }
+
   getAllRestaurants(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(`${this.apiUrl}/list`);
   }
