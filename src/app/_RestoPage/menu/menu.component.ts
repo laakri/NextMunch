@@ -26,6 +26,7 @@ export class MenuComponent implements OnInit {
   events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
   plats!: Plat[];
   categories!: Categorie[];
+  restaurantId!: string | null;
   constructor(
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
@@ -35,27 +36,35 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //Restaurant Id Ya Rojla
-    const restaurantId = this.route.snapshot.paramMap.get('id');
+    this.route.parent?.paramMap.subscribe((params) => {
+      const idParam = params.get('id');
+      if (idParam) {
+        this.restaurantId = idParam;
+        console.log(this.restaurantId);
 
-    this.platService.getAllPlats().subscribe(
-      (plats: Plat[]) => {
-        this.plats = plats;
-      },
-      (error) => {
-        console.error('Error fetching plats:', error);
-      }
-    );
+        // Fetch data based on the restaurantId
+        this.platService.getAllPlats().subscribe(
+          (plats: Plat[]) => {
+            this.plats = plats;
+          },
+          (error) => {
+            console.error('Error fetching plats:', error);
+          }
+        );
 
-    this.RestaurantService.getRestoCategs().subscribe(
-      (response: any) => {
-        this.categories = response;
-      },
-      (error) => {
-        console.error('Error fetching categories:', error);
+        this.RestaurantService.getRestoCategs(this.restaurantId).subscribe(
+          (response: any) => {
+            console.log(response);
+            this.categories = response;
+          },
+          (error) => {
+            console.error('Error fetching categories:', error);
+          }
+        );
       }
-    );
+    });
   }
+
   /********************* */
   openAddPlat() {
     this.ref = this.dialogService.open(AddPlatComponent, {

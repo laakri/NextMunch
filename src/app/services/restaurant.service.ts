@@ -23,12 +23,15 @@ export class RestaurantService {
     const url = `${this.apiUrl}/UpdateRestaurant/${data.restaurantId}`;
     return this.http.patch(url, data.formData);
   }
-  addCategoryToRestaurant(restaurantId: string, categoryId: string): Observable<any> {
+  addCategoryToRestaurant(
+    restaurantId: string,
+    categoryId: string
+  ): Observable<any> {
     const url = `${this.apiUrl}/restaurants/${restaurantId}/ajouter-categories`;
     return this.http.post(url, { categorie: categoryId });
   }
-  getRestoCategs(): Observable<Categorie[]> {
-    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/657f424f039fab1ba487503b`);
+  getRestoCategs(restaurantId: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/liste-categ/${restaurantId}`);
   }
   getAllRestaurants(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(`${this.apiUrl}/list`);
@@ -36,7 +39,6 @@ export class RestaurantService {
   deleteRestaurant(id: string): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
-
 
   /*searchRestaurantsByName(searchTerm: string): Observable<Restaurant[]> {
     const url = `${this.apiUrl}/listRestoSearch?q=${searchTerm}`;
@@ -48,12 +50,15 @@ searchRestaurantsByCategory(categories: Categorie[]): Observable<Restaurant[]> {
   return this.http.get<any>(`${this.apiUrl}/listRestoByCategory`, { params })
 }*/
 
-searchRestaurants(searchInput: string, selectedCategories: Categorie[]): Observable<any> {
-  const params = {
-    name: searchInput,
-    categories: selectedCategories.join(','),
-  };
+  searchRestaurants(
+    searchInput: string,
+    selectedCategories: Categorie[]
+  ): Observable<any> {
+    const params = {
+      name: searchInput,
+      categories: selectedCategories.join(','),
+    };
 
-  return this.http.get(`${this.apiUrl}/listRestoBySearch`, { params });
-}
+    return this.http.get(`${this.apiUrl}/listRestoBySearch`, { params });
+  }
 }
