@@ -5,34 +5,36 @@
       [numVisible]="1"
       [numScroll]="1"
       [circular]="true"
+      [showIndicators]="false"
     >
-      <ng-template let-event pTemplate="item">
-        <div class="resto-event">
-          <img
-            src="https://i.gyazo.com/aea585922385b1af33a6cc8ced47d193.png"
-            alt=""
-          />
-          <div class="event-resto-offer">
-            <img
-              class="event-resto-offer-img"
-              src="../../../assets/images/Main-Images/—Pngtree—price explosion stickers_5462157.png"
-              alt=""
-            />
-            <div class="event-resto-offer-box">
-              <div class="event-resto-offer-text">Offer Price</div>
-              <div class="event-resto-offer-price">60 Dt</div>
+      <ng-template let-event pTemplate="event">
+        <div class="event-image resto-event">
+          <img src="{{ event.selectedImage }}" alt="Selected Image" />
+          <div class="event-resto-deadline">
+            <div class="event-resto-deadline-text">Ending Date</div>
+
+            <div class="event-resto-deadline-price">
+              {{ event.endDate | date : "MMM d, y " }}
             </div>
           </div>
+          <div class="event-resto-offer-box">
+            <div class="event-resto-offer-price-old">
+              {{ event.totalPrice }} Dt
+            </div>
+            <div class="event-resto-offer-price">{{ event.eventPrice }} Dt</div>
+          </div>
           <div class="event-box">
-            <div class="event-resto-name">Weld Elhatab</div>
+            <div class="event-resto-name">{{ event.eventName }}</div>
+            <div class="event-resto-special-event-NbrOfP">
+              {{ event.numberOfPersons }} Personnes
+            </div>
             <div class="event-resto-special-event">Special Menu</div>
-            <div class="event-resto-line"></div>
-            <div class="event-resto-offer-text">Mermez + Couscous</div>
-            <div class="event-resto-offer-text"></div>
 
+            <div class="event-resto-line"></div>
+            <div class="event-resto-offer-text">mermez</div>
             <p-button
-              label="ORDER  NOW"
-              styleClass="Btn"
+              label="Order Now"
+              styleClass="event-order-button"
               [rounded]="true"
             ></p-button>
           </div>

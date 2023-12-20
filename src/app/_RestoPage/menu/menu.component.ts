@@ -1,3 +1,4 @@
+import { EventService } from './../../services/event.service';
 import { GlobalService } from './../../services/_global.service';
 import { Component, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -19,7 +20,7 @@ export class MenuComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
   productSelectionBarVisible: boolean = false;
   selectedProductIds: string[] = [];
-  events: any[] = [1, 2, 3, 1, 2, 3, 3, 3];
+  events: any[] = [];
   plats!: Plat[];
   categories!: Categorie[];
   restaurantId!: string | null;
@@ -29,7 +30,8 @@ export class MenuComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private platService: PlatService,
-    private GlobalService: GlobalService
+    private GlobalService: GlobalService,
+    private EventService: EventService
   ) {}
 
   ngOnInit() {
@@ -54,6 +56,15 @@ export class MenuComponent implements OnInit {
           },
           (error) => {
             console.error('Error fetching categories:', error);
+          }
+        );
+        this.EventService.getEvents(this.restaurantId).subscribe(
+          (events: any) => {
+            console.log(events.events);
+            this.events = events.events;
+          },
+          (error) => {
+            console.error('Error fetching events:', error);
           }
         );
       }
@@ -113,6 +124,7 @@ export class MenuComponent implements OnInit {
   // Method to submit the event
   submitEvent(): void {
     this.GlobalService.selectedProductIds = this.selectedProductIds;
+    this.GlobalService.restaurantId = this.restaurantId;
     this.resetForm();
     this.router.navigate(['AddEvent']);
   }

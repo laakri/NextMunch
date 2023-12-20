@@ -1,3 +1,4 @@
+import { EventService } from './../../services/event.service';
 import { PlatService } from './../../services/plat.service';
 import { GlobalService } from './../../services/_global.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Plat } from 'src/app/models/plat.model';
 })
 export class AddEventComponent implements OnInit {
   eventPrice: number | null = 50;
-  numberOfPersons: number | null = null;
+  numberOfPersons: number | null = 2;
   startDate: Date | null = null;
   endDate: Date | null = null;
   eventName: string | null = 'Weld El Hattab';
@@ -33,14 +34,16 @@ export class AddEventComponent implements OnInit {
   ];
   productsIds: string[] = [];
   products: Plat[] = [];
+  restaurantId: string | null = '';
   constructor(
     private GlobalService: GlobalService,
-    private PlatService: PlatService
+    private PlatService: PlatService,
+    private EventService: EventService
   ) {}
 
   ngOnInit() {
     this.productsIds = this.GlobalService.selectedProductIds;
-
+    this.restaurantId = this.GlobalService.restaurantId;
     this.PlatService.getPlatsInfo(this.productsIds).subscribe((data) => {
       console.log(data);
 
@@ -49,6 +52,25 @@ export class AddEventComponent implements OnInit {
         return { ...product, selected: true };
       });
     });
+    this.getSelectedProductNames();
+  }
+  getSelectedProductNames(): string {
+    const selectedProducts = this.products.filter(
+      (product) => product.selected
+    );
+    return selectedProducts.map((product) => product.nameP).join(' + ');
+  }
+  getSelectedProductPrices(): number {
+    const selectedProducts = this.products.filter(
+      (product) => product.selected
+    );
+
+    const totalPrice = selectedProducts.reduce(
+      (accumulator, product) => accumulator + parseFloat(product.priceP),
+      0
+    );
+
+    return totalPrice;
   }
 
   handleCheckboxChange(product: any) {
@@ -68,5 +90,35 @@ export class AddEventComponent implements OnInit {
   selectImage(image: string) {
     this.selectedImage = image;
     this.selectedImageIndex = this.imageArray.indexOf(image);
+  }
+
+  onSubmit() {
+    const eventData = {
+      restaurantId: this.restaurantId,
+      eventName: this.eventName,
+      eventPrice: this.eventPrice,
+      numberOfPersons: this.numberOfPersons,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      selectedImage: this.selectedImage,
+      selectedProductIds: this.getSelectedProductIds(),
+      totalPrice: this.getSelectedProductPrices(),
+    };
+
+    this.EventService.addEvent(eventData).subscribe(
+      (response) => {
+        console.log('Event added successfully:', response);
+      },
+      (error) => {
+        console.error('Error adding event:', error);
+      }
+    );
+  }
+
+  getSelectedProductIds(): string[] {
+    const selectedProducts = this.products.filter(
+      (product) => product.selected
+    );
+    return selectedProducts.map((product) => product._id);
   }
 }

@@ -13,16 +13,22 @@
           </div>
         </div>
         <div class="event-resto-offer-box">
-          <div class="event-resto-offer-text">Offer</div>
+          <div class="event-resto-offer-price-old">
+            {{ getSelectedProductPrices() }} Dt
+          </div>
           <div class="event-resto-offer-price">{{ eventPrice }} Dt</div>
         </div>
         <div class="event-box">
           <div class="event-resto-name">{{ eventName }}</div>
+          <div class="event-resto-special-event-NbrOfP">
+            {{ numberOfPersons }} Personnes
+          </div>
           <div class="event-resto-special-event">Special Menu</div>
-          <div class="event-resto-line"></div>
-          <div class="event-resto-offer-text">Mermez + Couscous</div>
-          <div class="event-resto-offer-text"></div>
 
+          <div class="event-resto-line"></div>
+          <div class="event-resto-offer-text">
+            {{ getSelectedProductNames() }}
+          </div>
           <p-button
             label="Order Now"
             styleClass="event-order-button"
@@ -30,19 +36,14 @@
           ></p-button>
         </div>
       </div>
-      <!--
-    <div class="small-images-container">
-      <div
-        *ngFor="let imageUrl of imageArray"
-        class="small-image"
-        (click)="selectedImage = imageUrl"
-      >
-        <img [src]="imageUrl" alt="Small Image" />
-      </div>
-    </div>
-  -->
+
       <div class="small-images-container">
-        <p-carousel [value]="imageArray" [numVisible]="8" [numScroll]="1">
+        <p-carousel
+          [value]="imageArray"
+          [showIndicators]="false"
+          [numVisible]="8"
+          [numScroll]="1"
+        >
           <ng-template let-image pTemplate="item">
             <img
               [src]="image"
@@ -58,7 +59,12 @@
   <div>
     <label>Create Event:</label>
     <div class="form-selection">
-      <input type="text" pInputText [(ngModel)]="eventName" />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="eventName"
+        placeholder="Event Label"
+      />
       <p-inputNumber
         styleClass="NumberInput"
         placeholder="Price"
@@ -111,5 +117,5 @@
   </div>
 </div>
 <div class="submit-button-section">
-  <p-button [rounded]="true" label="Submit"></p-button>
+  <p-button [rounded]="true" (click)="onSubmit()" label="Submit"></p-button>
 </div>

@@ -12,12 +12,12 @@ interface City {
   templateUrl: './add-plat.component.html',
   styleUrls: ['./add-plat.component.css'],
 })
-
 export class AddPlatComponent implements OnInit {
   cities: City[] = [];
   selectedCatgorys: City[] = [];
 
   platData: Plat = {
+    _id: '',
     nameP: '',
     descriptionP: '',
     imgP: null,
@@ -36,7 +36,7 @@ export class AddPlatComponent implements OnInit {
       { name: 'Algerienne', code: 'PRS' },
     ];
   }
-  
+
   selectedFile: File | null = null;
 
   onFileSelected(event: any) {
@@ -44,19 +44,21 @@ export class AddPlatComponent implements OnInit {
   }
 
   onSubmit() {
-    const selectedCategorys = this.selectedCatgorys.map((category: any) => category.code);
-  
+    const selectedCategorys = this.selectedCatgorys.map(
+      (category: any) => category.code
+    );
+
     if (this.selectedFile) {
       this.platData.imgP = this.selectedFile;
     }
-  
+
     this.platData.categoryP = selectedCategorys;
     this.platService.ajouterPlat(this.platData).subscribe(
       (response) => {
         console.log('Plat enregistré avec succès:', response);
       },
       (error) => {
-        console.error('Erreur lors de l\'enregistrement du plat:', error);
+        console.error("Erreur lors de l'enregistrement du plat:", error);
         // Gérez ici les erreurs
       }
     );
