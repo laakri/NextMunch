@@ -28,8 +28,9 @@ export class RestaurantService {
     return this.http.post(url, { categorie: categoryId });
   }
   getRestoCategs(): Observable<Categorie[]> {
-    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/657f424f039fab1ba487503b`);
+    return this.http.get<Categorie[]>(`${this.apiUrl}/liste-categ/6581589f5d0bb7020fc6302f`);
   }
+
   getAllRestaurants(): Observable<Restaurant[]> {
     return this.http.get<Restaurant[]>(`${this.apiUrl}/list`);
   }

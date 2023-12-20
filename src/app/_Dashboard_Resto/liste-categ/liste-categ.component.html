@@ -1,33 +1,48 @@
 <div class="container">
-  <h1>Select Categories</h1>
-  <div class="pick-list">
-    <!-- <p-pickList
-    [source]="categories"
-    [target]="selectedCategories"
-    sourceHeader="Available"
-    targetHeader="Selected"
-    [dragdrop]="true"
-    [responsive]="true"
-    [sourceStyle]="{ height: '30rem' }"
-    [targetStyle]="{ height: '30rem' }"
-    filterBy="nameCat"
-    sourceFilterPlaceholder="Search by name category"
-    targetFilterPlaceholder="Search by name category"
-    breakpoint="1400px"
-  >
-    <ng-template let-category pTemplate="item">
-      <div class="flex flex-wrap p-2 align-items-center gap-3 box"  >
-        <img
-          class="w-4rem shadow-2 flex-shrink-0 border-round"
-          src="../../../assets/images/istockphoto-1125850724-612x612-removebg-preview.png"
-          alt="{{ category.nameCat }}"
-        />
-        <div class="flex-1 flex flex-column gap-2">
-          <span class="font-bold">{{ category.nameCat }}</span>
+  <h1>Select Category</h1>
+  <div class="category">
+    <div class="All-category">
+      <h1>Add Category</h1>
+      <div
+        class="containerr"
+        *ngFor="let category of categories"
+        (click)="onCategoryClick(category)"
+        [ngClass]="{ categSelected: category.isSelected }"
+      >
+        <div class="conatinerImg">
+          <img [src]="category.imgCat" />
+        </div>
+        <div class="containerP">
+          <h1 style="margin-left: 1rem">{{ category.nameCat }}</h1>
         </div>
       </div>
-    </ng-template>
-  </p-pickList>
-  --></div>
-  <p-button class="button-save" (click)="addCategory()">Envoyer</p-button>
+    </div>
+  
+  <div class="category-selected">
+    <h1>Liste Categories</h1>
+    <div class="list-categ-selected">
+      your categories is 
+
+      <div
+      class="containerr"
+      *ngFor="let categ of categsResto"
+    
+    >
+      <div class="conatinerImg">
+        <img [src]="" />
+      </div>
+      <div class="containerP">
+        <h1 style="margin-left: 1rem">{{ categ }}</h1>
+      </div>
+    </div>
+
+    </div>
+    <div class="categ-manger">
+      <p-button label="Enable" severity="help"></p-button>
+      <p-button label="Disable" severity="info"></p-button>
+      <p-button label="Delete" severity="danger"></p-button>
+    </div>
+  </div>
+</div>
+<p-button label="Save" severity="success" (click)="addCategory()"></p-button>
 </div>
