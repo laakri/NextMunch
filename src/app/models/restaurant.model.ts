@@ -2,8 +2,8 @@ export interface Restaurant {
   _id?: string;
   ownerId: string;
   cin: string;
-  bannerImg: File | null;
-  mainImg: File | null;
+  bannerImg?: File | null; // Make it optional
+  mainImg?: File | null;   // Make it optional
   nameR: string;
   descriptionR?: string;
   location: string;
@@ -12,4 +12,5 @@ export interface Restaurant {
   closeDates?: string;
   createdAt?: Date;
   updatedAt?: Date;
+  rating?: number; 
 }

@@ -20,28 +20,31 @@
         <span>Filter</span>
         <i class="pi pi-filter-fill"></i>
       </div>
-
       <div class="content-form-div">
         <label for="restaurant-find">Search restaurant :</label>
         <input
           pInputText
           type="text"
-          placeholder="Search restaurant "
+          placeholder="Search restaurant"
           id="restaurant-find"
+          [(ngModel)]="searchInput"
+          (input)="searchRestaurantsf()"
+
         />
       </div>
       <div class="content-form-div">
         <label for="restaurant-category">Restaurants category:</label>
-        <br />  
+        <br />
         <div class="flex flex-column gap-2">
           <div *ngFor="let category of categories" class="field-checkbox">
             <p-checkbox
               name="group"
-              [value]="category"
+              [value]="category._id"
               [(ngModel)]="selectedCategories"
-              [inputId]="category.key"
+              [inputId]="category._id"
+              (onChange)="searchRestaurantsf()"
             ></p-checkbox>
-            <label [for]="category.key">{{ category.name }}</label>
+            <label [for]="category._id">{{ category.nameCat }}</label>
           </div>
         </div>
       </div>
@@ -73,23 +76,20 @@
         <a href="" *ngFor="let restaurant of restaurants">
           <div class="resto-box">
             <div class="resto-box-banner">
-              <img src="../../../assets/images/Main-Images/images.jpg" alt="" />
+             <!-- <img [src]="restaurant.bannerImg" alt="" />-->
               <div class="resto-box-img-profil">
-                <img
-                  src="../../../assets/images/Main-Images/tacos.jpg"
-                  alt=""
-                />
+                <!--<img [src]="restaurant.mainImg" />-->
               </div>
               <div class="resto-box-rating">
-                <span>4.5</span>
+                <span>{{restaurant.rating}}</span>
                 <i class="pi pi-star-fill"></i>
               </div>
             </div>
 
             <div class="resto-box-details">
-              <span class="resto-box-details-name">{{ restaurant.name }}</span>
+              <span class="resto-box-details-name">{{ restaurant.nameR }}</span>
               <p class="resto-box-details-description">
-                {{ restaurant.description }}
+                {{ restaurant.descriptionR }}
               </p>
               <!--
               <div class="resto-box-details-location">
