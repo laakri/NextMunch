@@ -8,11 +8,12 @@
 }
 .header {
     height: 200px; 
-
 }
   .banner-resto-img {
     width: 100%;
-    height: 200px; 
+    position: relative;
+    top: -70px;
+    height: 270px; 
     background-color: var(--bgcolor);
     overflow: hidden;
   }
@@ -32,10 +33,10 @@
   /******** main restaurant image **********/
   .main-resto-img { 
     position: absolute;
-    bottom: -20px;
+    bottom: 40px;
     width:  160px;
     height:  160px;
-    left: 30px;
+    left: 10px;
     border: var(--bordercolor) solid 2px;
     border-radius: 50%;
     overflow: hidden;

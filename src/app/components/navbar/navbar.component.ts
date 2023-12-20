@@ -12,7 +12,7 @@ export class NavbarComponent {
   /*************** change_theme ************** */
   ref: DynamicDialogRef | undefined;
   isBrightTheme = false;
-
+  search: string = '';
   constructor(private dialogService: DialogService) {}
 
   ngOnInit(): void {

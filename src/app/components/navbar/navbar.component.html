@@ -1,59 +1,78 @@
 <div class="navbar">
-  <div class="navbar-left">
-    <a label="NextMunch" routerLink="" class="mainlogo">
-      <div>NextMunch</div>
-      <img src="../../../assets/logo/logo-splach.png" alt="" />
-    </a>
-  </div>
-  <div class="navbar-middle">
-    <p-button
-      label="Admin"
-      routerLink="/Dashboard"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-    ></p-button>
-    <p-button
-      label="Create Rastaurant"
+  <div class="container">
+    <div class="navbar-left">
+      <a label="NextMunch" routerLink="" class="mainlogo">
+        <div>NextMunch</div>
+        <img src="../../../assets/logo/logo-splach.png" alt="" />
+      </a>
+    </div>
+    <div class="navbar-middle">
+      <p-button
+        label="Restaurants"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+        routerLink="/Restaurants"
+      ></p-button>
+      <p-button
+        label="About"
+        routerLink="/About"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+      ></p-button>
+      <p-button
+        label="Contact"
+        routerLink="/Contact"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+      ></p-button>
+
+      <p-button
+        label="A"
+        routerLink="/Dashboard"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+      >
+      </p-button>
+      <p-button
+        label="RP"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+        routerLink="/PageResto/658313ea8a06b1e6daa77841/menu"
+      ></p-button>
+      <!-- <p-button
+      label="CR"
       (click)="openAddResto()"
       styleClass="custom-button"
       routerLinkActive="activebutton"
     ></p-button>
-    <p-button
-      label="About"
-      routerLink="/About"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-    ></p-button>
-    <p-button
-      label="Contact"
-      routerLink="/Contact"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-    ></p-button>
-    <p-button
-      label="Restaurants"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-      routerLink="/Restaurants"
-    ></p-button>
-    <p-button
-      label="Resto Page"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-      routerLink="/PageResto/658313ea8a06b1e6daa77841/menu"
-    ></p-button>
-  </div>
-  <div class="navbar-right">
-    <p-button routerLink="/auth/login" [link]="true">Login</p-button>
-    <p-button routerLink="/auth/signup" styleClass="secend-btn" [rounded]="true"
-      >Sign Up</p-button
-    >
-    <button
-      class="p-button-text"
-      (click)="change_theme()"
-      pButton
-      icon="pi pi-sun"
-      ariaLabel="campaign"
-    ></button>
+    --></div>
+    <div class="navbar-search">
+      <span class="p-input-icon-left">
+        <i class="pi pi-search search-Icon"></i>
+        <input
+          type="text"
+          class="p-inputtext-sm search-Input"
+          pInputText
+          placeholder="Search"
+          [(ngModel)]="search"
+        />
+      </span>
+    </div>
+    <div class="navbar-right">
+      <p-button routerLink="/auth/login" [link]="true">Login</p-button>
+      <p-button
+        routerLink="/auth/signup"
+        styleClass="secend-btn"
+        [rounded]="true"
+        >Sign Up</p-button
+      >
+      <button
+        class="p-button-text"
+        (click)="change_theme()"
+        pButton
+        icon="pi pi-sun"
+        ariaLabel="campaign"
+      ></button>
+    </div>
   </div>
 </div>

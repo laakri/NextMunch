@@ -1,11 +1,31 @@
   @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
-  .navbar{
+  .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 70px;
-    padding: 30px ;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .navbar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--blur-background);
+    backdrop-filter: blur(20px); 
+  }
+
+  
+.container{
+  width: 1300px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .mainlogo{
     position: relative;
@@ -27,12 +47,13 @@
     gap: 5px;
 }
 .navbar-right{
-    
+    display: flex;
+    gap: 5px;
 }
 ::ng-deep .secend-btn{
-    background-color: var(--secendcolor) ;
+    background-color: #e97807 ;
     border: none;
-    color: var(--blackcolor);
+    color: white;
     font-weight: 600;
   }
   ::ng-deep .custom-button {
@@ -44,4 +65,25 @@
     color: var(--whitecolor); 
     background-color: var(--soft-bgcolor); 
   }
-  
+  .search-Input{
+    border-radius: 20px;
+    background-color: var(--blur-background) !important;
+
+  }
+  .search-Input::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--blur-background) !important;
+    backdrop-filter: blur(20px) !important; 
+  }
+  .search-Input::placeholder{
+    background-color: transparent !important;
+
+  }
+  .search-Icon{
+    border-radius: 50%;
+  }
