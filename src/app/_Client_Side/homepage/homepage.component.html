@@ -186,5 +186,47 @@
         </div>
       </div>
     </div>
+
+    <!-- section 3-->
+
+    <div class="container-section3">
+      <div class="title-section-2">
+        <h1><b style="color: rgb(255, 140, 0)">Popular Restaurants</b></h1>
+        <p>
+          Popular restaurants excel with high-quality, innovative dishes,
+          excellent service, and inviting ambiance. Consistency and positive
+          reviews sustain their global appeal.
+        </p>
+      </div>
+      <div class="container-section3-resto-card">
+        <div
+          class="container-header-rigth-resto-card"
+          *ngFor="let item of [0, 1, 0, 1]; let i = index"
+        >
+          <div class="container-header-rigth-resto-card-img">
+            <img
+              src="../../../assets/images/restaurants-images/restaurant_662820_restaurant420190424112609.jpg"
+              alt=""
+            />
+          </div>
+          <span class="container-header-rigth-resto-card-title">Cocoon</span>
+          <span
+            >Plongez dans une expérience culinaire inoubliable au Cocoon.</span
+          >
+          <div class="container-header-rigth-resto-card-button">
+            <p-button
+              label="Show"
+              icon="pi pi-angle-right"
+              [link]="true"
+              iconPos="right"
+            ></p-button>
+          </div>
+        </div>
+      </div>
+      <div class="button-center">
+
+      <p-button styleClass="secend-btn"   [rounded]="true" >Show more -> </p-button>
+</div>
+    </div>
   </div>
 </div>

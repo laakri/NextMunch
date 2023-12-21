@@ -11,7 +11,6 @@ import { ErrorInterceptor } from './error-interceptor';
 /*import { PickListModule } from 'primeng/picklist';*/
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-
 import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DropdownModule } from 'primeng/dropdown';
