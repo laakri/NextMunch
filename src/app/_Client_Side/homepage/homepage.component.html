@@ -1,200 +1,188 @@
-<div class="header">
-  <div class="container-header">
-    <div class="container-header-left">
-      <div class="text-header">
-        <div class="logo">
-          <a label="NextMunch" routerLink="" class="mainlogo">
-            <div>NextMunch</div>
-            <img src="../../../assets/logo/logo-splach.png" alt="" />
-          </a>
-        </div>
-        <div class="header-social-media">
-          <p-avatar
-            icon="pi pi-facebook"
-            styleClass="mr-2"
-            shape="circle"
-            size="large"
-            [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
-          ></p-avatar>
-          <p-avatar
-            icon="pi pi-instagram"
-            styleClass="mr-2"
-            shape="circle"
-            size="large"
-            [style]="{ 'background-color': '#d400fe', color: '#ffffff' }"
-          ></p-avatar>
-          <p-avatar
-            icon="pi pi-twitter"
-            styleClass="mr-2"
-            shape="circle"
-            size="large"
-            [style]="{ 'background-color': '#00d8fe', color: '#ffffff' }"
-          ></p-avatar>
-        </div>
-        <p class="header-search-text">
-          Exceptional restaurants, memorable dishes, easy reservations.
-        </p>
+<div class="all-page">
+  <div class="header">
+    <div class="container-header">
+      <div class="container-header-left">
+        <div class="text-header">
+          <div class="logo">
+            <a label="NextMunch" routerLink="" class="mainlogo">
+              <div>NextMunch</div>
+              <img src="../../../assets/logo/logo-splach.png" alt="" />
+            </a>
+          </div>
+          <div class="header-social-media">
+            <p-avatar
+              icon="pi pi-facebook"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#2196F3', color: '#ffffff' }"
+            ></p-avatar>
+            <p-avatar
+              icon="pi pi-instagram"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#d400fe', color: '#ffffff' }"
+            ></p-avatar>
+            <p-avatar
+              icon="pi pi-twitter"
+              styleClass="mr-2"
+              shape="circle"
+              size="large"
+              [style]="{ 'background-color': '#00d8fe', color: '#ffffff' }"
+            ></p-avatar>
+          </div>
+          <p class="header-search-text">
+            Exceptional restaurants, memorable dishes, easy reservations.
+          </p>
 
-        <div class="header-search">
-          <input
-            type="search"
-            class="header-search-input"
-            placeholder="search"
-            pInputText
+          <div class="header-search">
+            <input
+              type="search"
+              class="header-search-input"
+              placeholder="search"
+              pInputText
+            />
+          </div>
+          <div class="header-big-text">Every day we</div>
+          <div class="header-medium-text">
+            treasures of your city Easy location, irresistible offers...
+          </div>
+        </div>
+        <div class="img-header">
+          <img
+            src="../../../assets/images/home-page/Captured-removebg-preview.png"
+            alt=""
           />
         </div>
-        <div class="header-big-text">Every day we</div>
-        <div class="header-medium-text">
-          treasures of your city Easy location, irresistible offers...
+      </div>
+
+      <div class="container-header-rigth">
+        <div class="container-header-rigth-resto-card">
+          <div class="container-header-rigth-resto-card-img">
+            <img
+              src="../../../assets/images/restaurants-images/restaurant_662820_restaurant420190424112609.jpg"
+              alt=""
+            />
+          </div>
+          <span class="container-header-rigth-resto-card-title">Cocoon</span>
+          <span
+            >Plongez dans une expérience culinaire inoubliable au Cocoon.</span
+          >
+          <div class="container-header-rigth-resto-card-button">
+            <p-button
+              label="check"
+              icon="pi pi-angle-right"
+              [link]="true"
+              iconPos="right"
+            ></p-button>
+          </div>
+        </div>
+
+        <div class="containt-bas">
+          <div class="chips">
+            <div
+              class="chip"
+              *ngFor="let item of [0, 1, 0, 1, 0, 1]; let i = index"
+            >
+              fast food
+            </div>
+          </div>
         </div>
       </div>
-      <div class="img-header">
-        <img
-          src="../../../assets/images/home-page/Captured-removebg-preview.png"
-          alt=""
-        />
-      </div>
     </div>
+  </div>
 
-    <div class="container-header-rigth">
-      <div class="containt-header-rigth">
-        <div class="containt-haut">
-          <div class="contain-haut-img">
+  <!-- Section Event home-->
+  <div class="container-event">
+    <div class="event-box">
+      <div class="event-box-description">
+        <h1>Take advantage of our special offer</h1>
+        <p>"Indulge in exquisite flavors and ambiance. Immerse</p>
+      </div>
+      <div class="event-box-slide">
+        <div class="event" *ngFor="let item of [0, 1]; let i = index">
+          <div class="event-description">
+            <span>special 2P</span>
+            <p>Show More Details</p>
+          </div>
+          <div class="event-img">
             <img
-              src="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"
+              src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/muslim-food-banner-design-template-0aef896393d1c9f84ff3c74287eb64f9_screen.jpg?ts=1630673674"
               alt=""
             />
           </div>
         </div>
-        <div class="containt-bas">
-          <h2>Keep it !</h2>
-          <p>Plongez dans une expérience culinaire inoubliable au Cocoon.</p>
-          <div class="chip">
-            <p-chip
-              label="fast food"
-              image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"
-            ></p-chip>
-            <p-chip
-              label="cheesy"
-              image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"
-            ></p-chip>
-            <p-chip
-              label="Dessert"
-              image="../../../assets/images/restaurants-images/prakrutha-restaurant-shamirpet-rangareddy-north-indian-restaurants-m0yh1.jpg"
-            ></p-chip>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 1-->
+
+  <div class="container">
+    <div class="box">
+      <div class="box-about-us">
+        <p-button styleClass="secend-btn" [rounded]="true">About -> </p-button>
+      </div>
+      <div class="box-information">
+        <div class="box-informations-resto">
+          <h1>+50</h1>
+          <p>Restaurants</p>
+          <p>partner maana</p>
+        </div>
+        <div class="box-informations-rating">
+          <h1>
+            4.7 <i class="pi pi-star" style="font-size: 30px; color: gold"></i>
+          </h1>
+          <p>Reviews</p>
+          <p>barcha yochokrou fina</p>
+        </div>
+        <div class="box-informations-visiter">
+          <h1>+1500</h1>
+          <p>Visitor</p>
+          <p>barcha aabed yjiwne</p>
+        </div>
+      </div>
+      <div class="box-show-more">
+        <p>Show More -></p>
+      </div>
+    </div>
+
+    <!-- Section 2-->
+
+    <div class="container-section-2">
+      <div class="title-section-2">
+        <h1><b style="color: rgb(255, 140, 0)">Order Delivery</b> in just</h1>
+        <h1>30 min max</h1>
+      </div>
+      <div class="box-section2">
+        <div class="box-order">
+          <div class="img-box-order"></div>
+          <div class="description-box-order">
+            <h2>Order Your Food</h2>
+            <p>l'appliction mte3na matalkach kifehe</p>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Section Event home-->
-<div class="container-event">
-  <div class="event-box">
-    <div class="event-box-description">
-    <h1>Take advantage of our special offer</h1>
-    <p>"Indulge in exquisite flavors and ambiance. Immerse</p>
-    </div>
-    <div class="event-box-slide">
-<div class="event-1">
-<div class="event-1-description">
-  <h3>special 2P</h3>
-  <p>Show More Details</p>
-</div>
-<div class="event-1-img">
-  <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/muslim-food-banner-design-template-0aef896393d1c9f84ff3c74287eb64f9_screen.jpg?ts=1630673674" alt="">
-</div>
-
-</div>
-<div class="event-2">
-  <div class="event-1-description">
-    <h3>special 3P</h3>
-    <p>Show More Details</p>
-  </div>
-  <div class="event-1-img">
-    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/muslim-food-banner-design-template-0aef896393d1c9f84ff3c74287eb64f9_screen.jpg?ts=1630673674" alt="">
-  </div>
-</div>
-<div class="event-3">
-</div>
-
-    
-    </div>
-  </div>
-</div>
-
-
-<!-- Section 1-->
-
-<div class="container">
-  <div class="box">
-    <div class="box-about-us">
-      <p-button styleClass="secend-btn" [rounded]="true">About -> </p-button>
-    </div>
-    <div class="box-information">
-      <div class="box-informations-resto">
-        <h1>+50</h1>
-        <p>Restaurants</p>
-        <p>partner maana</p>
-      </div>
-      <div class="box-informations-rating">
-        <h1>
-          4.7 <i class="pi pi-star" style="font-size: 30px; color: gold"></i>
-        </h1>
-        <p>Reviews</p>
-        <p>barcha yochokrou fina</p>
-      </div>
-      <div class="box-informations-visiter">
-        <h1>+1500</h1>
-        <p>Visitor</p>
-        <p>barcha aabed yjiwne</p>
-      </div>
-    </div>
-    <div class="box-show-more">
-      <p>Show More -></p>
-    </div>
-  </div>
-
-  <!-- Section 2-->
-
-  <div class="container-section-2">
-    <div class="title-section-2">
-      <h1><b style="color: rgb(255, 140, 0)">Order Delivery</b> in just</h1>
-      <h1>30 min max</h1>
-    </div>
-    <div class="box-section2">
-      <div class="box-order">
-        <div class="img-box-order">
+        <div class="box-delivery">
+          <div class="img-box-delivery"></div>
+          <div class="description-box-order">
+            <h2>Order Your Food</h2>
+            <p>l'appliction mte3na matalkach kifehe</p>
+          </div>
         </div>
-        <div class="description-box-order">
-          <h2>Order Your Food</h2>
-          <p>
-            l'appliction mte3na matalkach kifehe oumour oreder worganisation
-            nahkilkch hasilou 3adi w 3inik m8amdha
-          </p>
+        <div class="box-delicous">
+          <div class="img-box-delicous"></div>
+          <div class="description-box-order">
+            <h2>Order Your Food</h2>
+            <p>l'appliction mte3na matalkach kifehe</p>
+          </div>
         </div>
-      </div>
-      <div class="box-delivery">
-        <div class="img-box-delivery">
-        </div>
-        <div class="description-box-order">
-          <h2>Order Your Food</h2>
-          <p>
-            l'appliction mte3na matalkach kifehe oumour oreder worganisation
-            nahkilkch hasilou 3adi w 3inik m8amdha
-          </p>
-        </div>
-      </div>
-      <div class="box-delicous">
-        <div class="img-box-delicous">
-        </div>
-        <div class="description-box-order">
-          <h2>Order Your Food</h2>
-          <p>
-            l'appliction mte3na matalkach kifehe oumour oreder worganisation
-            nahkilkch hasilou 3adi w 3inik m8amdha
-          </p>
+        <div class="box-delivery">
+          <div class="img-box-delivery"></div>
+          <div class="description-box-order">
+            <h2>Order Your Food</h2>
+            <p>l'appliction mte3na matalkach kifehe</p>
+          </div>
         </div>
       </div>
     </div>

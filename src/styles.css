@@ -3,7 +3,7 @@
 @import "primeicons/primeicons.css";
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 
-body{
+body.light-theme{
     height: 100%;
     width: 100%;
     margin: 0;
@@ -28,10 +28,13 @@ body{
   --special-button-color:#0d7573;
     --special-button-background:#fafafa;
     --special-button-border:#76b7b6;
-  --blur-background: rgba(255, 255, 255, 0.877);
+  --blur-background: rgba(255, 255, 255, 0.357);
+  --home-blur-background: rgba(255, 255, 255, 0.719);
+  ---background: rgba(255, 255, 255, 0.877);
+  --linnear-gardient: linear-gradient(210deg, rgba(227,205,110,1) 0%, rgba(252,238,232,1) 100%);
 
 }
-body.light-theme {
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -57,8 +60,9 @@ body.light-theme {
   --special-button-color:#08d9d6;
   --special-button-background:#1b232a;
   --special-button-border:#265b7a;
-  --linnear-gardient: linear-gradient(to right, #ff80b5 ,#fff, #9089fc ,#fff,#ff80b5 , #9089fc,#fff );
   --blur-background: rgba(0, 6, 29, 0.527);
+  --home-blur-background: rgba(7, 0, 42, 0.719);
+  --linnear-gardient: linear-gradient(90deg, rgb(4, 0, 34) 0%, rgb(30, 14, 120) 50%, rgb(69, 112, 252) 100%);
 
 }
 a,
