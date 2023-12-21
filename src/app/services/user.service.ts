@@ -3,17 +3,29 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  private isAuthSubject = new BehaviorSubject<boolean>(this.isAuthenticated());
+
+  isAuth$ = this.isAuthSubject.asObservable();
+
   constructor(
     private http: HttpClient,
     private messageService: MessageService,
     private router: Router
   ) {}
+  private isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+
+  private updateAuthStatus() {
+    this.isAuthSubject.next(this.isAuthenticated());
+  }
   apiURL = 'http://localhost:4401/api/users';
 
   login(phone: string, password: string): void {
@@ -30,20 +42,35 @@ export class UserService {
         localStorage.setItem('userName', response.userName);
         localStorage.setItem('userRole', response.userRole);
 
-        const successMessage = 'Login Successfuly !';
+        this.updateAuthStatus(); // Update authentication status
+
+        const successMessage = 'Login Successfuly!';
         this.messageService.add({
           severity: 'success',
           summary: 'Success Message',
           detail: successMessage,
         });
         console.log('Login response:', response);
-        console.log('hii loginn ');
-        //this.router.navigate(['/home']);
       },
       (error) => {
         console.error('Login error:', error);
       }
     );
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId');
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userRole');
+
+    this.updateAuthStatus();
+
+    this.router.navigate(['/login']); // You can navigate to any desired page after logout
   }
 
   signup(name: string, email: string, phone: number, password: string) {
@@ -66,7 +93,6 @@ export class UserService {
           summary: 'Success Message',
           detail: successMessage,
         });
-        // this.router.navigate(['']);
       },
       (error) => {
         console.error('Signup error:', error.error.error);

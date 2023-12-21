@@ -1,1 +1,30 @@
-<p>reviews works!</p>
+<!-- reviews.component.html -->
+
+<div class="container">
+  <div class="write-review">
+    <h3>Write a Review</h3>
+    <textarea
+      [(ngModel)]="userReview"
+      placeholder="Write your review"
+    ></textarea>
+    <p-rating [(ngModel)]="userRating" [stars]="5" [cancel]="false"></p-rating>
+    <p-button (click)="submitReview()">Submit Review</p-button>
+  </div>
+
+  <div class="list-reviews">
+    <h3>Customer Reviews</h3>
+    <div *ngFor="let review of reviews" class="review">
+      <div class="review-header">
+        <span>Saif Eddine Jelassi</span>
+        <p-rating
+          [ngModel]="review.rating"
+          [stars]="review.rating"
+          [readonly]="true"
+          [cancel]="false"
+        ></p-rating>
+      </div>
+      <div class="review-text">{{ review.text }}</div>
+      <span class="review-date">{{ review.createdAt | date : "short" }}</span>
+    </div>
+  </div>
+</div>

@@ -158,3 +158,15 @@
   color: var(--whitecolor); 
   background-color: var(--soft-bgcolor); 
 }
+::ng-deep .review-button {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: rgb(255, 255, 255); 
+  background-color: rgb(255, 65, 97); 
+  border: none;
+  border-radius: 20px;
+}
+::ng-deep .review-button:hover {
+  color: rgb(255, 255, 255); 
+  background-color: rgb(255, 40, 76); 
+}
