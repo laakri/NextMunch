@@ -1,0 +1,75 @@
+<!-- order.component.html -->
+<div class="order-container">
+  <h2>Place Your Order</h2>
+
+  <div class="input-container">
+    <label for="userName">User Name:</label>
+    <input
+      pInputText
+      id="userName"
+      placeholder="Enter your name"
+      [(ngModel)]="userName"
+    />
+  </div>
+
+  <div class="input-container">
+    <label for="userPhone">User Phone:</label>
+    <input
+      pInputText
+      id="userPhone"
+      placeholder="Enter your phone"
+      [(ngModel)]="userPhone"
+    />
+  </div>
+
+  <div class="input-container">
+    <label for="userLocation">User Location:</label>
+    <input
+      pInputText
+      id="userLocation"
+      placeholder="Enter your location"
+      [(ngModel)]="userLocation"
+    />
+  </div>
+
+  <div class="products">
+    <div class="product" *ngFor="let product of products; let i = index">
+      <div class="product-left">
+        <img src="{{ product.imgP }}" alt="ImagesPlat" class="PlatImage" />
+        <span>{{ product.nameP }}</span>
+      </div>
+      <div class="product-right">
+        <span>{{ product.priceP }} Dt</span>
+        <div class="quantity-controls">
+          <button
+            class="inc-btn"
+            type="button"
+            (click)="increaseQuantity(product._id)"
+          >
+            +
+          </button>
+          <button
+            class="inc-btn"
+            type="button"
+            (click)="decreaseQuantity(product._id)"
+          >
+            -
+          </button>
+        </div>
+
+        <span class="nmb-plat">{{ quantities[product._id] || 1 }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="order-price">
+    <div>Total Price :</div>
+    <span>{{ calculateTotalPrice() }} Dt</span>
+  </div>
+  <button
+    pButton
+    class="submit-btn"
+    type="button"
+    label="Place Order"
+    (click)="logOrder()"
+  ></button>
+</div>

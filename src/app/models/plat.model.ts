@@ -4,6 +4,6 @@ export class Plat {
   descriptionP: string = '';
   imgP: File | null = null;
   categoryP: string[] = [];
-  priceP: string = '';
+  priceP!: any;
   selected?: boolean;
 }

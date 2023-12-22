@@ -30,7 +30,6 @@ export class PageRestoComponent implements OnInit {
         this.RestaurantService.getRestaurantById(this.restaurantId).subscribe(
           (data) => {
             this.data = data;
-            console.log(data);
             this.loading = false;
           }
         );

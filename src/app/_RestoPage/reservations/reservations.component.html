@@ -1,1 +1,33 @@
-<p>reservations works!</p>
+<div>
+  <p-table [value]="reservations">
+    <ng-template pTemplate="header">
+      <tr>
+        <th colspan="5">Reservations</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-reservation>
+      <p-accordion>
+        <p-accordionTab>
+          <ng-template pTemplate="header">
+            <div class="flexit">
+              <div>{{ reservation.orderDate | date : "medium" }}</div>
+              <div>{{ reservation.userName }}</div>
+              <div>{{ reservation.userLocation }}</div>
+              <div>{{ reservation.userPhone }}</div>
+              <div>{{ reservation.totalPrice | currency : "Dt" }}</div>
+            </div>
+          </ng-template>
+
+          <div
+            *ngFor="let product of reservation.platQuantities"
+            class="flexit gapped"
+          >
+            <div>{{ product.platId.nameP }}</div>
+            <div>{{ product.platId.descriptionP }}</div>
+            <div>{{ product.numberOfPlates }}</div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </ng-template>
+  </p-table>
+</div>

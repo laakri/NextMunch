@@ -85,6 +85,8 @@
           <div class="resto-menu-product-footer">
             <div class="resto-menu-product-price">{{ plat.priceP }} Dt</div>
             <p-button
+              (click)="showProductSelectionCartBar()"
+              (click)="addToSelectedProductsCart(plat)"
               class="product-btn"
               icon="pi pi-cart-plus"
               [link]="true"
@@ -101,6 +103,22 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="productSelectionBarCartVisible" class="product-selection-bar">
+  <div class="product-selection-bar-left">
+    <span>{{ selectedProductsCart.length }} Plat selected</span>
+  </div>
+  <div class="product-selection-bar-right">
+    <p-button
+      [rounded]="true"
+      styleClass="product-selection-bar-submit-button"
+      (click)="submitSelectedProducts()"
+    >
+      Order
+    </p-button>
+  </div>
+</div>
+
 <div *ngIf="productSelectionBarVisible" class="product-selection-bar">
   <div class="product-selection-bar-left">
     <span>{{ selectedProductIds.length }} items selected</span>

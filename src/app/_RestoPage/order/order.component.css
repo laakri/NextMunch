@@ -1,0 +1,107 @@
+.order-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .products{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .product{
+    width: 100%;
+    height: max-content;
+    padding: 10px;
+    border-radius: 10px;
+    border: var(--bordercolor) solid 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .product-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .product-right{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+  }
+  .PlatImage{
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    border: var(--bordercolor) solid 1px;
+    background-color: var(--soft-bgcolor);
+  }
+  .nmb-plat{
+    background-color: var(--secendcolor);
+    color: var(--blackcolor);
+    border-radius: 3px;
+    padding: 5px;
+  }
+  .quantity-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quantity-controls button {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .inc-btn{
+    max-height: 20px;
+    max-width: 20px !important;
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--softcolor);
+
+}
+.inc-btn:hover{
+    background-color: rgba(222, 222, 222, 0.337);
+}
+
+
+.order-price{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.order-price div{
+    font-size: 22px;
+}
+
+.order-price span {
+    font-size: 18px;
+
+    
+}
+
+.submit-btn{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }

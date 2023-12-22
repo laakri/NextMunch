@@ -85,6 +85,7 @@ import { ReviewsComponent } from './_RestoPage/reviews/reviews.component';
 import { ReservationsComponent } from './_RestoPage/reservations/reservations.component';
 import { InformationsComponent } from './_RestoPage/informations/informations.component';
 import { AddEventComponent } from './_Dashboard_Resto/add-event/add-event.component';
+import { OrderComponent } from './_RestoPage/order/order.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { AddEventComponent } from './_Dashboard_Resto/add-event/add-event.compon
     ReservationsComponent,
     InformationsComponent,
     AddEventComponent,
+    OrderComponent,
   ],
 
   imports: [

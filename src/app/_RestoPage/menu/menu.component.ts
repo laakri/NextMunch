@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PlatService } from 'src/app/services/plat.service';
 import { AddPlatComponent } from 'src/app/_Dashboard_Resto/add-plat/add-plat.component';
 import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-categ.component';
+import { OrderComponent } from '../order/order.component';
 
 @Component({
   selector: 'app-menu',
@@ -19,7 +20,9 @@ import { ListeCategComponent } from 'src/app/_Dashboard_Resto/liste-categ/liste-
 export class MenuComponent implements OnInit {
   ref: DynamicDialogRef | undefined;
   productSelectionBarVisible: boolean = false;
+  productSelectionBarCartVisible: boolean = false;
   selectedProductIds: string[] = [];
+  selectedProductsCart: any[] = [];
   events: any[] = [];
   plats!: Plat[];
   categories!: Categorie[];
@@ -60,7 +63,6 @@ export class MenuComponent implements OnInit {
         );
         this.EventService.getEvents(this.restaurantId).subscribe(
           (events: any) => {
-            console.log(events.events);
             this.events = events.events;
           },
           (error) => {
@@ -121,6 +123,7 @@ export class MenuComponent implements OnInit {
       product.selected = false;
     }
   }
+
   // Method to submit the event
   submitEvent(): void {
     this.GlobalService.selectedProductIds = this.selectedProductIds;
@@ -128,10 +131,48 @@ export class MenuComponent implements OnInit {
     this.resetForm();
     this.router.navigate(['AddEvent']);
   }
-  // Method to reset the form or hide the bar
   resetForm(): void {
     this.selectedProductIds = [];
 
     this.productSelectionBarVisible = false;
+  }
+  //****************** Cart ******************* */
+  showProductSelectionCartBar(): void {
+    this.productSelectionBarCartVisible = true;
+  }
+  addToSelectedProductsCart(product: any): void {
+    const index = this.selectedProductsCart.findIndex(
+      (p) => p._id === product._id
+    );
+
+    if (index === -1) {
+      this.selectedProductsCart.push(product);
+      product.selected = true;
+    } else {
+      this.selectedProductsCart.splice(index, 1);
+      product.selected = false;
+    }
+  }
+  submitSelectedProducts(): void {
+    const selectedProductIds = this.selectedProductsCart.map(
+      (product) => product._id
+    );
+    this.GlobalService.selectedProductIds = selectedProductIds;
+    this.GlobalService.restaurantId = this.restaurantId;
+
+    console.log('Selected Product IDs:', selectedProductIds);
+    this.ref = this.dialogService.open(OrderComponent, {
+      showHeader: false,
+      closable: true,
+      dismissableMask: true,
+      modal: true,
+      draggable: false,
+      resizable: false,
+      styleClass: 'dialogSearch',
+      width: '450px',
+      height: '660px',
+      contentStyle: { overflow: 'auto' },
+    });
+    this.ref.onClose.subscribe(() => {});
   }
 }
