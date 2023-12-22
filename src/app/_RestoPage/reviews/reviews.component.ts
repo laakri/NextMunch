@@ -14,7 +14,7 @@ export class ReviewsComponent implements OnInit {
   UserId: any = '6584b17c79bb6bbe7ce56238';
   RestoId: any = null;
   reviews: any[] = [];
-
+  averageRating:number=0;
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -24,6 +24,7 @@ export class ReviewsComponent implements OnInit {
   ngOnInit(): void {
     this.route.parent?.paramMap.subscribe((params) => {
       this.RestoId = params.get('id');
+      
       if (this.RestoId) {
         this.loadReviews();
       }
@@ -35,7 +36,8 @@ export class ReviewsComponent implements OnInit {
     this.ReviewService.getRestaurantRating(this.RestoId).subscribe(
       (data) => {
         this.reviews = data.reviews;
-        console.log(data.reviews);
+        const totalRating = this.reviews.reduce((acc, review) => acc + review.rating, 0);
+        this.averageRating = this.reviews.length > 0 ? totalRating / this.reviews.length : 0;
       },
       (error) => {
         console.error(error);
@@ -43,6 +45,7 @@ export class ReviewsComponent implements OnInit {
     );
   }
 
+  
   submitReview() {
     if (this.RestoId) {
       // Call the UserService to submit the review
