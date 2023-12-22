@@ -1,60 +1,206 @@
 .container {
-    max-width: 700px;
-    padding: 20px;
-  }
-  
-  .write-review {
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .write-review h3 {
-    font-size: 20px;
-  }
-  
-  .write-review textarea {
-    width: 100%;
-    height: 80px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 10px;
-  }
-  .write-review textarea::placeholder {
-    color: var(--whitecolor);
-    font-size: 14px;
+  max-width: 1400px;
+  padding: 20px;
+  margin: auto;
 }
-  .list-reviews{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-  }
-  .review{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: var(--bordercolor) solid 1px ;
-    padding: 20px;
-    border-radius: 20px;
-  }
-  .review-header{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .review-header span{
-        font-size: 18px;
+
+.write-review {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-  .list-reviews h3 {
-    font-size: 20px;
+
+.write-review h3 {
+  font-size: 20px;
+}
+
+.write-review textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.write-review textarea::placeholder {
+  color: var(--whitecolor);
+  font-size: 14px;
+}
+/****** chaima modifictaion****/
+.write-review-box{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin: auto;
+  gap: 80px;
+}
+.write-review-star-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: start;
+  align-items: start;
+  margin: auto;
+}
+.write-review-star-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.write-review-star-box h1{
+margin: 0;
+}
+.write-review-star-box p{
+  margin: 0;
   }
- 
-  .review-date {
-    color: var(--graycolor);
-  }
-  
-  .review-text {
-    font-size: 16px;
-  }
-  
+
+
+
+
+
+
+.list-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: var(--bordercolor) solid 1px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.review-header span {
+  font-size: 18px;
+}
+.list-reviews h3 {
+  font-size: 20px;
+}
+
+.review-date {
+  color: var(--graycolor);
+}
+
+.review-text {
+  font-size: 16px;
+}
+/**********chaima modification ********/
+
+.reviews-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 70px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.avrage-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  flex: 3;
+  margin-right: 360px;
+}
+
+.avrage-review h1 {
+  font-size: 45px;
+  margin: 0;
+}
+.avrage-review p {
+  border-top: 1px solid gray;
+  padding-top: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+/******************* class reviews ***********/
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 70%;
+  background-color: #f1f1f16d;
+  text-align: center;
+  color: white;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Individual bars */
+.bar-5 {
+  width: 60%;
+  height: 18px;
+  background-color: #d0ff00;
+  border-radius: 20px;
+
+}
+.bar-4 {
+  width: 30%;
+  height: 18px;
+  background-color: #008cff;
+  border-radius: 20px;
+
+}
+.bar-3 {
+  width: 10%;
+  height: 18px;
+  background-color: #00e1ff;
+  border-radius: 20px;
+
+}
+.bar-2 {
+  width: 14%;
+  height: 18px;
+  background-color: #b7ff00;
+  border-radius: 20px;
+
+}
+.bar-1 {
+  width: 15%;
+  height: 18px;
+  background-color: #ff1100;
+  border-radius: 20px;
+
+}
+.container-list-reviews{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}

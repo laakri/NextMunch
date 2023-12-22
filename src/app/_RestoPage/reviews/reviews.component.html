@@ -1,30 +1,112 @@
 <!-- reviews.component.html -->
 
 <div class="container">
+  <div class="reviews-list">
+    <div class="avrage-review">
+      <h1>
+        {{ averageRating }}
+        <i class="pi pi-star-fill" style="color: gold; font-size: 35px"></i>
+      </h1>
+      <p>makech mech talka lahkika khir men resto mteaane 5njoum ali ykolik</p>
+    </div>
+    <div class="class-reviews">
+      <div class="row">
+        <div class="side">
+          <div>5 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-5"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>150</div>
+        </div>
+        <div class="side">
+          <div>4 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-4"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>63</div>
+        </div>
+        <div class="side">
+          <div>3 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-3"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>15</div>
+        </div>
+        <div class="side">
+          <div>2 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-2"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>6</div>
+        </div>
+        <div class="side">
+          <div>1 star</div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-1"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>20</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="write-review">
     <h3>Write a Review</h3>
-    <textarea
-      [(ngModel)]="userReview"
-      placeholder="Write your review"
-    ></textarea>
-    <p-rating [(ngModel)]="userRating" [stars]="5" [cancel]="false"></p-rating>
-    <p-button (click)="submitReview()">Submit Review</p-button>
+    <div class="write-review-box">
+      <div class="write-review-star-box">
+        <textarea
+          [(ngModel)]="userReview"
+          placeholder="Write your review"
+        ></textarea>
+        <p-button (click)="submitReview()">Submit Review</p-button>
+      </div>
+      <div class="write-review-star-box">
+        <h1>Evaluate Our Dining Experience</h1>
+        <p>Your feedback is invaluable as we strive for excellence.</p>
+        <p-rating
+          [(ngModel)]="userRating"
+          [stars]="5"
+          [cancel]="false"
+        ></p-rating>
+      </div>
+    </div>
   </div>
 
   <div class="list-reviews">
     <h3>Customer Reviews</h3>
-    <div *ngFor="let review of reviews" class="review">
-      <div class="review-header">
-        <span>User</span>
-        <p-rating
-          [ngModel]="review.rating"
-          [stars]="review.rating"
-          [readonly]="true"
-          [cancel]="false"
-        ></p-rating>
+    <div class="container-list-reviews">
+      <div *ngFor="let review of reviews" class="review">
+        <div class="review-header">
+          <span>{{ review.userId.name }}</span>
+          <p-rating
+            [ngModel]="review.rating"
+            [stars]="review.rating"
+            [readonly]="true"
+            [cancel]="false"
+          ></p-rating>
+        </div>
+        <div class="review-text">{{ review.text }}</div>
+        <span class="review-date">{{ review.createdAt | date : "short" }}</span>
       </div>
-      <div class="review-text">{{ review.text }}</div>
-      <span class="review-date">{{ review.createdAt | date : "short" }}</span>
     </div>
   </div>
 </div>
