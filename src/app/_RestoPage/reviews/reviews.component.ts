@@ -14,7 +14,10 @@ export class ReviewsComponent implements OnInit {
   UserId: any = '6584b17c79bb6bbe7ce56238';
   RestoId: any = null;
   reviews: any[] = [];
-  averageRating:number=0;
+  averageRating: number = 0;
+  ratingsCount: any = {};
+  starsToDisplay: number[] = [];
+
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
@@ -24,7 +27,7 @@ export class ReviewsComponent implements OnInit {
   ngOnInit(): void {
     this.route.parent?.paramMap.subscribe((params) => {
       this.RestoId = params.get('id');
-      
+
       if (this.RestoId) {
         this.loadReviews();
       }
@@ -38,6 +41,12 @@ export class ReviewsComponent implements OnInit {
         this.reviews = data.reviews;
         const totalRating = this.reviews.reduce((acc, review) => acc + review.rating, 0);
         this.averageRating = this.reviews.length > 0 ? totalRating / this.reviews.length : 0;
+
+        // Extract ratings count from the response
+        this.ratingsCount = data.ratingsCount;
+
+        // Update starsToDisplay array based on the averageRating
+        this.starsToDisplay = this.generateStarsArray(this.averageRating);
       },
       (error) => {
         console.error(error);
@@ -45,7 +54,6 @@ export class ReviewsComponent implements OnInit {
     );
   }
 
-  
   submitReview() {
     if (this.RestoId) {
       // Call the UserService to submit the review
@@ -70,5 +78,20 @@ export class ReviewsComponent implements OnInit {
         }
       );
     }
+  }
+
+  objectKeys(obj: any) {
+    return Object.keys(obj);
+  }
+
+  generateStarsArray(rating: number): number[] {
+    const starsArray = [];
+    const roundedRating = Math.round(rating); // Round to the nearest whole number
+
+    for (let i = 1; i <= 5; i++) {
+      starsArray.push(i <= roundedRating ? 1 : 0); // 1 represents a filled star, 0 represents an empty star
+    }
+
+    return starsArray;
   }
 }

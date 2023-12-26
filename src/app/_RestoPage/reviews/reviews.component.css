@@ -66,6 +66,7 @@ margin: 0;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
 }
 .review {
   display: flex;
@@ -74,6 +75,8 @@ margin: 0;
   border: var(--bordercolor) solid 1px;
   padding: 20px;
   border-radius: 20px;
+  width: 370px;
+
 }
 .review-header {
   display: flex;
@@ -203,4 +206,14 @@ margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.class-reviews{
+  width: 350px;
 }

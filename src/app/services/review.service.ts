@@ -28,4 +28,14 @@ export class ReviewService {
     const url = `${this.apiUrl}/getrating/${restoId}`;
     return this.http.get<any>(url);
   }
+
+  getRatingsCount(restoId: string): Observable<any> {
+    const url = `${this.apiUrl}/restaurants/${restoId}/ratings-count`;
+    return this.http.get<any>(url);
+  }
+
+  getRatingAndCount(restoId: string): Observable<any> {
+    const url = `${this.apiUrl}/restaurants/${restoId}/rating-and-count`;
+    return this.http.get<any>(url);
+  }
 }
