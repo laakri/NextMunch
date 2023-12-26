@@ -46,7 +46,7 @@ export class ReviewsComponent implements OnInit {
         this.ratingsCount = data.ratingsCount;
 
         // Update starsToDisplay array based on the averageRating
-        this.starsToDisplay = this.generateStarsArray(this.averageRating);
+        this.starsToDisplay = this.ReviewService.generateStarsArray(this.averageRating);
       },
       (error) => {
         console.error(error);
@@ -84,14 +84,5 @@ export class ReviewsComponent implements OnInit {
     return Object.keys(obj);
   }
 
-  generateStarsArray(rating: number): number[] {
-    const starsArray = [];
-    const roundedRating = Math.round(rating); // Round to the nearest whole number
 
-    for (let i = 1; i <= 5; i++) {
-      starsArray.push(i <= roundedRating ? 1 : 0); // 1 represents a filled star, 0 represents an empty star
-    }
-
-    return starsArray;
-  }
 }

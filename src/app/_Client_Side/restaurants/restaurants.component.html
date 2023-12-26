@@ -71,15 +71,15 @@
         <h2>Restaurants</h2>
       </div>
       <div class="restos">
-        <a href="" *ngFor="let restaurant of restaurants">
+        <a href="" *ngFor="let restaurant of restaurants" [routerLink]="['/PageResto', restaurant._id, 'menu']">
           <div class="resto-box">
             <div class="resto-box-banner">
               <!-- <img [src]="restaurant.bannerImg" alt="" />-->
               <div class="resto-box-img-profil">
-                <!--<img [src]="restaurant.mainImg" />-->
+                <img [src]="restaurant.mainImg" />
               </div>
               <div class="resto-box-rating">
-                <span>{{ restaurant.rating }}</span>
+                <span>{{ restaurant.reviews| number:'1.1-1' }}</span>
                 <i class="pi pi-star-fill"></i>
               </div>
             </div>
@@ -87,22 +87,24 @@
             <div class="resto-box-details">
               <span class="resto-box-details-name">{{ restaurant.nameR }}</span>
               <p class="resto-box-details-description">
-                {{ restaurant.descriptionR }}
-              </p>
-              <!--
+                {{ restaurant.descriptionR }}       <i class="pi pi-map-marker"></i>
+                 <!-- <p>{{ restaurant.contact }}</p>-->
+             <div style="display: flex; align-items: center; justify-content: space-between;">
               <div class="resto-box-details-location">
                 <i class="pi pi-map-marker"></i>
                 <p>{{ restaurant.location }}</p>
               </div>
-              -->
-              <div class="resto-box-details-button">
+             
+              <div class="resto-box-details-button"  >
+                <div>
                 <p-button
                   label="check"
                   icon="pi pi-angle-right"
                   [link]="true"
                   iconPos="right"
+                  class="custom-button"
                 ></p-button>
-              </div>
+              </div>              </div></div>
             </div>
           </div>
         </a>

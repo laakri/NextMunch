@@ -13,6 +13,6 @@ export interface Restaurant {
   closeDates?: string;
   createdAt?: Date;
   updatedAt?: Date;
-  rating?: number; 
+  reviews?: number; 
   categories: Categorie[];
 }

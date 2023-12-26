@@ -3,6 +3,9 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 import { RestaurantService } from 'src/app/services/restaurant.service';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { Categorie } from 'src/app/models/categorie.model';
+import { ReviewService } from './../../services/review.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-restaurants',
@@ -15,6 +18,9 @@ export class RestaurantsComponent {
   maxRating: number = 5; // Set a default max rating
 
   categories: Categorie[] = [];
+  starsToDisplay: number[] = [];
+  averageRating: number = 0;
+
 
   
   loadCategories() {
@@ -29,11 +35,17 @@ export class RestaurantsComponent {
       }
     );
   }
-  constructor(private restaurantService: RestaurantService , private categoryService: CategorieService) {}
+  constructor(private restaurantService: RestaurantService ,
+     private categoryService: CategorieService,
+    private ReviewService: ReviewService,
+    private router: Router
+
+     ) {}
 
   ngOnInit(): void {
     this.loadRestaurants();
     this.loadCategories();
+    this.starsToDisplay = this.ReviewService.generateStarsArray(this.averageRating)
   }
 
   loadRestaurants() {
