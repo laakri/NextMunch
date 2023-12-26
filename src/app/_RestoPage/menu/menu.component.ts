@@ -27,6 +27,8 @@ export class MenuComponent implements OnInit {
   plats!: Plat[];
   categories!: Categorie[];
   restaurantId!: string | null;
+  isTheOwner: boolean | null = false;
+
   constructor(
     private RestaurantService: RestaurantService,
     private dialogService: DialogService,
@@ -42,6 +44,7 @@ export class MenuComponent implements OnInit {
       const idParam = params.get('id');
       if (idParam) {
         this.restaurantId = idParam;
+        this.isTheOwner = this.GlobalService.isTheOwner;
 
         // Fetch data based on the restaurantId
         this.platService.getAllPlats().subscribe(

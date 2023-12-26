@@ -27,7 +27,8 @@
       ></p-button>
 
       <p-button
-        label="A"
+        *ngIf="isOwner"
+        label="Dashboard"
         routerLink="/Dashboard"
         styleClass="custom-button"
         routerLinkActive="activebutton"
@@ -35,17 +36,21 @@
       </p-button>
       <p-button
         label="RP"
+        *ngIf="isAuth && isOwner"
         styleClass="custom-button"
         routerLinkActive="activebutton"
-        routerLink="/PageResto/658313ea8a06b1e6daa77841/menu"
+        routerLink="/PageResto/658313ea8a06b1e6daa77841"
       ></p-button>
-      <!-- <p-button
-      label="CR"
-      (click)="openAddResto()"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-    ></p-button>
-    --></div>
+      <p-button
+        label="Create Restaurant"
+        *ngIf="isAuth && !isOwner"
+        (click)="openAddResto()"
+        styleClass="custom-button"
+        routerLinkActive="activebutton"
+      ></p-button>
+    </div>
+
+    <!--
     <div class="navbar-search">
       <span class="p-input-icon-left">
         <i class="pi pi-search search-Icon"></i>
@@ -57,14 +62,30 @@
           [(ngModel)]="search"
         />
       </span>
-    </div>
+    </div>-->
     <div class="navbar-right">
-      <p-button routerLink="/auth/login" [link]="true">Login</p-button>
+      <button
+        class="p-button-text"
+        pButton
+        icon="pi pi-search"
+        ariaLabel="campaign"
+      ></button>
+      <p-button *ngIf="!isAuth" routerLink="/auth/login" [link]="true"
+        >Login</p-button
+      >
       <p-button
+        *ngIf="!isAuth"
         routerLink="/auth/signup"
         styleClass="secend-btn"
         [rounded]="true"
         >Sign Up</p-button
+      >
+      <p-button
+        *ngIf="isAuth"
+        styleClass="secend-btn"
+        (click)="logout()"
+        [rounded]="true"
+        >Logout</p-button
       >
       <button
         class="p-button-text"

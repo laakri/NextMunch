@@ -47,7 +47,7 @@
     <h2>Categories</h2>
 
     <div class="resto-menu-filter">
-      <div class="resto-menu-filter-category add-categ">
+      <div class="resto-menu-filter-category add-categ" *ngIf="isTheOwner">
         <p-button (click)="openSelectCateg()" [link]="true">
           <i class="pi pi-plus"></i>
         </p-button>
@@ -62,7 +62,7 @@
     <h2>Produits</h2>
 
     <div class="resto-menu-products">
-      <div class="resto-menu-product add-product">
+      <div class="resto-menu-product add-product" *ngIf="isTheOwner">
         <p-button (click)="openAddPlat()" [link]="true">
           <i class="pi pi-plus"></i>
         </p-button>
@@ -85,6 +85,7 @@
           <div class="resto-menu-product-footer">
             <div class="resto-menu-product-price">{{ plat.priceP }} Dt</div>
             <p-button
+              *ngIf="!isTheOwner"
               (click)="showProductSelectionCartBar()"
               (click)="addToSelectedProductsCart(plat)"
               class="product-btn"
@@ -92,6 +93,7 @@
               [link]="true"
             ></p-button>
             <p-button
+              *ngIf="isTheOwner"
               (click)="showProductSelectionBar()"
               (click)="addToSelectedProducts(plat)"
               [link]="true"

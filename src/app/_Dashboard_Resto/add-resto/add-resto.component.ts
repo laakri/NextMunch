@@ -4,6 +4,7 @@ import { RestaurantService } from '../../services/restaurant.service';
 import { DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Router } from '@angular/router';
 import { Categorie } from 'src/app/models/categorie.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-resto',
@@ -11,7 +12,7 @@ import { Categorie } from 'src/app/models/categorie.model';
   styleUrls: ['./add-resto.component.css'],
 })
 export class AddRestoComponent {
-  UserID: string = '6579b0041f57c8dac88c5a1a';
+  UserID: any = '';
   cin: string = '345346346';
   restaurantName: string = 'gazgaz';
   location: string = 'gazgaz';
@@ -20,17 +21,18 @@ export class AddRestoComponent {
   showErrorRestaurantName: boolean = false;
   showErrorLocation: boolean = false;
   showErrorContact: boolean = false;
-  categories!:Categorie[];
+  categories!: Categorie[];
   items: any[];
   activeIndex: number = 0;
-
+  isAuth: boolean = false;
   loading: boolean = false;
 
   constructor(
     private messageService: MessageService,
     private RestaurantService: RestaurantService,
     private ref: DynamicDialogRef,
-    private router: Router
+    private router: Router,
+    private UsersService: UserService
   ) {
     this.items = [
       { label: 'Step 1' },
@@ -38,7 +40,14 @@ export class AddRestoComponent {
       { label: 'Step 3' },
     ];
   }
-
+  ngOnInit(): void {
+    this.UsersService.isAuth$.subscribe((isAuth) => {
+      this.isAuth = isAuth;
+      if (this.isAuth) {
+        this.UserID = this.UsersService.getUserId();
+      }
+    });
+  }
   nextStep(inputField: string) {
     if (this.activeIndex === 0) {
       // Check if CIN is not empty
@@ -105,7 +114,7 @@ export class AddRestoComponent {
       descriptionR: '', // Set the appropriate values for these properties
       location: this.location,
       contact: this.contact,
-      categories:this.categories,
+      categories: this.categories,
     }).subscribe(
       (response) => {
         const createdRestaurantId = response.restaurantId; // Assuming the API returns the ID in the "restaurantId" property
@@ -113,6 +122,7 @@ export class AddRestoComponent {
           'Restaurant created successfully. ID:',
           createdRestaurantId
         );
+        this.UsersService.isOwnerSubject.next(true);
         this.showMessage(createdRestaurantId);
         this.activeIndex = 2;
       },

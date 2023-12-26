@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddRestoComponent } from '../../_Dashboard_Resto/add-resto/add-resto.component';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,11 +15,23 @@ export class NavbarComponent {
   ref: DynamicDialogRef | undefined;
   isBrightTheme = false;
   search: string = '';
-  constructor(private dialogService: DialogService) {}
+  isAuth: boolean = false;
+  isOwner: boolean = false;
+
+  constructor(
+    private dialogService: DialogService,
+    private UsersService: UserService
+  ) {}
 
   ngOnInit(): void {
     // Check the theme
     this.isBrightTheme = localStorage.getItem('mode') === 'light-theme';
+    this.UsersService.isAuth$.subscribe((isAuth) => {
+      this.isAuth = isAuth;
+    });
+    this.UsersService.isOwner$.subscribe((isOwner) => {
+      this.isOwner = isOwner;
+    });
   }
   change_theme(): void {
     this.isBrightTheme = !this.isBrightTheme;
@@ -45,5 +59,8 @@ export class NavbarComponent {
     });
     console.log(this.ref);
     this.ref.onClose.subscribe(() => {});
+  }
+  logout() {
+    this.UsersService.logout();
   }
 }

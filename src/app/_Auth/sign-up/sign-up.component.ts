@@ -13,7 +13,11 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
   signupForm!: FormGroup;
   signupSuccess: boolean = false;
-
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    public userService: UserService
+  ) {}
   ngOnInit() {
     this.signupForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
@@ -22,10 +26,4 @@ export class SignUpComponent {
       password: new FormControl('', [Validators.required]),
     });
   }
-
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    public userService: UserService
-  ) {}
 }

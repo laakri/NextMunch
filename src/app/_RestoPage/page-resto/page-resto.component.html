@@ -10,6 +10,7 @@
       <img src="{{ data.mainImg }}" alt="" />
     </div>
     <p-button
+      *ngIf="isTheOwner"
       icon="pi pi-ellipsis-h"
       [link]="true"
       class="setting-btn"
@@ -53,6 +54,7 @@
       <span>- PM</span>
     </div>
     <p-button
+      *ngIf="!isTheOwner"
       label="Write Review"
       styleClass="review-button"
       routerLink="./reviews"
@@ -66,18 +68,13 @@
       routerLinkActive="activebutton"
     ></p-button
     ><p-button
-      label="Informations"
-      routerLink="./informations"
-      styleClass="custom-button"
-      routerLinkActive="activebutton"
-    ></p-button
-    ><p-button
       label="Reviews"
       routerLink="./reviews"
       styleClass="custom-button"
       routerLinkActive="activebutton"
     ></p-button>
     <p-button
+      *ngIf="!isTheOwner"
       label="Reservations"
       routerLink="./reservations"
       styleClass="custom-button"

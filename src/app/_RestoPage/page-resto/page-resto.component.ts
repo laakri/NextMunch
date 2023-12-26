@@ -1,8 +1,10 @@
+import { Component, OnInit } from '@angular/core';
 import { GlobalService } from './../../services/_global.service';
 import { Restaurant } from '../../models/restaurant.model';
 import { RestaurantService } from '../../services/restaurant.service';
-import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from './../../services/user.service';
+
 @Component({
   selector: 'app-page-resto',
   templateUrl: './page-resto.component.html',
@@ -13,23 +15,45 @@ export class PageRestoComponent implements OnInit {
   restaurantId: string = '';
   ratingValue: number = 4.5;
   loading: boolean = true;
+  isOwner: boolean = false;
+  UserID: any = '';
+  isAuth: boolean = false;
+  isTheOwner: boolean = false;
+
   constructor(
     private RestaurantService: RestaurantService,
     private route: ActivatedRoute,
     private GlobalService: GlobalService,
-    private router: Router
+    private router: Router,
+    private UserService: UserService
   ) {}
 
   ngOnInit() {
     this.loading = true;
-    this.route.params.subscribe((params) => {
-      this.restaurantId = params['id']; // Assuming the parameter name is 'id'
+    this.UserService.isOwner$.subscribe((isOwner) => {
+      this.isOwner = isOwner;
+    });
 
-      // Check if the restaurantId is present before making the request
+    this.UserService.isAuth$.subscribe((isAuth) => {
+      this.isAuth = isAuth;
+      if (this.isAuth) {
+        this.UserID = this.UserService.getUserId();
+      }
+    });
+
+    this.route.params.subscribe((params) => {
+      this.restaurantId = params['id'];
+
       if (this.restaurantId) {
         this.RestaurantService.getRestaurantById(this.restaurantId).subscribe(
           (data) => {
             this.data = data;
+            this.isTheOwner = this.isAuth && this.UserID === this.data.ownerId;
+
+            // Save isTheOwner in GlobalService
+            this.GlobalService.isTheOwner = this.isTheOwner;
+
+            console.log('Is the owner:', this.isTheOwner);
             this.loading = false;
           }
         );

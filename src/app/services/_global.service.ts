@@ -9,4 +9,5 @@ export class GlobalService {
     '658316848a06b1e6daa77898',
   ];
   restaurantId: string | null = '658313ea8a06b1e6daa77841';
+  isTheOwner: boolean | null = false;
 }
