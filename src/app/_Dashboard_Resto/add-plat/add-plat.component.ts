@@ -23,15 +23,17 @@ export class AddPlatComponent implements OnInit {
     imgP: null,
     categoryP: [],
     priceP: '',
-    idResto  :'',
+    idResto: '',
     hidden: false,
   };
 
-  constructor(private platService: PlatService,
-    private globalService:GlobalService) {}
+  constructor(
+    private platService: PlatService,
+    private globalService: GlobalService
+  ) {}
 
   ngOnInit() {
-   this.platData.idResto= this.globalService.restaurantId;
+    this.platData.idResto = this.globalService.restaurantId;
     this.cities = [
       { name: 'FastFood', code: '657b685088f8a15a4d2986a8' },
       { name: 'Dessert', code: '657b685088f8a15a4d2986a8' },
@@ -48,7 +50,6 @@ export class AddPlatComponent implements OnInit {
   }
 
   onSubmit() {
-
     const selectedCategorys = this.selectedCatgorys.map(
       (category: any) => category.code
     );
@@ -58,6 +59,7 @@ export class AddPlatComponent implements OnInit {
     }
 
     this.platData.categoryP = selectedCategorys;
+    console.log(this.platData);
     this.platService.ajouterPlat(this.platData).subscribe(
       (response) => {
         console.log('Plat enregistré avec succès:', response);
