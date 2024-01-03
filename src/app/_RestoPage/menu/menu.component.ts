@@ -46,8 +46,7 @@ export class MenuComponent implements OnInit {
         this.restaurantId = idParam;
         this.isTheOwner = this.GlobalService.isTheOwner;
 
-        // Fetch data based on the restaurantId
-        this.LoadPlat();
+        this.LoadPlat(this.restaurantId);
         this.RestaurantService.getRestoCategs(this.restaurantId).subscribe(
           (response: any) => {
             this.categories = response;
@@ -70,8 +69,8 @@ export class MenuComponent implements OnInit {
 
   /********************* */
 
-  LoadPlat() {
-    this.platService.getAllPlats().subscribe(
+  LoadPlat(restaurantId: any) {
+    this.platService.getAllPlats(restaurantId).subscribe(
       (plats: Plat[]) => {
         console.log(plats);
         this.plats = plats;
@@ -191,7 +190,7 @@ export class MenuComponent implements OnInit {
     this.platService.deletePlats(this.selectedProductIds).subscribe(
       (response) => {
         console.log('Plats deleted successfully:', response);
-        this.LoadPlat();
+        this.LoadPlat(this.restaurantId);
       },
       (error) => {
         console.error('Error deleting plats:', error);
@@ -205,7 +204,7 @@ export class MenuComponent implements OnInit {
     this.platService.setPlatsHidden(this.selectedProductIds).subscribe(
       (response) => {
         console.log('Plats set hidden successfully:', response);
-        this.LoadPlat();
+        this.LoadPlat(this.restaurantId);
       },
       (error) => {
         console.error('Error setting hidden for plats:', error);
@@ -218,11 +217,10 @@ export class MenuComponent implements OnInit {
     this.platService.setunPlatHidden(platId).subscribe(
       (response) => {
         console.log('Plats set unhidden successfully:', response);
-        this.LoadPlat();
+        this.LoadPlat(this.restaurantId);
       },
       (error) => {
         console.error('Error setting unhidden for plats:', error);
-        // Handle error
       }
     );
   }
