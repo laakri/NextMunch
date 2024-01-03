@@ -137,7 +137,11 @@
   display: flex;
   justify-content: right;
 }
-
+.p-button {
+}
+ .custom-button {
+  color: #e97807;
+}
 /**************test row***************/
 .row{
   display: flex;

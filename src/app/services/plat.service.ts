@@ -44,4 +44,8 @@ export class PlatService {
   setunPlatHidden(platIds: string | string[]): Observable<any> {
     return this.http.post(`${this.apiUrl}/setPlatUnHidden`, { platIds });
   }
+
+  deletePlat(platId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/plat/${platId}`);
+  }
 }

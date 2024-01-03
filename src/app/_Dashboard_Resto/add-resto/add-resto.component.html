@@ -1,144 +1,144 @@
 <div class="container">
-  <p-steps [model]="items" [(activeIndex)]="activeIndex"></p-steps>
-
-  <div class="content" [ngSwitch]="activeIndex">
-    <!-- Step 1: CIN input -->
-    <div *ngSwitchCase="0">
-      <div>
-        <h2>Create Your Restaurant</h2>
-        <p>Please complete the form below to create your restaurant.</p>
+    <p-steps [model]="items" [(activeIndex)]="activeIndex"></p-steps>
+  
+    <div class="content" [ngSwitch]="activeIndex">
+      <!-- Step 1: CIN input -->
+      <div *ngSwitchCase="0">
+        <div>
+          <h2>Create Your Restaurant</h2>
+          <p>Please complete the form below to create your restaurant.</p>
+        </div>
+        <div class="content-cin-content">
+          <span
+            >The precise and accurate entry of your card number is essential to
+            ensure efficient verification of your restaurant.</span
+          >
+          <div class="content-form-div">
+            <label for="cin">CIN:</label>
+            <input
+              pInputText
+              type="text"
+              id="cin"
+              [(ngModel)]="cin"
+              placeholder="Enter Your CIN"
+              [ngClass]="{
+                'p-invalid': showErrorCin && (!cin || cin.trim() === '')
+              }"
+            />
+            <small
+              *ngIf="showErrorCin && (!cin || cin.trim() === '')"
+              class="p-error"
+            >
+              CIN is required
+            </small>
+          </div>
+        </div>
+        <div class="button-row">
+          <p-button
+            type="button"
+            label="Next"
+            (click)="nextStep('cin')"
+            [link]="true"
+          ></p-button>
+        </div>
       </div>
-      <div class="content-cin-content">
-        <span
-          >The precise and accurate entry of your card number is essential to
-          ensure efficient verification of your restaurant.</span
-        >
+  
+      <!-- Step 2: Restaurant details -->
+      <div *ngSwitchCase="1">
+        <div>
+          <h2>Create Your Restaurant</h2>
+          <p>Please complete the form below to create your restaurant.</p>
+        </div>
         <div class="content-form-div">
-          <label for="cin">CIN:</label>
+          <label for="restaurantName">Restaurant Name:</label>
           <input
             pInputText
             type="text"
-            id="cin"
-            [(ngModel)]="cin"
-            placeholder="Enter Your CIN"
+            id="restaurantName"
+            placeholder="Enter Your Restaurant Name"
+            [(ngModel)]="restaurantName"
             [ngClass]="{
-              'p-invalid': showErrorCin && (!cin || cin.trim() === '')
+              'p-invalid':
+                showErrorRestaurantName &&
+                (!restaurantName || restaurantName.trim() === '')
             }"
           />
           <small
-            *ngIf="showErrorCin && (!cin || cin.trim() === '')"
-            class="p-error"
-          >
-            CIN is required
-          </small>
-        </div>
-      </div>
-      <div class="button-row">
-        <p-button
-          type="button"
-          label="Next"
-          (click)="nextStep('cin')"
-          [link]="true"
-        ></p-button>
-      </div>
-    </div>
-
-    <!-- Step 2: Restaurant details -->
-    <div *ngSwitchCase="1">
-      <div>
-        <h2>Create Your Restaurant</h2>
-        <p>Please complete the form below to create your restaurant.</p>
-      </div>
-      <div class="content-form-div">
-        <label for="restaurantName">Restaurant Name:</label>
-        <input
-          pInputText
-          type="text"
-          id="restaurantName"
-          placeholder="Enter Your Restaurant Name"
-          [(ngModel)]="restaurantName"
-          [ngClass]="{
-            'p-invalid':
+            *ngIf="
               showErrorRestaurantName &&
               (!restaurantName || restaurantName.trim() === '')
-          }"
-        />
-        <small
-          *ngIf="
-            showErrorRestaurantName &&
-            (!restaurantName || restaurantName.trim() === '')
-          "
-          class="p-error"
-        >
-          Restaurant Name is required
-        </small>
+            "
+            class="p-error"
+          >
+            Restaurant Name is required
+          </small>
+        </div>
+        <div class="content-form-div">
+          <label for="location">Location:</label>
+          <input
+            pInputText
+            type="text"
+            placeholder="Enter The Restaurant location"
+            id="location"
+            [(ngModel)]="location"
+            [ngClass]="{
+              'p-invalid':
+                showErrorLocation && (!location || location.trim() === '')
+            }"
+          />
+          <small
+            *ngIf="showErrorLocation && (!location || location.trim() === '')"
+            class="p-error"
+          >
+            Location is required
+          </small>
+        </div>
+        <div class="content-form-div">
+          <label for="contact">Contact:</label>
+          <input
+            pInputText
+            type="text"
+            placeholder="Enter The Restaurant Contact"
+            id="contact"
+            [(ngModel)]="contact"
+            [ngClass]="{
+              'p-invalid': showErrorContact && (!contact || contact.trim() === '')
+            }"
+          />
+          <small
+            *ngIf="showErrorContact && (!contact || contact.trim() === '')"
+            class="p-error"
+          >
+            Contact is required
+          </small>
+        </div>
+  
+        <div class="button-row">
+          <p-button
+            type="button"
+            label="Previous"
+            (click)="prevStep()"
+            [link]="true"
+          ></p-button>
+          <p-button
+            *ngIf="activeIndex === 1"
+            type="button"
+            label="Create"
+            (click)="createRestaurant()"
+            [link]="true"
+          ></p-button>
+        </div>
       </div>
-      <div class="content-form-div">
-        <label for="location">Location:</label>
-        <input
-          pInputText
-          type="text"
-          placeholder="Enter The Restaurant location"
-          id="location"
-          [(ngModel)]="location"
-          [ngClass]="{
-            'p-invalid':
-              showErrorLocation && (!location || location.trim() === '')
-          }"
-        />
-        <small
-          *ngIf="showErrorLocation && (!location || location.trim() === '')"
-          class="p-error"
-        >
-          Location is required
-        </small>
-      </div>
-      <div class="content-form-div">
-        <label for="contact">Contact:</label>
-        <input
-          pInputText
-          type="text"
-          placeholder="Enter The Restaurant Contact"
-          id="contact"
-          [(ngModel)]="contact"
-          [ngClass]="{
-            'p-invalid': showErrorContact && (!contact || contact.trim() === '')
-          }"
-        />
-        <small
-          *ngIf="showErrorContact && (!contact || contact.trim() === '')"
-          class="p-error"
-        >
-          Contact is required
-        </small>
-      </div>
-
-      <div class="button-row">
-        <p-button
-          type="button"
-          label="Previous"
-          (click)="prevStep()"
-          [link]="true"
-        ></p-button>
-        <p-button
-          *ngIf="activeIndex === 1"
-          type="button"
-          label="Create"
-          (click)="createRestaurant()"
-          [link]="true"
-        ></p-button>
-      </div>
-    </div>
-    <!-- Step 3: Loading message -->
-    <div *ngSwitchCase="2" class="third-step">
-      <div class="third-step-container">
-        <h2>Creating Restaurant</h2>
-        <p>Loading, please wait...</p>
-        <p-progressSpinner
-          *ngIf="loading"
-          styleClass="custom-spinner"
-        ></p-progressSpinner>
+      <!-- Step 3: Loading message -->
+      <div *ngSwitchCase="2" class="third-step">
+        <div class="third-step-container">
+          <h2>Creating Restaurant</h2>
+          <p>Loading, please wait...</p>
+          <p-progressSpinner
+            *ngIf="loading"
+            styleClass="custom-spinner"
+          ></p-progressSpinner>
+        </div>
       </div>
     </div>
   </div>
-</div>

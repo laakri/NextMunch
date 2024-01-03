@@ -3,71 +3,28 @@
 <div class="container">
   <div class="reviews-list">
     <div class="avrage-review">
-      <h1>
-        {{ averageRating }}
-        <i class="pi pi-star-fill" style="color: gold; font-size: 35px"></i>
-      </h1>
+      <h1>{{ averageRating | number:'1.1-1' }}</h1>
+      <div  style="display: flex; flex-direction: row ; ">
+        <div *ngFor="let star of starsToDisplay; let i = index">
+          <i class="pi" [ngClass]="{'pi-star-fill': star === 1, 'pi-star': star === 0}" style="color: gold; font-size: 35px ; "></i>
+        </div> </div>    
       <p>makech mech talka lahkika khir men resto mteaane 5njoum ali ykolik</p>
     </div>
     <div class="class-reviews">
-      <div class="row">
+      <div class="row"  *ngFor="let key of objectKeys(ratingsCount)">
         <div class="side">
-          <div>5 star</div>
+          <div><p>{{ key }} star  </p> </div>
         </div>
         <div class="middle">
           <div class="bar-container">
-            <div class="bar-5"></div>
+            <div class="bar-{{ key }}"></div>
           </div>
         </div>
         <div class="side right">
-          <div>150</div>
+          <div>{{ ratingsCount[key] }}</div>
         </div>
-        <div class="side">
-          <div>4 star</div>
-        </div>
-        <div class="middle">
-          <div class="bar-container">
-            <div class="bar-4"></div>
-          </div>
-        </div>
-        <div class="side right">
-          <div>63</div>
-        </div>
-        <div class="side">
-          <div>3 star</div>
-        </div>
-        <div class="middle">
-          <div class="bar-container">
-            <div class="bar-3"></div>
-          </div>
-        </div>
-        <div class="side right">
-          <div>15</div>
-        </div>
-        <div class="side">
-          <div>2 star</div>
-        </div>
-        <div class="middle">
-          <div class="bar-container">
-            <div class="bar-2"></div>
-          </div>
-        </div>
-        <div class="side right">
-          <div>6</div>
-        </div>
-        <div class="side">
-          <div>1 star</div>
-        </div>
-        <div class="middle">
-          <div class="bar-container">
-            <div class="bar-1"></div>
-          </div>
-        </div>
-        <div class="side right">
-          <div>20</div>
-        </div>
-      </div>
-    </div>
+    
+    </div></div>
   </div>
   <div class="write-review">
     <h3>Write a Review</h3>

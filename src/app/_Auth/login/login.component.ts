@@ -14,7 +14,7 @@ export class LoginComponent {
     console.log(this.loginForm.value);
     this.userService.login(
       this.loginForm.value.phone,
-      this.loginForm.value.phone
+      this.loginForm.value.password
     );
   }
 }
