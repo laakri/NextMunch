@@ -4,7 +4,7 @@ import { Categorie } from 'src/app/models/categorie.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
-
+import { GlobalService } from 'src/app/services/_global.service';
 @Component({
   selector: 'app-liste-categ',
   templateUrl: './liste-categ.component.html',
@@ -22,7 +22,8 @@ export class ListeCategComponent implements OnInit {
   constructor(
     private restoService: RestaurantService,
     private categService: CategorieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private globalService:GlobalService
   ) {}
 
   onCategoryClick(category: Categorie) {
@@ -70,8 +71,7 @@ export class ListeCategComponent implements OnInit {
 
 
   ngOnInit() {
-    const restaurantId = '658313ea8a06b1e6daa77841';
-
+    const restaurantId:any = this.globalService.restaurantId;
     this.categService.getAllCategs().subscribe(
       (categories: Categorie[]) => {
         this.categories = categories;
@@ -81,7 +81,6 @@ export class ListeCategComponent implements OnInit {
       }
     );
     this.route.params.subscribe((params) => {
-      const restaurantId = '658313ea8a06b1e6daa77841'; // Assuming the parameter name is 'id'
       this.restoService.getRestoCategs(restaurantId).subscribe(
         (response: any) => {
           console.log(restaurantId);

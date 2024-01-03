@@ -100,6 +100,7 @@ export class MenuComponent implements OnInit {
   }
   /**************************** */
   openSelectCateg() {
+    this.GlobalService.restaurantId = this.restaurantId;
     this.ref = this.dialogService.open(ListeCategComponent, {
       showHeader: false,
       closable: true,
