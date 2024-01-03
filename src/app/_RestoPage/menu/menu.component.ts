@@ -83,6 +83,7 @@ export class MenuComponent implements OnInit {
   }
 
   openAddPlat() {
+    this.GlobalService.restaurantId = this.restaurantId;
     this.ref = this.dialogService.open(AddPlatComponent, {
       showHeader: false,
       closable: true,

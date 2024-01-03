@@ -17,6 +17,9 @@ export class PlatService {
     formData.append('nameP', platData.nameP);
     formData.append('descriptionP', platData.descriptionP);
     formData.append('priceP', platData.priceP);
+    formData.append('idResto', platData.idResto);
+
+  
 
     for (const element of platData.categoryP) {
       formData.append('categoryP[]', element);

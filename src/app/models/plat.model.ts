@@ -7,4 +7,6 @@ export class Plat {
   priceP!: any;
   selected?: boolean;
   hidden: boolean = false;
+  idResto: any= '';
+
 }
