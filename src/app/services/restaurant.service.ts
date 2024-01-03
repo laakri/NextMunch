@@ -42,16 +42,6 @@ export class RestaurantService {
     return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
   }
 
-  /*searchRestaurantsByName(searchTerm: string): Observable<Restaurant[]> {
-    const url = `${this.apiUrl}/listRestoSearch?q=${searchTerm}`;
-    return this.http.get<Restaurant[]>(url);
-  }
-
-searchRestaurantsByCategory(categories: Categorie[]): Observable<Restaurant[]> {
-  const params = new HttpParams().set('categories', categories.join(','));
-  return this.http.get<any>(`${this.apiUrl}/listRestoByCategory`, { params })
-}*/
-
   searchRestaurants(
     searchInput: string,
     selectedCategories: Categorie[]
