@@ -23,6 +23,7 @@ export class AddPlatComponent implements OnInit {
     imgP: null,
     categoryP: [],
     priceP: '',
+    hidden: false,
   };
 
   constructor(private platService: PlatService) {}

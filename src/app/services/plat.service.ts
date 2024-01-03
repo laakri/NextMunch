@@ -34,4 +34,14 @@ export class PlatService {
   getPlatsInfo(platIds: string[]): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/getPlatsInfo`, { platIds });
   }
+  deletePlats(platIds: string[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/deleteArrayP`, { platIds });
+  }
+
+  setPlatsHidden(platIds: string[]): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/setPlatHidden`, { platIds });
+  }
+  setunPlatHidden(platIds: string | string[]): Observable<any> {
+    return this.http.post(`${this.apiUrl}/setPlatUnHidden`, { platIds });
+  }
 }

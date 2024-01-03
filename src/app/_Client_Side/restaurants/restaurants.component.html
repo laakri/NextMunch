@@ -74,9 +74,13 @@
         <a href="" *ngFor="let restaurant of restaurants">
           <div class="resto-box">
             <div class="resto-box-banner">
-              <!-- <img [src]="restaurant.bannerImg" alt="" />-->
+              <img
+                [src]="restaurant.bannerImg"
+                alt=""
+                class="resto-box-banner-img"
+              />
               <div class="resto-box-img-profil">
-                <!--<img [src]="restaurant.mainImg" />-->
+                <img [src]="restaurant.mainImg" />
               </div>
               <div class="resto-box-rating">
                 <span>{{ restaurant.rating }}</span>
