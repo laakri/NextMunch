@@ -16,14 +16,14 @@ export class ListeCategComponent implements OnInit {
 
   selectedCategory: Categorie | null = null; // Change this line
   categSelected: boolean = false;
-
+  restaurantId: any = '';
   responseMessage = '';
 
   constructor(
     private restoService: RestaurantService,
     private categService: CategorieService,
     private route: ActivatedRoute,
-    private globalService:GlobalService
+    private globalService: GlobalService
   ) {}
 
   onCategoryClick(category: Categorie) {
@@ -38,13 +38,11 @@ export class ListeCategComponent implements OnInit {
   }
 
   addCategory(): void {
-    const restaurantId = '658313ea8a06b1e6daa77841';
-
     if (this.selectedCategory) {
       const categoryId = this.selectedCategory._id;
 
       this.restoService
-        .addCategoryToRestaurant(restaurantId, categoryId)
+        .addCategoryToRestaurant(this.restaurantId, categoryId)
         .subscribe(
           (response) => {
             this.responseMessage = response.message;
@@ -64,14 +62,13 @@ export class ListeCategComponent implements OnInit {
   data!: Restaurant;
   searchTerm: string = '';
   onSearchChange(): void {
-    this.categories = this.categories.filter(category =>
+    this.categories = this.categories.filter((category) =>
       category.nameCat.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 
-
   ngOnInit() {
-    const restaurantId:any = this.globalService.restaurantId;
+    this.restaurantId = this.globalService.restaurantId;
     this.categService.getAllCategs().subscribe(
       (categories: Categorie[]) => {
         this.categories = categories;
@@ -81,9 +78,9 @@ export class ListeCategComponent implements OnInit {
       }
     );
     this.route.params.subscribe((params) => {
-      this.restoService.getRestoCategs(restaurantId).subscribe(
+      this.restoService.getRestoCategs(this.restaurantId).subscribe(
         (response: any) => {
-          console.log(restaurantId);
+          console.log(this.restaurantId);
           this.categsResto = response;
         },
         (error) => {
