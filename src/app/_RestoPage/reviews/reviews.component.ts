@@ -55,7 +55,9 @@ export class ReviewsComponent implements OnInit {
   }
 
   submitReview() {
+
     if (this.RestoId) {
+      this.UserId=this.userService.getUserId()
       // Call the UserService to submit the review
       this.ReviewService.submitRating(
         this.UserId,

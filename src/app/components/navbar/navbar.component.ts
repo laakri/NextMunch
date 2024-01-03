@@ -3,7 +3,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { AddRestoComponent } from '../../_Dashboard_Resto/add-resto/add-resto.component';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../services/user.service';
-
+import { GlobalService } from 'src/app/services/_global.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -20,7 +20,9 @@ export class NavbarComponent {
 
   constructor(
     private dialogService: DialogService,
-    private UsersService: UserService
+    private UsersService: UserService,
+private GlobalService:GlobalService,
+
   ) {}
 
   ngOnInit(): void {
