@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 
@@ -10,13 +10,14 @@ import { Router } from '@angular/router';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   signupForm!: FormGroup;
   signupSuccess: boolean = false;
   constructor(
     private http: HttpClient,
     private router: Router,
     public userService: UserService
+    
   ) {}
   ngOnInit() {
     this.signupForm = new FormGroup({
