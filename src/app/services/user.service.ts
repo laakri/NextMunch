@@ -115,7 +115,7 @@ export class UserService {
 
     this.updateAuthStatus();
 
-    this.router.navigate(['/login']); // You can navigate to any desired page after logout
+    this.router.navigate(['/Restaurants']); // You can navigate to any desired page after logout
   }
 
   signup(name: string, email: string, phone: number, password: string) {
@@ -138,6 +138,7 @@ export class UserService {
           summary: 'Success Message',
           detail: successMessage,
         });
+        this.router.navigate(['/auth/login']); // You can navigate to any desired page after logout
       },
       (error) => {
         console.error('Signup error:', error.error.error);
