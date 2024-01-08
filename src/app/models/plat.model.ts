@@ -6,4 +6,7 @@ export class Plat {
   categoryP: string[] = [];
   priceP!: any;
   selected?: boolean;
+  hidden: boolean = false;
+  idResto: any= '';
+
 }

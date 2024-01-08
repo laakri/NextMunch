@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Plat } from 'src/app/models/plat.model';
 import { PlatService } from 'src/app/services/plat.service';
-
+import { GlobalService } from 'src/app/services/_global.service';
 interface City {
   name: string;
   code: string;
@@ -23,11 +23,17 @@ export class AddPlatComponent implements OnInit {
     imgP: null,
     categoryP: [],
     priceP: '',
+    idResto: '',
+    hidden: false,
   };
 
-  constructor(private platService: PlatService) {}
+  constructor(
+    private platService: PlatService,
+    private globalService: GlobalService
+  ) {}
 
   ngOnInit() {
+    this.platData.idResto = this.globalService.restaurantId;
     this.cities = [
       { name: 'FastFood', code: '657b685088f8a15a4d2986a8' },
       { name: 'Dessert', code: '657b685088f8a15a4d2986a8' },
@@ -53,6 +59,7 @@ export class AddPlatComponent implements OnInit {
     }
 
     this.platData.categoryP = selectedCategorys;
+    console.log(this.platData);
     this.platService.ajouterPlat(this.platData).subscribe(
       (response) => {
         console.log('Plat enregistré avec succès:', response);

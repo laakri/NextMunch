@@ -46,16 +46,7 @@ export class MenuComponent implements OnInit {
         this.restaurantId = idParam;
         this.isTheOwner = this.GlobalService.isTheOwner;
 
-        // Fetch data based on the restaurantId
-        this.platService.getAllPlats().subscribe(
-          (plats: Plat[]) => {
-            this.plats = plats;
-          },
-          (error) => {
-            console.error('Error fetching plats:', error);
-          }
-        );
-
+        this.LoadPlat(this.restaurantId);
         this.RestaurantService.getRestoCategs(this.restaurantId).subscribe(
           (response: any) => {
             this.categories = response;
@@ -77,7 +68,21 @@ export class MenuComponent implements OnInit {
   }
 
   /********************* */
+
+  LoadPlat(restaurantId: any) {
+    this.platService.getAllPlats(restaurantId).subscribe(
+      (plats: Plat[]) => {
+        console.log(plats);
+        this.plats = plats;
+      },
+      (error) => {
+        console.error('Error fetching plats:', error);
+      }
+    );
+  }
+
   openAddPlat() {
+    this.GlobalService.restaurantId = this.restaurantId;
     this.ref = this.dialogService.open(AddPlatComponent, {
       showHeader: false,
       closable: true,
@@ -95,6 +100,7 @@ export class MenuComponent implements OnInit {
   }
   /**************************** */
   openSelectCateg() {
+    this.GlobalService.restaurantId = this.restaurantId;
     this.ref = this.dialogService.open(ListeCategComponent, {
       showHeader: false,
       closable: true,
@@ -177,5 +183,45 @@ export class MenuComponent implements OnInit {
       contentStyle: { overflow: 'auto' },
     });
     this.ref.onClose.subscribe(() => {});
+  }
+  //****************** DELETED  PLATS ******************* */
+
+  onDeletePlats(): void {
+    this.platService.deletePlats(this.selectedProductIds).subscribe(
+      (response) => {
+        console.log('Plats deleted successfully:', response);
+        this.LoadPlat(this.restaurantId);
+      },
+      (error) => {
+        console.error('Error deleting plats:', error);
+        // Handle error
+      }
+    );
+  }
+  //******************  HIDDEN PLATS ******************* */
+
+  onSetPlatsHidden(): void {
+    this.platService.setPlatsHidden(this.selectedProductIds).subscribe(
+      (response) => {
+        console.log('Plats set hidden successfully:', response);
+        this.LoadPlat(this.restaurantId);
+      },
+      (error) => {
+        console.error('Error setting hidden for plats:', error);
+        // Handle error
+      }
+    );
+  } //******************  HIDDEN PLATS ******************* */
+
+  setunPlatHidden(platId: any): void {
+    this.platService.setunPlatHidden(platId).subscribe(
+      (response) => {
+        console.log('Plats set unhidden successfully:', response);
+        this.LoadPlat(this.restaurantId);
+      },
+      (error) => {
+        console.error('Error setting unhidden for plats:', error);
+      }
+    );
   }
 }

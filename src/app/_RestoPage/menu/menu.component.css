@@ -174,9 +174,6 @@ font-size: 23px;
   background-color: rgba(44, 6, 215, 0.034); 
   border-radius: 10px;
 }
-.event-resto-deadline-price{
-
-}
 /***********************************/
 
 ::ng-deep .event-order-button{
@@ -236,13 +233,22 @@ font-size: 23px;
 }
   .resto-menu-product {
     border-radius: 10px;
-    width: 240px;
+    width: 220px;
     min-height: 340px;
     display: flex;
     flex-direction: column;
-    justify-content: end;    
+    justify-content: end;  
+    border: 2px solid transparent;  
 }
- 
+ .hidden-plat{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+ }
+ .hidden-plat  button{
+  background-color: transparent;
+  border: transparent;
+}
 .resto-menu-product-img{
     position: absolute;
     top: -140px;
@@ -279,6 +285,7 @@ font-size: 23px;
 }
 .resto-menu-product-description{
     color: var(--graycolor);
+    height: 60px;
     font-size: 14px;
 
 }

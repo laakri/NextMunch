@@ -4,7 +4,7 @@ import { Categorie } from 'src/app/models/categorie.model';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { RestaurantService } from 'src/app/services/restaurant.service';
-
+import { GlobalService } from 'src/app/services/_global.service';
 @Component({
   selector: 'app-liste-categ',
   templateUrl: './liste-categ.component.html',
@@ -16,13 +16,14 @@ export class ListeCategComponent implements OnInit {
 
   selectedCategory: Categorie | null = null; // Change this line
   categSelected: boolean = false;
-
+  restaurantId: any = '';
   responseMessage = '';
 
   constructor(
     private restoService: RestaurantService,
     private categService: CategorieService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private globalService: GlobalService
   ) {}
 
   onCategoryClick(category: Categorie) {
@@ -37,13 +38,11 @@ export class ListeCategComponent implements OnInit {
   }
 
   addCategory(): void {
-    const restaurantId = '658313ea8a06b1e6daa77841';
-
     if (this.selectedCategory) {
       const categoryId = this.selectedCategory._id;
 
       this.restoService
-        .addCategoryToRestaurant(restaurantId, categoryId)
+        .addCategoryToRestaurant(this.restaurantId, categoryId)
         .subscribe(
           (response) => {
             this.responseMessage = response.message;
@@ -63,15 +62,13 @@ export class ListeCategComponent implements OnInit {
   data!: Restaurant;
   searchTerm: string = '';
   onSearchChange(): void {
-    this.categories = this.categories.filter(category =>
+    this.categories = this.categories.filter((category) =>
       category.nameCat.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
 
-
   ngOnInit() {
-    const restaurantId = '658313ea8a06b1e6daa77841';
-
+    this.restaurantId = this.globalService.restaurantId;
     this.categService.getAllCategs().subscribe(
       (categories: Categorie[]) => {
         this.categories = categories;
@@ -81,10 +78,9 @@ export class ListeCategComponent implements OnInit {
       }
     );
     this.route.params.subscribe((params) => {
-      const restaurantId = '658313ea8a06b1e6daa77841'; // Assuming the parameter name is 'id'
-      this.restoService.getRestoCategs(restaurantId).subscribe(
+      this.restoService.getRestoCategs(this.restaurantId).subscribe(
         (response: any) => {
-          console.log(restaurantId);
+          console.log(this.restaurantId);
           this.categsResto = response;
         },
         (error) => {

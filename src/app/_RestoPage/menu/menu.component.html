@@ -78,6 +78,13 @@
           <div class="resto-menu-product-img">
             <img src="{{ plat.imgP }}" alt="" />
           </div>
+          <div class="hidden-plat" *ngIf="plat.hidden">
+            <button
+              pButton
+              icon="pi pi-eye-slash"
+              (click)="setunPlatHidden(plat._id)"
+            ></button>
+          </div>
           <div class="resto-menu-product-name">{{ plat.nameP }}</div>
           <div class="resto-menu-product-description">
             {{ plat.descriptionP }}
@@ -131,6 +138,7 @@
       icon="pi pi-ban"
       [rounded]="true"
       styleClass="product-selection-bar-delete-button"
+      (click)="onDeletePlats()"
       [outlined]="true"
     ></p-button>
 
@@ -139,6 +147,7 @@
       icon="pi pi-eye-slash"
       [rounded]="true"
       styleClass="product-selection-bar-hide-button"
+      (click)="onSetPlatsHidden()"
       [outlined]="true"
     ></p-button>
     <p-button

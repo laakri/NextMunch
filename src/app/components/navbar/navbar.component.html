@@ -39,7 +39,7 @@
         *ngIf="isAuth && isOwner"
         styleClass="custom-button"
         routerLinkActive="activebutton"
-        routerLink="/PageResto/658313ea8a06b1e6daa77841"
+        routerLink="/PageResto/resto"
       ></p-button>
       <p-button
         label="Create Restaurant"
@@ -63,13 +63,15 @@
         />
       </span>
     </div>-->
+
     <div class="navbar-right">
-      <button
+      <!--  <button
         class="p-button-text"
         pButton
         icon="pi pi-search"
         ariaLabel="campaign"
       ></button>
+    -->
       <p-button *ngIf="!isAuth" routerLink="/auth/login" [link]="true"
         >Login</p-button
       >

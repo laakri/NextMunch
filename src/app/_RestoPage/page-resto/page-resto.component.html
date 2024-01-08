@@ -74,7 +74,7 @@
       routerLinkActive="activebutton"
     ></p-button>
     <p-button
-      *ngIf="!isTheOwner"
+      *ngIf="isTheOwner"
       label="Reservations"
       routerLink="./reservations"
       styleClass="custom-button"

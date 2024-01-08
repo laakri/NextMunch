@@ -11,7 +11,6 @@
 /**Titre d'application */
 .container-left h1 {
   font-size: 50px;
-  color: #383839dd;
   text-align: left;
   padding-left: 30px;
   margin-bottom: 0px;
@@ -21,7 +20,7 @@
 
 .container-left p {
   margin-top: 0px;
-  color: #333232;
+  color: var(--graycolor);
   padding-left: 67px;
 }
 .container-left input {
@@ -29,20 +28,15 @@
   margin-bottom: 10px;
   border-radius: 10px;
 }
-.container-left button {
+.btn {
   width: 260px;
-  height: 32px;
-  background: #1c1c1c;
-  border-radius: 10px;
-  font-size: 15px;
-  line-height: 18px;
-  color: #ffffff;
-  
+  display: flex;
+  justify-content: center;
+  color: white;
 }
 .others{
   width: 260px;
   height: 32px;
-  border: #333232af 1px solid;
   background-color: transparent;
   border-radius: 10px;
   margin-bottom: 10px;
