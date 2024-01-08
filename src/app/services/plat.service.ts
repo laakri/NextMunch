@@ -34,8 +34,7 @@ export class PlatService {
   getPlatsInfo(platIds: string[]): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/getPlatsInfo`, { platIds });
   }
-  
-  deletePlat(platId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/plat/${platId}`);
-  }
+
+
+ 
 }
